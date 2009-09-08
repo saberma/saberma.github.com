@@ -1,0 +1,49 @@
+---
+main_title: saberma@shenzhen
+sub_title: %w(ruby rails agile web tdd}
+---
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>{{ page.title }} - {{ page.main_title }}</title>
+    <link rel="stylesheet" href="/stylesheets/default.css" type="text/css" media="screen" charset="utf-8"/>
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>{{page.main_title}}</h1>
+        <h2>{{page.sub_title}}</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='http://github.com/saberma' target='_blank'>GitHub</a></li>
+        </ul>
+      </div>
+      <div id='content'>
+        <div class='home_box' id='home_left'>
+          <div id='guides' class='wikistyle'>
+          {{ content }}
+          </div>
+        </div>
+        <div class='home_box' id='home_right'>
+          <h2>Pages</h2>
+          <div id='github-projects'>
+            <div class="repo">
+              {% for post in site.posts %}
+              <h3><a href="{{post.url}}">{{post.title}}</a></h3>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Copyright &copy; 2009 saberma. Fork from <a href="http://dyang.github.com">dyang</a>. Theme and code by <a href="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href='http://github.com/saberma/saberma.github.com/' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
+    </div>
+  </body>
+</html>

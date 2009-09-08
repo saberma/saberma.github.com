@@ -1,0 +1,258 @@
+---
+layout: post
+title: Rails环境安装
+---
+h2. 操作系统安装
+
+<pre>
+#安装ubuntu8.04桌面版(服务器装服务器版)
+#之后修改源配置
+sudo vi /etc/apt/sources.list
+
+#注意，以下是8.04版本的
+#按cG键，删除所有内容，按ctrl+shift+v粘贴以下内容
+deb http://mirrors.163.com/ubuntu/ hardy main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ hardy-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ hardy-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ hardy-proposed main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ hardy-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ hardy main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ hardy-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ hardy-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ hardy-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ hardy-backports main restricted universe multiverse
+
+#粘贴后按Esc键，再输入:wq，注意是打冒号wq，保存并退出vi
+#更新源
+sudo apt-get update
+
+#注意如果是9.04的版本，源列表内容如下：
+deb http://mirrors.163.com/ubuntu/ jaunty main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-proposed main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-backports main restricted universe multiverse 
+</pre>
+
+h2. 开发环境安装
+
+<pre>
+<code>
+#服务器、开发机都需要以下依赖库
+sudo apt-get install ruby libopenssl-ruby1.8 mysql-server mysql-client libmysqlclient15-dev git-core imagemagick nginx ruby1.8-dev
+#手动安装 rubygems
+wget http://rubyforge.org/frs/download.php/57643/rubygems-1.3.4.tgz
+tar -xvf rubygems-1.3.4.tgz
+cd rubygems-1.3.4
+ruby setup.rb
+  #执行上面命令如果出现下面错误
+  ./lib/rubygems/custom_require.rb:31:in `gem_original_require': no such file to load
+  #则先执行下面命令:
+  sudo apt-get install ruby-full
+#添加gem源
+gem sources -a http://gems.github.com
+  #敲上面命令如果说找不到gem命令，先执行
+  sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+#安装webrat的依赖库
+sudo apt-get install libxslt1-dev libxml2-dev
+#安装rails及其他库
+sudo gem install rails rspec hoe haml paperclip mislav-will_paginate mysql mongrel mongrel_cluster aslakhellesoy-cucumber webrat javan-whenever ferret acts_as_ferret rmmseg --no-ri --no-rdoc
+#开发机额外安装(xosd-bin及以后的内容都是autotest所需)
+sudo apt-get install irb ctags xosd-bin ruby-gnome2 libnotify-dev
+sudo gem install rspec-rails ZenTest diff-lcs --no-ri --no-rdoc
+
+#安装日历插件(已安装至项目的plugin目录下)
+#sudo gem install calendar_date_select --no-ri --no-rdoc
+</code>
+</pre>
+
+为支持测试结果的提示，需要手动安装ruby-libnotify
+<pre>
+<code>
+#需先安装ruby-gnome2 libnotify-dev
+wget http://rubyforge.org/frs/download.php/27134/ruby-libnotify-0.3.3.tar.bz2
+#进入ruby-libnotify-0.3.3.tar.bz2所在目录
+tar -vxf ruby-libnotify-0.3.3.tar.bz2
+#参考INSTALL文件执行:
+cd ruby-libnotify-0.3.3
+ruby extconf.rb
+sudo make && sudo make install
+#加入autotest运行结果在右上角任务栏的提示效果图标
+git clone git://github.com/saberma/autotest_images.git  ~/.autotest_images
+</code>
+</pre>
+
+安装浏览器开发插件
+"Web Development":https://addons.mozilla.org/en-US/firefox/downloads/latest/60
+
+安装Vim
+<pre>
+<code>
+sudo apt-get install libncurses-dev ncurses-term
+wget ftp://ftp.vim.org/pub/vim/unix/vim-7.2.tar.bz2
+tar -xvf vim-7.2.tar.bz2
+cd vim72
+./configure --enable-multibyte --enable-rubyinterp
+sudo make
+sudo make install
+
+#安装rails的vim插件
+git clone git://github.com/saberma/vimfiles.git ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+</code>
+</pre>
+
+"安装全文检索Ferret":http://wiki.github.com/cogentsoft/zbs/ferret
+"安装短信机客户端环境":http://wiki.github.com/cogentsoft/zbs/192362
+
+h2. 获取源代码
+
+<pre>
+<code>
+  #注意，如果系统转换成中文的话，Documents名称会被改成[文档]，建议转成中文的时候不要修改目录名
+  cd ~/Documents
+  git clone git@github.com:cogentsoft/zbs.git  
+  cd zbs
+  #初始化子模块
+  git submodule init
+  git submodule update
+  #修改数据库配置：用户名、密码
+  vim config/database.yml
+  #创建数据库
+  rake db:create:all
+  rake db:migrate
+  #启动app应用服务器集群，试运行
+  mkdir tmp
+  mkdir tmp/pids
+  mongrel_rails cluster::start
+  #或者使用以下语句启动(以下方式启动时，打开的浏览器地址应为http://localhost:3000)
+  mongrel_rails start
+</code>
+</pre>
+打开浏览器，输入地址http://localhost:4000，是否看到首页了？
+
+h2. 搭建本地测试环境
+
+h3. 开启本地开发过程的测试监控
+
+<pre>
+<code>
+script/autospec
+</code>
+</pre>
+
+h3. 运行验收测试
+
+<pre>
+<code>
+mongrel_rails cluster::start -d -e test
+# rake是rails最常用的命令，可以通过rake --tasks db查看帮助文档，db为要查询的字符串
+rake test:acceptance
+</code>
+</pre>
+
+h2. git常用命令
+
+<pre>
+<code>
+#检查当前修改、新增的文件
+git status 
+
+#新增分支，对于大范围的修改，应先使用此命令创建分支
+git checkout -b 分支名
+
+#显示所有分支列表，前面有星号的为当前分支
+git branch
+
+#切换至另一个分支
+git checkout 分支名
+
+#将新增的文件加入版本控制
+git add .
+
+#提交。也可以使用git commit -a -m '描述'，此命令包含了git add .
+git commit -m '修改内容的描述'
+</code>
+
+#使用commit提交本地后，在保证所有测试用例通过的情况下，可以上传至远程版本服务器
+git push
+#注意，如果别人已经有上传了新的改动至服务器，则应将远程版本同步下来
+git pull
+#执行后，git会进行自动合并操作，失败的会提示用户手动合并(直接修改文件，并去掉git<<====等冲突标记)
+#将修改过的文件重新commit后上传
+git push
+
+#查看某个文件的修改历史
+ git log -p app/controllers/grids_controller.rb
+</pre>
+
+h2. mysql常用命令
+
+<pre>
+# 打开客户端连接Mysql
+script/dbconsole -p
+  #查看当前状态
+  status
+  #查看数据库
+  show databases;
+  #选择数据库
+  use zbs_development;
+  #查看表
+  show tables;
+  #查看表结构
+  desc user;
+</pre>
+
+h2. rails常用命令
+
+<pre>
+# 直接调用项目中的类和方法
+script/console
+  #查看所有的用户
+  User.all
+</pre>
+<pre>
+# 检查服务器后台运行情况
+tail -f log/development.log
+</pre>
+<pre>
+# 数据库迁移(test)
+rake db:migrate RAILS_ENV=test
+#数据库回滚3步
+rake db:migrate:redo STEP=3
+</pre>
+
+h2. Vim常用命令
+
+<pre>
+#打开类似于textmate的查找文件功能,支持目录限制符/
+ctrl + t 
+#历史文件列表
+ctrl + b
+#刷新查找时显示的候选文件
+\r
+#打开浏览器查看Rails帮助
+shift + RR
+#打开浏览器查看Ruby帮助
+shift + RB
+
+#大小写转换
+#选中要转换的字符
+vw
+#转换为大写字母
+shift + u
+#转换为小写字母
+u
+
+#字符串前后增加双引号
+ysiw"
+#字符串前后双引号改为单引号
+cs"'
+#去掉字符串前后单引号
+ds'
+</pre>
