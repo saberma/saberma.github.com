@@ -1,0 +1,35 @@
+---                                                                                                                                                          
+layout: post
+title: svn集中存储
+---
+
+h2. 安装
+
+<pre>
+#git-svn
+sudo apt-get install git-svn
+</pre>
+
+h2. 从svn获取源码
+
+<pre>
+#将原有zbs目录改名为zbs-git
+cd ~/Documents
+mv zbs zbs-git
+git-svn clone https://192.168.1.14/svn/zbs/trunk/1开发库/1.4系统开发 zbs
+#会提示要不要永久保留https证书，输入p
+#会提示输入您的svn用户名、密码
+</pre>
+
+h2. 使用
+
+<pre>
+#基本的操作与git原有的一样
+git add .
+git commit -a -m 'write sth'
+#获取最新代码由git pull改为
+git svn rebase
+#修正冲突过程与git操作不变...
+#提交至svn服务器
+git svn dcommit
+</pre>
