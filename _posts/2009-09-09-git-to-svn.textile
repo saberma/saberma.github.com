@@ -21,6 +21,19 @@ git-svn clone https://192.168.1.14/svn/zbs/trunk/1开发库/1.4系统开发 zbs
 #会提示输入您的svn用户名、密码
 </pre>
 
+h2. 后记
+
+<pre>
+#新建log目录
+mkdir log
+#创建database.yml文件
+cp config/database-example.yml config/database.yml
+#自行修改config/database.yml中的数据库用户名和密码
+#git-svn clone下来的script无可执行属性
+cd zbs
+chmod +x script
+</pre>
+
 h2. 使用
 
 <pre>

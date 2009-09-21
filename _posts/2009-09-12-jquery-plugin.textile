@@ -4,7 +4,7 @@ title: jQuery常用插件
 ---
 
 jQuery的简洁高效，越来越受到程序员的欢迎了
-这里介绍我使用过的插件
+这里介绍我使用过的jQuery插件
 
 h2. jrails
 

@@ -29,6 +29,15 @@ h3. Web端分析
 request_log_analyzer log/production.log
 </pre>
 
+h3. 内存使用情况
+
+<pre>
+#查看内存剩余
+free -m
+#当前内存详情
+cat /proc/meminfo
+</pre>
+
 h3. 数据库分析
 
 <pre>
