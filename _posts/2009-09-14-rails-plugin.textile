@@ -49,7 +49,7 @@ h2. bundle-fu
 [必备] 非常易用，一行代码将js,css多个文件打包
 "project":http://github.com/timcharper/bundle-fu
 
-h2. jarils
+h2. jrails
 
 用于将rails的prototype替换为jQuery
 "project":http://ennerchi.com/projects/jrails
