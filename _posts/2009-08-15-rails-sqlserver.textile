@@ -134,7 +134,7 @@ h2. 配置信息
 
 <pre>
 #配置企业信息号,短信机系统标识
-#或者配置短信内容模板http://cloud.github.com/downloads/saberma/saberma.github.com/sphinx-0.9.8-rc2.tar.gz
+#或者配置短信内容模板
 vim app/models/msg.rb
 </pre>
 
