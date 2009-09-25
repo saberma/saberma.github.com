@@ -16,7 +16,7 @@ h3. 安装sqlserver驱动freetds
 
 <pre>
 cd ~
-wget  http://cloud.github.com/downloads/cogentsoft/zbs/freetds-stable.tgz
+wget  http://cloud.github.com/downloads/saberma/saberma.github.com/freetds-stable.tgz
 tar -vxf freetds-stable.tgz
 cd freetds-0.82
 ./configure --prefix=/usr/local/freetds --sysconfdir=/etc --with-tdsver=8.0
@@ -98,7 +98,7 @@ h2. 安装ruby-odbc
 
 <pre>
 cd ~
-wget http://cloud.github.com/downloads/cogentsoft/zbs/ruby-odbc-0.9996.tar.gz
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/ruby-odbc-0.9996.tar.gz
 tar -xvzpf ruby-odbc*gz
 cd ruby-odbc*[0-9]*
 ruby extconf.rb
@@ -134,7 +134,7 @@ h2. 配置信息
 
 <pre>
 #配置企业信息号,短信机系统标识
-#或者配置短信内容模板http://cloud.github.com/downloads/cogentsoft/zbs/sphinx-0.9.8-rc2.tar.gz
+#或者配置短信内容模板http://cloud.github.com/downloads/saberma/saberma.github.com/sphinx-0.9.8-rc2.tar.gz
 vim app/models/msg.rb
 </pre>
 

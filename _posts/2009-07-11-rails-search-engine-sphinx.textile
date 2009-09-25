@@ -2,7 +2,7 @@
 layout: post
 title: 全文检索Sphinx
 ---
-"参考全文检索Ferret":http://wiki.github.com/cogentsoft/zbs/ferret
+"参考全文检索Ferret":http://saberma.github.com/2009/07/12/rails-search-engine-ferret.html
 以下内容不再使用
 
 h1. 技术概览
@@ -22,7 +22,7 @@ h2. libmmseg
 <pre>
 sudo apt-get install g++
 cd ~
-wget http://cloud.github.com/downloads/cogentsoft/zbs/mmseg-0.7.3.tar.gz
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/mmseg-0.7.3.tar.gz
 tar zxvf mmseg-0.7.3.tar.gz 
 cd mmseg-0.7.3 
 ./configure
@@ -51,15 +51,15 @@ h2. sphinx
 <pre>
 #"下载sphinx"
 cd ~
-wget http://cloud.github.com/downloads/cogentsoft/zbs/sphinx-0.9.8-rc2.tar.gz
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/sphinx-0.9.8-rc2.tar.gz
 tar zxvf sphinx-0.9.8-rc2.tar.gz 
 cd sphinx-0.9.8-rc2 
 sudo apt-get install patch
 #下载中文补丁
-wget http://cloud.github.com/downloads/cogentsoft/zbs/sphinx-0.98rc2.zhcn-support.patch 
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/sphinx-0.98rc2.zhcn-support.patch 
 patch -p1 < sphinx-0.98rc2.zhcn-support.patch 
 #下载防crash补丁
-wget http://cloud.github.com/downloads/cogentsoft/zbs/fix-crash-in-excerpts.patch
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/fix-crash-in-excerpts.patch
 patch -p1 < fix-crash-in-excerpts.patch 
 
 ./configure

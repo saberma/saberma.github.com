@@ -1,0 +1,31 @@
+---
+layout: post
+title: Rails常用命令
+---
+
+<pre>
+# 接调用项目中的类和方法
+script/console
+  #查看所有的用户
+  User.all
+</pre>
+
+<pre>
+# 检查服务器后台运行情况
+tail -f log/development.log
+</pre>
+
+<pre>
+# 数据库迁移(test)
+rake db:migrate RAILS_ENV=test
+#数据库回滚3步 
+rake db:migrate:redo STEP=3
+</pre>
+
+<pre>
+#查看ruby环境
+puts '$:'
+#查看gem环境
+gem environment
+gem e
+</pre>

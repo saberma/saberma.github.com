@@ -8,12 +8,12 @@ h1. Oracle on Rails
 #如果生产环境使用Oracle，则需要以下操作
 cd ~
 #instance client必须
-wget http://cloud.github.com/downloads/cogentsoft/zbs/oracle-instantclient-basic_10.2.0.3-2_i386.deb
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/oracle-instantclient-basic_10.2.0.3-2_i386.deb
 sudo dpkg -i oracle-instantclient-basic_10.2.0.3-2_i386.deb
-wget http://cloud.github.com/downloads/cogentsoft/zbs/oracle-instantclient-devel_10.2.0.3-2_i386.deb
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/oracle-instantclient-devel_10.2.0.3-2_i386.deb
 sudo dpkg -i oracle-instantclient-devel_10.2.0.3-2_i386.deb
 #非必须，sqlplus用于调试是否能正常连接
-wget http://cloud.github.com/downloads/cogentsoft/zbs/oracle-instantclient-sqlplus_10.2.0.3-2_i386.deb
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/oracle-instantclient-sqlplus_10.2.0.3-2_i386.deb
 sudo dpkg -i oracle-instantclient-sqlplus_10.2.0.3-2_i386.deb
 #设置client路径
 export LD_LIBRARY_PATH=/usr/lib/oracle/10.2.0.3/client/lib/

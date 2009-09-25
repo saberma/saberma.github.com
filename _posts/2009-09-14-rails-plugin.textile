@@ -99,6 +99,16 @@ end
 </pre>
 "project":http://github.com/sandal/prawn/tree/master
 
+h2. sitemap_generator
+
+[必备] 生成网站的sitemap
+
+<pre>
+#生成sitemap文件
+rake sitemap:refresh:no_ping
+</pre>
+"project":http://github.com/adamsalter/sitemap_generator-plugin/
+
 h1. 测试相关
 
 h2. rspec
