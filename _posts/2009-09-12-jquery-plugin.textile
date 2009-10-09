@@ -53,3 +53,9 @@ h2. label over
 当用户输入内容时，说明内容自动清除，label over就是实现此功能的插件
 "project":http://plugins.jquery.com/project/labelover
 "demo":http://remysharp.com/wp-content/uploads/2007/03/label_over_example.html
+
+h2. ZeroClipboard
+
+结合Flash实现跨浏览器复制网页中内容(或当前地址)到剪贴板
+严格来说这个不算jQuery的插件:)
+"project":http://code.google.com/p/zeroclipboard/
