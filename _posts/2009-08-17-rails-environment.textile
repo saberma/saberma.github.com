@@ -84,26 +84,10 @@ sudo make && sudo make install
 git clone git://github.com/saberma/autotest_images.git  ~/.autotest_images
 </pre>
 
-安装浏览器开发插件 "Web Development":https://addons.mozilla.org/en-US/firefox/downloads/latest/60
-
-安装Vim
-
-<pre>
-sudo apt-get install libncurses-dev ncurses-term
-wget ftp://ftp.vim.org/pub/vim/unix/vim-7.2.tar.bz2
-tar -xvf vim-7.2.tar.bz2
-cd vim72
-./configure --enable-multibyte --enable-rubyinterp
-sudo make
-sudo make install
-
-#安装rails的vim插件
-git clone git://github.com/saberma/vimfiles.git ~/.vim
-ln -s ~/.vim/vimrc ~/.vimrc
-</pre>
-
-"安装全文检索Ferret":http://saberma.github.com/2009/07/12/rails-search-engine-ferret.html
-"安装短信机客户端环境":http://saberma.github.com/2009/08/15/rails-sqlserver.html
+"安装浏览器开发插件Web Development":https://addons.mozilla.org/en-US/firefox/downloads/latest/60
+"安装Vim":/2009/10/10/vim.html
+"安装全文检索Ferret":/2009/07/12/rails-search-engine-ferret.html
+"安装短信机客户端环境":/2009/08/15/rails-sqlserver.html
 
 h2. 获取源代码
 
@@ -193,36 +177,6 @@ script/dbconsole -p
   show tables;
   #查看表结构
   desc user;
-</pre>
-
-h2. Vim常用命令
-
-<pre>
-#打开类似于textmate的查找文件功能,支持目录限制符/
-ctrl + t 
-#历史文件列表
-ctrl + b
-#刷新查找时显示的候选文件
-\r
-#打开浏览器查看Rails帮助
-shift + RR
-#打开浏览器查看Ruby帮助
-shift + RB
-
-#大小写转换
-#选中要转换的字符
-vw
-#转换为大写字母
-shift + u
-#转换为小写字母
-u
-
-#字符串前后增加双引号
-ysiw"
-#字符串前后双引号改为单引号
-cs"'
-#去掉字符串前后单引号
-ds'
 </pre>
 
 bq. TODO:将以上常用命令独立成篇
