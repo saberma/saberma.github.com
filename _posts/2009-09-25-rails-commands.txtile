@@ -8,6 +8,12 @@ title: Rails常用命令
 script/console
   #查看所有的用户
   User.all
+  #访问某个地址，用于调试
+  app.get '/users'
+  app.cookies
+  app.flash
+  app.request
+  app.response
 </pre>
 
 <pre>
