@@ -35,3 +35,22 @@ puts '$:'
 gem environment
 gem e
 </pre>
+
+h1. FAQ
+
+h2. 怎么在View中使用输出字符串
+
+<pre>
+#假设在haml中需要调用foo,你使用
+- foo do
+  hello world
+#在foo中需要输出某些字符串，如saberma,则可以利用concat
+def foo
+  concat 'saberma'
+  yield
+end
+</pre>
+
+另外,capture也是个好东西:)
+"capture api":http://apidock.com/rails/ActionView/Helpers/CaptureHelper/capture
+"concat api":http://apidock.com/rails/ActionView/Helpers/TextHelper/concat
