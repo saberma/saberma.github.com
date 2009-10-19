@@ -75,16 +75,6 @@ h2. Rails核心方法重载
 
 <pre>
 #对于视图层方法的重构放在view_helper.rb
-radio_button_tag 在view_helper.rb的重构
- def radio_button_tag(name, value, checked = false, options = {}) 
-options.merge! :class => :radio 
- #history[:handle]                                                                                                             
-regexp_name = name.to_s.match(/(.*)\[:*(.*)\]/)      
-first_pretty_name = regexp_name[1]                                                                                                           
-second_pretty_name = regexp_name[2]                                                                                                             
-checked ||= (params[first_pretty_name][second_pretty_name]==value.to_s) if params[first_pretty_name]                                                                    
-orig_radio_button_tag(name, value, checked, options)                                                                                                                                                   
-end                                               
 </pre>
 
 h2. 系统的修改文件名和文本内的某个文字
