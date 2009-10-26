@@ -36,9 +36,7 @@ gem environment
 gem e
 </pre>
 
-h1. FAQ
-
-h2. 怎么在View中使用输出字符串
+h2. 在View中使用输出字符串
 
 <pre>
 #假设在haml中需要调用foo,你使用
@@ -54,3 +52,7 @@ end
 另外,capture也是个好东西:)
 "capture api":http://apidock.com/rails/ActionView/Helpers/CaptureHelper/capture
 "concat api":http://apidock.com/rails/ActionView/Helpers/TextHelper/concat
+
+h2. layout中指定多个yield
+
+"content_for":http://apidock.com/rails/ActionView/Helpers/CaptureHelper/content_for
