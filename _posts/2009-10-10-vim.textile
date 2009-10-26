@@ -52,3 +52,25 @@ ds'
 #格式化已识别的文件内容
 gg=G
 </pre>
+
+h2. Vim的代码片段(snippet)
+
+在eclipse中编写java时，输入main按下tab键时，eclipse会自动插入整段main方法
+这就是IDE常用的snippet功能了,VIM当然也是支持的
+
+进入~/.vim，你会看到snippets目录，这里保存了所有的snippet
+其子目录是文件类型名称，这样就可以区分不同类型文件使用不同的snippet
+
+里面的文件名称就是snippet的缩写，在文件中按缩写加tab，文件内容就出来了
+
+你可以定义自己的snippet，比如定义枚举项的snippet
+创建snippets/ruby-rails/aen.snippet,内容如下:
+
+<pre>
+<+ENUM+> = [
+  %w{<+内容+> <+内容1+> <+内容2+>}, 
+  %w{1        2         3        }
+]
+</pre>
+
+在rb文件中输入aen加tab键，看，上面的内容出来了吧，不断按tab可以依次修改"<++>"包含的内容
