@@ -68,6 +68,12 @@ cache-money是twitter.com开源的分布式缓存框架，功能强大
 实现读取数据时插件自动写入缓存，数据更新删除更新缓存
 默认使用id缓存，其他字段需要在model中指定要缓存的字段
 
+h2. 安装
+
+<pre>
+sudo gem install nkallen-cache-money --no-ri --no-rdoc
+</pre>
+
 <pre>
 #用户一般通过User.find_by_login('saberma')方式获取
 class User < ActiveRecord::Base
