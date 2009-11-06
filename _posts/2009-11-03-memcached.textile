@@ -50,7 +50,7 @@ h1. 测试客户端访问
 
 <pre>
 require 'rubygems'
-require 'memcached'
+require 'memcache'
 
 m = MemCache.new '127.0.0.1'
 
@@ -60,6 +60,16 @@ m.set('key','result',5)
 m.get('key')
 #5秒后再看，应该返回nil
 m.get('key')
+</pre>
+
+h1. 在rails中使用
+
+<pre>
+#一般用法
+#fetch方法会先到memcached中获取数据，获取不到时才会执行User.all生成数据并写入缓存
+@list = Rails.cache.fetch("user_list"){ User.all }
+#设置缓存 30分钟后失效
+@list = Rails.cache.fetch("user_list", :expires_in => 30.minutes){ User.all }
 </pre>
 
 h1. 结合cache-money
