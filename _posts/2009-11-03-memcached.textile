@@ -93,6 +93,16 @@ sudo gem install nkallen-cache-money --no-ri --no-rdoc
 
 "cache-money指南":http://github.com/nkallen/cache-money
 
+h2. 统计
+
+<pre>
+#stats查看命中率等
+telnet 127.0.0.1 11211
+stats
+#查看内存块分配情况
+stats slabs
+</pre>
+
 h1. 参考资源
 
 "集思博客":http://www.gisblogs.net/post/183.html
