@@ -1,0 +1,9 @@
+---
+layout: post
+title: Linux常用命令
+---
+
+<pre>
+#计算器，直接输入表达式(如1+1)会返回结果(2)
+bc
+</pre>

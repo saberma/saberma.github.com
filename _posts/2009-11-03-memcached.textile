@@ -93,6 +93,26 @@ sudo gem install nkallen-cache-money --no-ri --no-rdoc
 
 "cache-money指南":http://github.com/nkallen/cache-money
 
+h2. 配置
+
+<pre>
+#config/memcached.yml中的ttl用于设置默认过期时间(秒)，默认为1周
+#cache-money中设置的过期周期默认为1天，可通过在index方法后增加ttl参数自定义
+class User < ActiveRecord::Base
+  index :login, :ttl => 60.minutes
+end
+</pre>
+
+h2. 调试
+
+<pre>
+#可以直接通过模型类获取索引信息
+#多少个索引
+User.indices.size
+#第一个索引的过期周期
+User.indices[0].ttl
+</pre>
+
 h2. 统计
 
 <pre>
