@@ -26,7 +26,7 @@ checking for libevent directory... configure: error: libevent is required.  You 
 #安装libevent
 cd ..
 wget http://www.monkey.org/~provos/libevent-1.4.12-stable.tar.gz
-tar libevent*.tar.gz
+tar vxf libevent*.tar.gz
 cd libevent*
 ./configure && sudo make && sudo make install
 cd ../memcached*
