@@ -10,7 +10,9 @@ ruby带有soap4r的插件，可以用于访问web service服务接口，但不�
 h2. 安装
 
 <pre>
-sudo gem install handsoap curb nokogiri httpclient --no-ri --no-rdoc
+#curb在window下安装很麻烦，改为指定httpclient
+#sudo gem install handsoap curb nokogiri httpclient --no-ri --no-rdoc
+sudo gem install handsoap nokogiri httpclient --no-ri --no-rdoc
 #如果安装curb过程报cannot find -lcur错误，则运行
 sudo apt-get install libcurl4-openssl-dev
 </pre>
@@ -18,6 +20,9 @@ sudo apt-get install libcurl4-openssl-dev
 <pre>
 #environment.rb中加入
 config.gem 'handsoap', :lib => 'handsoap', :source => "http://gems.github.com"
+
+#curb在window下安装很麻烦，改为指定httpclient，environment.rb中最底部加入
+Handsoap.http_driver=:httpclient
 </pre>
 
 h2. 使用
@@ -27,7 +32,8 @@ h2. 使用
 script/generate handsoap http://192.168.1.20:8081/cmis/webService/ciisStatService?wsdl
 </pre>
 
-##### 配置管理员需要配置的地方在这里(用户、密码、接口地址) ######
+配置管理员需要配置的地方在这里(用户、密码、接口地址)
+
 <pre>
 #生成的连接地址加入environments/production.rb中
 CIIS_USERNAME = 'cogent'
