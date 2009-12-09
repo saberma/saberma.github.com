@@ -84,3 +84,54 @@ h2. 问题
     end 
   end
 </pre>
+
+［第二个问题］开发环境下报错：ArgumentError: A copy of Ciis::PopService has been removed from the module tree but is still active!
+
+<pre>
+#重现步骤
+script/console
+  Ciis::PopService.find_pop('%') 
+  reload!
+  #再次执行报错
+  Ciis::PopService.find_pop('%')
+</pre>
+
+产品环境下没问题，但由于开发环境下class会被缓存，而handsoap静态方法引用了实例对象
+在handsoap源代码中发现以下语句
+
+<pre>
+@@instance = {}
+def self.instance
+  @@instance[self.to_s] ||= self.new
+end 
+def self.method_missing(method, *args, &block)
+  if instance.respond_to?(method)
+    instance.__send__ method, *args, &block
+  else
+    super
+  end 
+end
+</pre>
+
+因此在开发环境下需要重载instance静态方法
+
+<pre>
+#config/initializers/fixed_handsoap_reload_error.rb
+unless development?
+  module Handsoap
+    class Service
+      def self.instance
+        self.new
+      end 
+    end 
+  end 
+end
+</pre>
+
+<pre>
+#测试是否解决问题了
+script/console
+  #确保每次获取的实例对象不一样
+  Ciis::PopService.instance
+  Ciis::PopService.instance
+</pre>
