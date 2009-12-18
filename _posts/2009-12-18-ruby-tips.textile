@@ -1,0 +1,24 @@
+---                                                                                                                                                          
+layout: post
+title: ruby技巧
+---
+
+"Ruby API":http://apidock.com/ruby
+
+h3. 字符串转数组
+
+<pre>
+s = "a=1&b=2"
+a = s.split(/&|=/)
+#["a", "1", "b", "2"]
+</pre>
+
+h3. 数组转为哈希
+
+<pre>
+a = ["a", "1", "b", "2"]
+#*号可以将数组中的字符串展开
+Hash[*a]
+#{"a"=>"1", "b"=>"2"}
+</pre>
+

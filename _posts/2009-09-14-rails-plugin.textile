@@ -196,3 +196,8 @@ h2. exception_logger
 
 异常日志查看
 "project":http://github.com/defunkt/exception_logger/tree/master
+
+h2. handsoap
+
+webservice客户端
+"详细说明":/2009-12-03-ruby-soap-client.html
