@@ -43,6 +43,10 @@ git commit -a -m 'write sth'
 #获取最新代码由git pull改为
 git svn rebase
 #修正冲突过程与git操作不变...
+#注意！在发生冲突时，分支会被切换至"无分支"状态
+#在修正冲突后，要执行以下语句，以返回原分支
+git add .
+git rebase --continue
 #提交至svn服务器
 git svn dcommit
 </pre>
