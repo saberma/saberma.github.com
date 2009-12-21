@@ -74,3 +74,8 @@ h2. Vim的代码片段(snippet)
 </pre>
 
 在rb文件中输入aen加tab键，看，上面的内容出来了吧，不断按tab可以依次修改"<++>"包含的内容
+
+h2. 参考资料
+
+"vim使用进阶":http://easwy.com/blog/archives/advanced-vim-skills-catalog/
+"善用佳软":http://xbeta.info/tag/gvim
