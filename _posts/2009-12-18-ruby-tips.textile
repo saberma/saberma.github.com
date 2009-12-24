@@ -22,3 +22,12 @@ Hash[*a]
 #{"a"=>"1", "b"=>"2"}
 </pre>
 
+h3. 字符编码转换
+
+<pre>
+require 'iconv'
+#conv(to, from, str)
+Iconv.conv('gb2312', 'utf-8', '中国')
+</pre>
+
+"Iconv":http://www.kuqin.com/rubycndocument/man/addlib/Iconv.html
