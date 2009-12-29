@@ -61,6 +61,7 @@ gem sources -a http://gems.github.com
 sudo apt-get install libxslt1-dev libxml2-dev
 #安装rails及其他库
 sudo gem install rails rspec hoe haml thoughtbot-paperclip mislav-will_paginate mysql mongrel mongrel_cluster aslakhellesoy-cucumber webrat javan-whenever ferret acts_as_ferret rmmseg --no-ri --no-rdoc
+sudo gem install handsoap searchlogic -no-ri --no-rdoc
 #开发机额外安装(xosd-bin及以后的内容都是autotest所需)
 sudo apt-get install irb ctags xosd-bin ruby-gnome2 libnotify-dev
 sudo gem install rspec-rails ZenTest diff-lcs thoughtbot-factory_girl --no-ri --no-rdoc
@@ -68,6 +69,9 @@ sudo gem install rspec-rails ZenTest diff-lcs thoughtbot-factory_girl --no-ri --
 #安装日历插件(已安装至项目的plugin目录下)
 #sudo gem install calendar_date_select --no-ri --no-rdoc
 </pre>
+
+"安装Oracle适配器":/2009/08/15/rails-oracle.html
+"安装memcache及cache-money":/2009/11/03/memcached.html
 
 为支持测试结果的提示，需要手动安装ruby-libnotify
 

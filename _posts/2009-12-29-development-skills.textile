@@ -1,0 +1,53 @@
+---                                                                                                                                                          
+layout: post
+title: 如何开始rails项目
+---
+
+为了能胜任ruby项目的开发工作，你需要逐步掌握以下技能
+
+h2. 1.安装操作系统(Linux)
+
+经过实践，rails项目可以顺利在windows、linux(Ubuntu)、unix(solaris)下运行
+但推荐使用的平台仍是Linux，所以你至少需要熟悉以下内容
+
+h3. 安装
+
+我们开发环境使用的是Ubuntu
+
+"Ubuntu安装":http://wiki.ubuntu.org.cn/articles/i/n/s/Install_Ubuntu_desktop_8.04_a2e3.html
+
+h3. 熟悉常用命令
+
+"Linux常用命令":http://blog.csdn.net/ckboss/archive/2009/05/03/4144318.asp
+"常用命令联合使用":/2009/11/23/linux.html
+
+h2. 2.熟悉开发工具(Vim)
+
+经过对netbean、RadRails、Vim的使用，最终选择了Vim作为我们的IDE，我想，你也会喜欢上Vim的
+
+"Vim入门":http://blog.csdn.net/july81/archive/2005/11/10/526624.aspx
+"Vim安装使用":/2009/10/10/vim.html
+
+h2. 3.了解Ruby
+
+你需要知道模块、类、继承等概念
+知道循环，判断等语句
+了解String,File等类的常用方法,知道API可以在哪里查询到
+
+要不断实践ruby，irb命令是你的最重要的朋友
+
+"二十分钟入门":http://www.javaeye.com/topic/55826
+"Ruby延伸":/2009/12/18/ruby-tips.html
+
+h2. 3.熟悉Rails
+
+你需要知道rails项目的目录结构
+
+要不断实践rails，script/console命令是你的最重要的朋友
+
+h2. 5.数据库(Mysql)
+
+经过实践，rails项目可以连接Mysql,Oracle,Sqlserver，随时可以进行切换
+在开发时，我们使用Mysql作为本地数据库，所以你至少需要掌握Mysql数据库
+
+"Mysql入门":http://www.xingyl.com/?m=blog&id=57

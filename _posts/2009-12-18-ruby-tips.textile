@@ -1,9 +1,13 @@
 ---                                                                                                                                                          
 layout: post
-title: ruby技巧
+title: ruby入门
 ---
 
-"Ruby API":http://apidock.com/ruby
+h2. ruby入门
+
+"Ruby API查询":http://apidock.com/ruby
+
+h2. ruby技巧
 
 h3. 字符串转数组
 

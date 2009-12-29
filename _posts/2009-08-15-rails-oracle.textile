@@ -35,7 +35,7 @@ require 'oci8'
 OCI8.new('ciis', 'ciis', '//192.168.1.29:1521/orcl')
 
 #安装rails数据库适配器
-sudo gem install activerecord-oracle_enhanced-adapter --no-ri --no-rdoc
+sudo gem install saberma-activerecord-oracle_enhanced-adapter-nvarchar2 --no-ri --no-rdoc
 #另外，数据库的IP地址、用户名密码等在config/database.yml中配置
 </pre>
 
