@@ -5,7 +5,7 @@ title: memcached安装使用
 h1. 安装
 
 <pre>
-wget http://memcached.googlecode.com/files/memcached-1.4.0.tar.gz
+wget http://cloud.github.com/downloads/saberma/saberma.github.com/memcached-1.4.4.tar.gz
 tar vxf memcached*.tar.gz 
 cd memcached*
 #这一步有问题看下一节内容
