@@ -109,14 +109,17 @@ vim config/database.yml
 #创建数据库
 rake db:create:all
 rake db:migrate
-#启动app应用服务器集群，试运行
+#使用以下语句启动应用服务器
+mongrel_rails start
+打开浏览器，输入地址http://localhost:3000，是否看到首页了？
+#如果需要进行应用前缀，则这样启动
+mongrel_rails start --prefix=/zbs
+打开浏览器，输入地址http://localhost:3000/zbs
+#或者启动app应用服务器集群，试运行(以下方式启动后，打开的浏览器地址应为http://localhost:4000)
 mkdir tmp
 mkdir tmp/pids
 mongrel_rails cluster::start
-#或者使用以下语句启动(以下方式启动时，打开的浏览器地址应为http://localhost:3000)
-mongrel_rails start
 </pre>
-打开浏览器，输入地址http://localhost:4000，是否看到首页了？
 
 h2. 搭建本地测试环境
 

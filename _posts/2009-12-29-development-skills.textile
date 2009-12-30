@@ -25,7 +25,7 @@ h2. 2.熟悉开发工具(Vim)
 
 经过对netbean、RadRails、Vim的使用，最终选择了Vim作为我们的IDE，我想，你也会喜欢上Vim的
 
-"Vim入门":http://blog.csdn.net/july81/archive/2005/11/10/526624.aspx
+"Vim快速入门":http://blog.csdn.net/lxrm_fly/archive/2007/08/13/1741206.aspx
 "Vim安装使用":/2009/10/10/vim.html
 
 h2. 3.了解Ruby
@@ -38,10 +38,15 @@ h2. 3.了解Ruby
 
 "二十分钟入门":http://www.javaeye.com/topic/55826
 "Ruby延伸":/2009/12/18/ruby-tips.html
+"Programming Ruby 1.9":http://cloud.github.com/downloads/saberma/saberma.github.com/ProgrammingRuby1.9.pdf
 
-h2. 3.熟悉Rails
+h2. 4.熟悉Rails
 
 你需要知道rails项目的目录结构
+
+"Rails快速入门":https://www.ibm.com/developerworks/cn/linux/l-rubyrails/
+"Agile Web Development":http://cloud.github.com/downloads/saberma/saberma.github.com/Agile_Web_Development_with_Rails.pdf
+"Advanced Rails Recipes":http://cloud.github.com/downloads/saberma/saberma.github.com/advanced_rails_recipes.pdf
 
 要不断实践rails，script/console命令是你的最重要的朋友
 
