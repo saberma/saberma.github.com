@@ -26,6 +26,17 @@ Hash[*a]
 #{"a"=>"1", "b"=>"2"}
 </pre>
 
+h3. char的ASCII值
+
+<pre>
+#ASCII值转为char
+120.chr
+#char转为ASCII值
+'x'[0]
+#查看字符串的ASCII值
+"love".chars.map{|c| c[0]}
+</pre>
+
 h3. 字符编码转换
 
 <pre>

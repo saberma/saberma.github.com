@@ -48,6 +48,9 @@ h2. 4.熟悉Rails
 "Agile Web Development":http://cloud.github.com/downloads/saberma/saberma.github.com/Agile_Web_Development_with_Rails.pdf
 "Advanced Rails Recipes":http://cloud.github.com/downloads/saberma/saberma.github.com/advanced_rails_recipes.pdf
 
+在rails项目中，要遵守［不重复发明轮子］的原则，在开发功能(非业务)前可以先找找
+"Ruby工具箱":http://ruby-toolbox.com/
+
 要不断实践rails，script/console命令是你的最重要的朋友
 
 h2. 5.数据库(Mysql)
