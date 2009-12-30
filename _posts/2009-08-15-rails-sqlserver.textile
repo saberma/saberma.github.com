@@ -79,6 +79,10 @@ h3. 测试
 #测试是否连接成功,tsql命令在freetds子目录bin下
 cd /usr/local/freetds
 TDSVER=8.0 bin/tsql -H 192.168.1.13 -U msg -p 1433
+#提示你输入密码时，输入msg
+#提示1 >，表示正常连接至数据库了,输入exit关闭连接
+exit
+
 #测试使用配置文件的方式连接
 bin/tsql -S SQL2000HOST -U msg -p 1433
 #查看freetds.conf所在位置

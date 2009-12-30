@@ -71,6 +71,7 @@ sudo gem install rspec-rails ZenTest diff-lcs thoughtbot-factory_girl --no-ri --
 </pre>
 
 "安装Oracle适配器":/2009/08/15/rails-oracle.html
+"安装SqlServer适配器":/2009/08/15/rails-sqlserver.html
 "安装memcache及cache-money":/2009/11/03/memcached.html
 
 为支持测试结果的提示，需要手动安装ruby-libnotify

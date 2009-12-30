@@ -49,6 +49,7 @@ memcached -d -m 20 -l 127.0.0.1
 h1. 测试客户端访问
 
 <pre>
+irb
 require 'rubygems'
 require 'memcache'
 
