@@ -42,7 +42,21 @@ h2. 3.了解Ruby
 
 h2. 4.熟悉Rails
 
-你需要知道rails项目的目录结构
+你需要知道rails的以下内容:
+
+"项目的目录结构":http://biaoming.javaeye.com/blog/36212
+
+rails项目中，也是遵循MVC模式的，开发一个功能时，可根据需要选择以下生成器
+
+<pre>
+#看一下有哪些生成器(Installed Generators)
+script/generate
+#项目中常用以下生成器
+#生成控制器、实体、整合(包括控制器、视图、实体)
+script/generate rspec_controller
+script/generate rspec_model
+script/generate rspec_scaffold
+</pre>
 
 "Rails快速入门":https://www.ibm.com/developerworks/cn/linux/l-rubyrails/
 "Agile Web Development":http://cloud.github.com/downloads/saberma/saberma.github.com/Agile_Web_Development_with_Rails.pdf

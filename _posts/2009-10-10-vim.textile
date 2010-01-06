@@ -53,6 +53,13 @@ ds'
 gg=G
 </pre>
 
+h2. 多窗口
+
+在Normal模式下，按ctrl+n可以新开一个横向窗口
+在按ctrl+t打开文件列表后，按CTRL+K可以新开一个纵向窗口
+
+ctrl+w+k可以将焦点切换至向上的窗口,k可以换为h、j、l等控制其他方向
+
 h2. Vim的代码片段(snippet)
 
 在eclipse中编写java时，输入main按下tab键时，eclipse会自动插入整段main方法
