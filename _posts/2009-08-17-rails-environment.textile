@@ -137,39 +137,6 @@ mongrel_rails cluster::start -d -e test
 rake test:acceptance
 </pre>
 
-h2. git常用命令
-
-<pre>
-#检查当前修改、新增的文件
-git status 
-
-#新增分支，对于大范围的修改，应先使用此命令创建分支
-git checkout -b 分支名
-
-#显示所有分支列表，前面有星号的为当前分支
-git branch
-
-#切换至另一个分支
-git checkout 分支名
-
-#将新增的文件加入版本控制
-git add .
-
-#提交。也可以使用git commit -a -m '描述'，此命令包含了git add .
-git commit -m '修改内容的描述'
-
-#使用commit提交本地后，在保证所有测试用例通过的情况下，可以上传至远程版本服务器
-git push
-#注意，如果别人已经有上传了新的改动至服务器，则应将远程版本同步下来
-git pull
-#执行后，git会进行自动合并操作，失败的会提示用户手动合并(直接修改文件，并去掉git<<====等冲突标记)
-#将修改过的文件重新commit后上传
-git push
-
-#查看某个文件的修改历史
- git log -p app/controllers/grids_controller.rb
-</pre>
-
 h2. mysql常用命令
 
 <pre>
