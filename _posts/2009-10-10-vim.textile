@@ -60,6 +60,8 @@ h2. 多窗口
 
 ctrl+w+k可以将焦点切换至向上的窗口,k可以换为h、j、l等控制其他方向
 
+在打开的文件中，按ctrl+g可以查看文件所在位置
+
 h2. Vim的代码片段(snippet)
 
 在eclipse中编写java时，输入main按下tab键时，eclipse会自动插入整段main方法

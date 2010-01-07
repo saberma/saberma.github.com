@@ -58,6 +58,19 @@ script/generate rspec_model
 script/generate rspec_scaffold
 </pre>
 
+url请求将由rails的哪些控制器中的哪些方法进行处理，需要了解
+
+"route机制":http://blackanger.blog.51cto.com/140924/122055
+
+出现问题时多查看后台日志
+主要检查由前端页面传递至后台的参数params是否正常
+并检查控制器对数据库进行操作的SQL是否正确
+
+<pre>
+#查看开发环境的日志
+tail -f log/development.log
+</pre>
+
 "Rails快速入门":https://www.ibm.com/developerworks/cn/linux/l-rubyrails/
 "Agile Web Development":http://cloud.github.com/downloads/saberma/saberma.github.com/Agile_Web_Development_with_Rails.pdf
 "Advanced Rails Recipes":http://cloud.github.com/downloads/saberma/saberma.github.com/advanced_rails_recipes.pdf
