@@ -72,6 +72,7 @@ tail -f log/development.log
 </pre>
 
 "Rails快速入门":https://www.ibm.com/developerworks/cn/linux/l-rubyrails/
+"I18n国际化":http://www.letrails.cn/archives/rails-2-2-i18n-tutorials/
 "Agile Web Development":http://cloud.github.com/downloads/saberma/saberma.github.com/Agile_Web_Development_with_Rails.pdf
 "Advanced Rails Recipes":http://cloud.github.com/downloads/saberma/saberma.github.com/advanced_rails_recipes.pdf
 
