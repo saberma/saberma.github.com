@@ -83,17 +83,20 @@ tail -f log/development.log
 
 h2. 5.前端技术
 
-包含javascript,css两部分
+前端技术中的视图层是采用haml框架生成的，haml代码会转换为html代码，最终在浏览器中显示
+另外包含javascript,css两部分
 在项目中javascript主要使用jQuery框架编写js代码
 css部分使用haml中的sass编写css代码
 
+"html入门(共8小节)":http://www.21shipin.com/html/12496.shtml
+"haml入门":http://haml-lang.com/tutorial.html
 "javascript入门":http://www.prglab.com/blog/js-tutorial
 "css入门":http://www.cainiao8.com/web/css.html
 "jQuery入门":http://www.k99k.com/jQuery_getting_started.html
 "jQuery常用插件":/2009/09/12/jquery-plugin.html
 "sass入门":http://sass-lang.com/tutorial.html
 
-h2. 5.数据库(Mysql)
+h2. 6.数据库(Mysql)
 
 经过实践，rails项目可以连接Mysql,Oracle,Sqlserver，随时可以进行切换
 在开发时，我们使用Mysql作为本地数据库，所以你至少需要掌握Mysql数据库
