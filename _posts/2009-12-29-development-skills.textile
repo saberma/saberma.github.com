@@ -88,7 +88,7 @@ h2. 5.前端技术
 在项目中javascript主要使用jQuery框架编写js代码
 css部分使用haml中的sass编写css代码
 
-"html入门(共8小节)":http://www.21shipin.com/html/12496.shtml
+"html入门_共8小节":http://www.21shipin.com/html/12496.shtml
 "haml入门":http://haml-lang.com/tutorial.html
 "javascript入门":http://www.prglab.com/blog/js-tutorial
 "css入门":http://www.cainiao8.com/web/css.html
@@ -102,3 +102,10 @@ h2. 6.数据库(Mysql)
 在开发时，我们使用Mysql作为本地数据库，所以你至少需要掌握Mysql数据库
 
 "Mysql入门":http://www.xingyl.com/?m=blog&id=57
+
+h2. 7.测试
+
+为保证项目质量，开发过程中需要遵循测试驱动开发
+
+"黄瓜测试入门":http://www.lycom.de/past/tags/cucumber
+"Rspec入门":http://www.letrails.cn/archives/20/
