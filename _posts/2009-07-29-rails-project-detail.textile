@@ -75,32 +75,6 @@ h2. Rails核心方法重载
 
 <pre>
 #对于视图层方法的重构放在view_helper.rb
-radio_button_tag 在view_helper.rb的重构
- def radio_button_tag(name, value, checked = false, options = {}) 
-options.merge! :class => :radio 
- #history[:handle]                                                                                                             
-regexp_name = name.to_s.match(/(.*)\[:*(.*)\]/)      
-first_pretty_name = regexp_name[1]                                                                                                           
-second_pretty_name = regexp_name[2]                                                                                                             
-checked ||= (params[first_pretty_name][second_pretty_name]==value.to_s) if params[first_pretty_name]                                                                    
-orig_radio_button_tag(name, value, checked, options)                                                                                                                                                   
-end                                               
-</pre>
-
-h2. 系统的修改文件名和文本内的某个文字
-
-修改文件名
-
-<pre>
-git status 看下哪些文件中有要替换的文件名
-sed -i 's/issue/inspect/g' `git status | grep inspect | grep '\.' | awk '{print  $2}'` 其中issue是原文件名,inspect是用于替换的文件名
-</pre>
-
-替换文本内的文字
-
-<pre>
-ls 查看哪些文件下有可能有要修改的文字
-sed -i 's/Issue/Inspect/g' `grep -r -l Issue spec` 其中Issue是原文字,Inspect是替换文字, spec是含有Issue的文件
 </pre>
 
 h2. 防止Form重复提交

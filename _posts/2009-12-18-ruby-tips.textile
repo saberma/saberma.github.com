@@ -1,0 +1,48 @@
+---                                                                                                                                                          
+layout: post
+title: ruby入门
+---
+
+h2. ruby入门
+
+"Ruby API查询":http://apidock.com/ruby
+
+h2. ruby技巧
+
+h3. 字符串转数组
+
+<pre>
+s = "a=1&b=2"
+a = s.split(/&|=/)
+#["a", "1", "b", "2"]
+</pre>
+
+h3. 数组转为哈希
+
+<pre>
+a = ["a", "1", "b", "2"]
+#*号可以将数组中的字符串展开
+Hash[*a]
+#{"a"=>"1", "b"=>"2"}
+</pre>
+
+h3. char的ASCII值
+
+<pre>
+#ASCII值转为char
+120.chr
+#char转为ASCII值
+'x'[0]
+#查看字符串的ASCII值
+"love".chars.map{|c| c[0]}
+</pre>
+
+h3. 字符编码转换
+
+<pre>
+require 'iconv'
+#conv(to, from, str)
+Iconv.conv('gb2312', 'utf-8', '中国')
+</pre>
+
+"Iconv":http://www.kuqin.com/rubycndocument/man/addlib/Iconv.html

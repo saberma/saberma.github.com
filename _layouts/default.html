@@ -21,6 +21,7 @@ sub_title: %w(ruby rails agile web tdd}
         <ul>
           <li><a href='/'>Home</a></li>
           <li><a href='http://github.com/saberma' target='_blank'>GitHub</a></li>
+          <li><a href='http://saberma.twitter.com' target='_blank'>Twitter</a></li>
           <li><a href='http://textile.thresholdstate.com' target='_blank'>Textile</a></li>
         </ul>
       </div>
@@ -31,12 +32,37 @@ sub_title: %w(ruby rails agile web tdd}
           </div>
         </div>
         <div class='home_box' id='home_right'>
-          <h2>Pages</h2>
+          <h2>知识标签</h2>
           <div id='github-projects'>
             <div class="repo">
               {% for post in site.posts %}
               <h3><a href="{{post.url}}">{{post.title}}</a></h3>
               {% endfor %}
+            </div>
+          </div>
+          <h2>常用网站</h2>
+          <div id='github-projects'>
+            <div class="repo">
+              <h3><a href="http://www.xiaoguo.com">鲜果</a></h3>
+              <h3><a href="http://www.chinaonrails.com">CHINAONRAILS</a></h3>
+              <h3><a href="http://ruby.javaeye.com">JAVAEYE_RUBY</a></h3>
+              <h3><a href="http://www.pivotaltracker.com">PIVOTALTRACKER</a></h3>
+              <h3><a href="http://www.google.com/notebook">NOTEBOOK</a></h3>
+              <h3><a href="http://www.slicehost.com">SLICEHOST</a></h3>
+            </div>
+          </div>
+          <h2>友情链接</h2>
+          <div id='github-projects'>
+            <div class="repo">
+              <h3><a href="http://www.55true.com">真心话网</a></h3>
+              <h3><a href="http://www.ziwee.cn">滋味网</a></h3>
+            </div>
+          </div>
+          <h2>联系我</h2>
+          <div id='github-projects'>
+            <div class="repo">
+              <h3>gmail:mahb45#gmail.com</h3>
+              <h3>qq:1080185</h3>
             </div>
           </div>
         </div>
@@ -48,3 +74,13 @@ sub_title: %w(ruby rails agile web tdd}
     </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-12120506-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>

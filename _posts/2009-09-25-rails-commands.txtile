@@ -8,6 +8,12 @@ title: Rails常用命令
 script/console
   #查看所有的用户
   User.all
+  #访问某个地址，用于调试
+  app.get '/users'
+  app.cookies
+  app.flash
+  app.request
+  app.response
 </pre>
 
 <pre>
@@ -29,3 +35,24 @@ puts '$:'
 gem environment
 gem e
 </pre>
+
+h2. 在View中使用输出字符串
+
+<pre>
+#假设在haml中需要调用foo,你使用
+- foo do
+  hello world
+#在foo中需要输出某些字符串，如saberma,则可以利用concat
+def foo
+  concat 'saberma'
+  yield
+end
+</pre>
+
+另外,capture也是个好东西:)
+"capture api":http://apidock.com/rails/ActionView/Helpers/CaptureHelper/capture
+"concat api":http://apidock.com/rails/ActionView/Helpers/TextHelper/concat
+
+h2. layout中指定多个yield
+
+"content_for":http://apidock.com/rails/ActionView/Helpers/CaptureHelper/content_for

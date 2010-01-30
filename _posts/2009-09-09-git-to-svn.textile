@@ -43,6 +43,32 @@ git commit -a -m 'write sth'
 #获取最新代码由git pull改为
 git svn rebase
 #修正冲突过程与git操作不变...
+#注意！在发生冲突时，分支会被切换至"无分支"状态
+#在修正冲突后，要执行以下语句，以返回原分支
+git add .
+git rebase --continue
 #提交至svn服务器
 git svn dcommit
 </pre>
+
+h2. 问题
+
+<pre>
+git svn dcommit
+#提示以下错误
+#Committing to https://192.168.1.14/svn/zbs/trunk/1开发库/1.4系统开发 ...
+#HTTP Path Not Found: '/svn/zbs/!svn/bc/151/trunk/1' path not found at /usr/bin/git-svn line 450
+
+#google不到原因，也没有解决，后来定位到了重现的方法:
+#将一个已经上传到svn服务器的文件改名，上传就会出现上面的错误，比如：
+touch foo
+git add .
+git commit -a -m 'test file'
+git svn dcommit
+git mv foo foo1
+git commit -a -m 'test svn wired problem'
+git svn dcommit
+#此时就会出现问题了，出现此问题我只能是重新git-svn clone了
+#为避免以上问题产生，应将rename操作分解为先拷贝出来，再git rm，然后先提交rm的内容，再add刚才拷贝的新文件
+#方法好繁琐，但实在没有其他办法了
+<pre>

@@ -1,0 +1,30 @@
+---
+layout: post
+title: Linux常用命令
+---
+h2. 常用命令
+
+<pre>
+#计算器，直接输入表达式(如1+1)会返回结果(2)
+bc
+</pre>
+
+h2. 系统的修改文件名和文本内的某个文字
+
+h3. 修改文件名
+
+<pre>
+#看下哪些文件中有要替换的文件名
+git status 
+#其中issue是原文件名,inspect是用于替换的文件名
+sed -i 's/issue/inspect/g' `git status | grep inspect | grep '\.' | awk '{print  $2}'`
+</pre>
+
+h3. 替换文本内的文字
+
+<pre>
+#查看哪些文件下有可能有要修改的文字
+ls 
+#其中Issue是原文字,Inspect是替换文字, spec是含有Issue的文件
+sed -i 's/Issue/Inspect/g' `grep -r -l Issue spec` 
+</pre>

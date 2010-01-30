@@ -53,3 +53,20 @@ h2. label over
 当用户输入内容时，说明内容自动清除，label over就是实现此功能的插件
 "project":http://plugins.jquery.com/project/labelover
 "demo":http://remysharp.com/wp-content/uploads/2007/03/label_over_example.html
+
+h2. ZeroClipboard
+
+结合Flash实现跨浏览器复制网页中内容(或当前地址)到剪贴板
+严格来说这个不算jQuery的插件:)
+"project":http://code.google.com/p/zeroclipboard/
+
+h2. MultiFile
+
+实现浏览器多文件上传时，只显示一个文件浏览按钮
+
+<pre>
+#修正删除按钮样式
+$.fn.MultiFile.options.STRING.remove = '<a class="icon-16px-box j-icon i-close">&nbsp;</a>';
+</pre>
+
+"project":http://www.fyneworks.com/jquery/multiple-file-upload/

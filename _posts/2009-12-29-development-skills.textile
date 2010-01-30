@@ -1,0 +1,111 @@
+---                                                                                                                                                          
+layout: post
+title: 如何开始rails项目
+---
+
+为了能胜任ruby项目的开发工作，你需要逐步掌握以下技能
+
+h2. 1.安装操作系统(Linux)
+
+经过实践，rails项目可以顺利在windows、linux(Ubuntu)、unix(solaris)下运行
+但推荐使用的平台仍是Linux，所以你至少需要熟悉以下内容
+
+h3. 安装
+
+我们开发环境使用的是Ubuntu
+
+"Ubuntu安装":http://wiki.ubuntu.org.cn/articles/i/n/s/Install_Ubuntu_desktop_8.04_a2e3.html
+
+h3. 熟悉常用命令
+
+"Linux常用命令":http://blog.csdn.net/ckboss/archive/2009/05/03/4144318.asp
+"常用命令联合使用":/2009/11/23/linux.html
+
+h2. 2.熟悉开发工具(Vim)
+
+经过对netbean、RadRails、Vim的使用，最终选择了Vim作为我们的IDE，我想，你也会喜欢上Vim的
+
+"Vim快速入门":http://blog.csdn.net/lxrm_fly/archive/2007/08/13/1741206.aspx
+"Vim安装使用":/2009/10/10/vim.html
+
+h2. 3.了解Ruby
+
+你需要知道模块、类、继承等概念
+知道循环，判断等语句
+了解String,File等类的常用方法,知道API可以在哪里查询到
+
+要不断实践ruby，irb命令是你的最重要的朋友
+
+"二十分钟入门":http://www.javaeye.com/topic/55826
+"Ruby延伸":/2009/12/18/ruby-tips.html
+"Programming Ruby 1.9":http://cloud.github.com/downloads/saberma/saberma.github.com/ProgrammingRuby1.9.pdf
+
+h2. 4.熟悉Rails
+
+你需要知道rails的以下内容:
+
+"项目的目录结构":http://biaoming.javaeye.com/blog/36212
+
+rails项目中，也是遵循MVC模式的，开发一个功能时，可根据需要选择以下生成器
+
+<pre>
+#看一下有哪些生成器(Installed Generators)
+script/generate
+#项目中常用以下生成器
+#生成控制器、实体、整合(包括控制器、视图、实体)
+script/generate rspec_controller
+script/generate rspec_model
+script/generate rspec_scaffold
+</pre>
+
+url请求将由rails的哪些控制器中的哪些方法进行处理，需要了解
+
+"route机制":http://blackanger.blog.51cto.com/140924/122055
+
+出现问题时多查看后台日志
+主要检查由前端页面传递至后台的参数params是否正常
+并检查控制器对数据库进行操作的SQL是否正确
+
+<pre>
+#查看开发环境的日志
+tail -f log/development.log
+</pre>
+
+"Rails快速入门":https://www.ibm.com/developerworks/cn/linux/l-rubyrails/
+"I18n国际化":http://www.letrails.cn/archives/rails-2-2-i18n-tutorials/
+"Agile Web Development":http://cloud.github.com/downloads/saberma/saberma.github.com/Agile_Web_Development_with_Rails.pdf
+"Advanced Rails Recipes":http://cloud.github.com/downloads/saberma/saberma.github.com/advanced_rails_recipes.pdf
+
+在rails项目中，要遵守［不重复发明轮子］的原则，在开发功能(非业务)前可以先找找
+"Ruby工具箱":http://ruby-toolbox.com/
+
+要不断实践rails，script/console命令是你的最重要的朋友
+
+h2. 5.前端技术
+
+前端技术中的视图层是采用haml框架生成的，haml代码会转换为html代码，最终在浏览器中显示
+另外包含javascript,css两部分
+在项目中javascript主要使用jQuery框架编写js代码
+css部分使用haml中的sass编写css代码
+
+"html入门_共8小节":http://www.21shipin.com/html/12496.shtml
+"haml入门":http://haml-lang.com/tutorial.html
+"javascript入门":http://www.prglab.com/blog/js-tutorial
+"css入门":http://www.cainiao8.com/web/css.html
+"jQuery入门":http://www.k99k.com/jQuery_getting_started.html
+"jQuery常用插件":/2009/09/12/jquery-plugin.html
+"sass入门":http://sass-lang.com/tutorial.html
+
+h2. 6.数据库(Mysql)
+
+经过实践，rails项目可以连接Mysql,Oracle,Sqlserver，随时可以进行切换
+在开发时，我们使用Mysql作为本地数据库，所以你至少需要掌握Mysql数据库
+
+"Mysql入门":http://www.xingyl.com/?m=blog&id=57
+
+h2. 7.测试
+
+为保证项目质量，开发过程中需要遵循测试驱动开发
+
+"黄瓜测试入门":http://www.lycom.de/past/tags/cucumber
+"Rspec入门":http://www.letrails.cn/archives/20/
