@@ -194,7 +194,7 @@ h1. 其他相关
 
 h2. exception_logger
 
-异常日志查看
+异常日志查看，注意只有在production环境下，且非localhost(127.0.0.1)访问时才会生成异常记录
 "project":http://github.com/defunkt/exception_logger/tree/master
 
 h2. handsoap

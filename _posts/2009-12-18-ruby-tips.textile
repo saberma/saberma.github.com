@@ -6,6 +6,7 @@ title: ruby入门
 h2. ruby入门
 
 "Ruby API查询":http://apidock.com/ruby
+"Ruby 正则表达式查询":http://www.rubular.com
 
 h2. ruby技巧
 
