@@ -51,6 +51,8 @@ cat /usr/lib/ruby/gems/1.8/gems/aslakhellesoy-cucumber-0.1.99.22/lib/cucumber/la
 
 <pre>
 当 /我输入(.*)为(.*)/ do |label, value|
+  #以下语句可用于调试,显示页面内容
+  #puts response.body
   fill_in(label, :with => value)
 end   
 </pre>
