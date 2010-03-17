@@ -12,18 +12,30 @@ h2. 1.安装操作系统(Linux)
 
 h3. 安装
 
-我们开发环境使用的是Ubuntu
+我们开发环境使用的是Ubuntu，安装后请阅读速配指南了解ubuntu的基本配置
 
 "Ubuntu安装":http://wiki.ubuntu.org.cn/articles/i/n/s/Install_Ubuntu_desktop_8.04_a2e3.html
+"Ubuntu速配指南":http://wiki.ubuntu.org.cn/Qref/Hardy
 
 h3. 熟悉常用命令
 
 "Linux常用命令":http://blog.csdn.net/ckboss/archive/2009/05/03/4144318.asp
 "常用命令联合使用":/2009/11/23/linux.html
 
+h3. 安装xp虚拟机
+
+安装xp虚拟机操作系统是为了使用rtx、使用ie访问项目，具体步骤:
+
+"安装virtualbox":http://www.virtualbox.org/wiki/Linux_Downloads
+宿主操作系统为"Ubuntu 8.04 LTS",按电脑的cpu架构选择i386或者AMD的virtualbox安装包
+
+在virtualbox安装windowns xp精简版
+"ubuntu下安装xp指南":http://www.lupaworld.com/340814/viewspace-139349
+
 h2. 2.熟悉开发工具(Vim)
 
-经过对netbean、RadRails、Vim的使用，最终选择了Vim作为我们的IDE，我想，你也会喜欢上Vim的
+经过对netbean、RadRails、Vim的使用，最终选择了Vim作为我们的IDE
+vim可以让你在开发过程中尽量减少对鼠标的使用，提高编写效率
 
 "Vim快速入门":http://blog.csdn.net/lxrm_fly/archive/2007/08/13/1741206.aspx
 "Vim安装使用":/2009/10/10/vim.html

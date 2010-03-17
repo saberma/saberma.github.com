@@ -49,12 +49,13 @@ wget http://rubyforge.org/frs/download.php/57643/rubygems-1.3.4.tgz
 tar -xvf rubygems-1.3.4.tgz
 cd rubygems-1.3.4
 ruby setup.rb
-  #执行上面命令如果出现下面错误
-  ./lib/rubygems/custom_require.rb:31:in `gem_original_require': no such file to load
-  #则先执行下面命令:
-  sudo apt-get install ruby-full
+  -#执行上面命令如果出现下面错误-
+  -./lib/rubygems/custom_require.rb:31:in `gem_original_require': no such file to load-
+  -#则先执行下面命令:-
+  -sudo apt-get install ruby-full-
 #添加gem源
 gem sources -a http://gems.github.com
+gem sources -a http://rubygems.org
   #敲上面命令如果说找不到gem命令，先执行
   sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
 #安装webrat的依赖库
@@ -94,7 +95,14 @@ git clone git://github.com/saberma/autotest_images.git  ~/.autotest_images
 "安装全文检索Ferret":/2009/07/12/rails-search-engine-ferret.html
 "安装短信机客户端环境":/2009/08/15/rails-sqlserver.html
 
-h2. 获取源代码
+h2. 获取svn项目源代码
+
+具体内容参考以下内容
+"svn集中存储":/2009/09/09/git-to-svn.html
+
+h2. -获取github源代码-
+
+此节内容不再使用，改为使用svn集中存储
 
 <pre>
 #注意，如果系统转换成中文的话，Documents名称会被改成[文档]，建议转成中文的时候不要修改目录名
