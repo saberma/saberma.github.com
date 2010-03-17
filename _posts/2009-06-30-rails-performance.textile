@@ -19,6 +19,13 @@ sudo apt-get install sysstat
 iostat -x 1 10
 </pre>
 
+<pre>
+#查看磁盘剩余空间
+df -h
+#查看当前目录大小
+du -ch --max-depth=1
+</pre>
+
 h3. Web端分析
 
 分析哪些action经常被访问等方面
