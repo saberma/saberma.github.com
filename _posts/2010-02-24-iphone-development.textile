@@ -1,0 +1,100 @@
+---
+layout: post
+title: iphone开发
+---
+h2. 搭建开发环境
+
+官方SDK开发出的软件需要由苹果进行认证后才能在iphone上安装，费用为99美元，并可在AppStore上销售，苹果提成30%，且开发环境只能在苹果机上搭建
+非官方SDK无须认证，不用交费，开发环境可在任何操作系统进行，缺点是开发过程较为烦琐
+
+支持3.1
+"iphonedevonlinux":http://code.google.com/p/iphonedevonlinux/wiki/Installation
+
+-支持2.2-
+-"install-open-toolchain-on-ubuntu":http://pimpmiphone.info/howto/install-open-toolchain-on-ubuntu.html-
+-iptc.sh报错，修改appIdKey，增加--no-check-certificate参数后的版本-
+-"iptc.sh":http://gist.github.com/raw/314175/422ce51bfad557af9ea55a45e3acf3451edfa46a/iptc.sh-
+
+-使用iptc.sh可以不看以下内容-
+-"安装toolchain非官方SDK":http://code.google.com/p/iphone-dev/wiki/Building-
+
+h2. Mac机上的iphone开发
+
+"应用CoreData持久化数据的例子":http://developer.apple.com/iphone/library/documentation/DataManagement/Conceptual/iPhoneCoreData01/Introduction/Introduction.html
+"调用摄像头照相的例子":http://developer.apple.com/iphone/library/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedFeatures/AdvancedFeatures.html#//apple_ref/doc/uid/TP40007072-CH14-SW13
+"iphone simulator不支持camera":http://developer.apple.com/iphone/library/documentation/Xcode/Conceptual/iphone_development/200-iPhone_Development_FAQ/faq.html
+
+h2. 问题
+
+h3. ToolChain编译时找不到Foundation/Foundation.h中的类，如NSData
+
+需要在每个报错的source文件中手动加入
+
+<pre>
+#import <Foundation/Foundation.h>
+</pre>
+
+后来发现原来是没有引入Prefix.pch预编译头文件
+在编译时加入以下参数，问题解决
+
+<pre>
+CFLAGS += -include ./*_Prefix.pch
+CFLAGS += -x objective-c-header
+</pre>
+
+h3. 如何在编译时引入libsqlite.3.0.dylib
+
+<pre>
+#LDFLAGS中加入参数
+-lsqlite3.0
+</pre>
+
+h3. ToolChain编译时找不到项目中依赖的h文件
+
+暂时没能找到自动查找所有递归子目录的方法，笨拙的办法是在编译时手工加上-Idir参数
+
+<pre>
+CFLAGS += -I./Classes/ObjectiveResource
+CFLAGS += -I./Classes/SQLPO/
+#有多少子目录就加多少个-I参数
+</pre>
+
+h3. ToolChain在链接成可执行文件时报错
+
+<pre>
+Undefined symbols:
+  "_main", referenced from:
+        __start in crt1.o
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+make: *** [HelloToolChain] Error 1
+</pre>
+
+提示内容是，在编译后的o文件中找不到main方法
+
+经过多次尝试，发现是由于编译main.m时带上了参数
+
+<pre>
+CFLAGS += -include ./*_Prefix.pch
+CFLAGS += -x objective-c-header
+</pre>
+
+针对main.m编译时去掉这两个参数后再进行链接就ok了
+
+为了由MakeFile自动处理main.m的编译，可以加入以下make target，即加入CFLAGS参数
+
+<pre>
+main.o: main.m
+  $(CC) -c $< -o $@
+</pre>
+
+h3. 常用开源框架
+
+"json framework":http://code.google.com/p/json-framework/
+"object resource(activeresource)":http://iphoneonrails.com/
+
+
+h2. 参考资源
+
+"易飞扬博客":http://www.yifeiyang.net/category/embedded/iphone-embedded/
+"iphone faq":http://www.iphonedevfaq.com/index.php?title=Main_Page

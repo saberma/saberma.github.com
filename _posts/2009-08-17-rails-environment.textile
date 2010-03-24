@@ -107,12 +107,14 @@ h2. -获取github源代码-
 <pre>
 #注意，如果系统转换成中文的话，Documents名称会被改成[文档]，建议转成中文的时候不要修改目录名
 cd ~/Documents
-git clone git@github.com:cogentsoft/zbs.git  
+#请使用svn集中存储的说明获取源代码
+-git clone git@github.com:cogentsoft/zbs.git  -
 cd zbs
-#初始化子模块
-git submodule init
-git submodule update
-#修改数据库配置：用户名、密码
+#模块化插件不好用，不再使用
+-#初始化子模块-
+-git submodule init-
+-git submodule update-
+#修改数据库配置：用户名、密码(注意yml中用户名、密码的值前面要有空格)
 vim config/database.yml
 #创建数据库
 rake db:create:all
