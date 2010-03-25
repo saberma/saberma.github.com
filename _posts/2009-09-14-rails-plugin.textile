@@ -29,6 +29,16 @@ h2. paperclip
 可对上传的附件进行文件大小的校验
 "project":http://github.com/thoughtbot/paperclip
 
+h2. ActiveModel
+
+[必备]将ActiveRecord实体扩展出多个临时实体
+特別是实体字段非常多，各个不同阶段需要在页面更新部分字段
+则可以将部分字段放在一个ActiveModel实体中，方便校验
+
+Rails3已包含ActiveModel插件
+
+"project":http://github.com/rails/rails/tree/master/activemodel
+
 h1. 视图相关
 
 h2. haml

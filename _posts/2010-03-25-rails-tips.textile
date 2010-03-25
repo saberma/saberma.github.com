@@ -1,0 +1,17 @@
+---                                                                                                                                                          
+layout: post
+title: Rails入门
+---
+h2. 覆盖ActiveRecord属性读写方法
+
+比如需要将属性photo的值进行Base64解码后再写入数据库中，可重写方法
+
+<pre>
+def photo=(encoded_photo)
+  write_attribute(:photo, Base64.decode64(encoded_photo))
+end
+
+def photo
+  Base64.encode64(read_attribute(:photo))
+end
+</pre>
