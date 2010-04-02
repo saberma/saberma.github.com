@@ -18,6 +18,10 @@ git clone git://github.com/saberma/vimfiles.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 </pre>
 
+#Mac操作系统下需要安装MacVIM,否则Fuzzy_finder无法使用(原生的vim没有包含ruby)
+Download MacVim. Then, in your ~/.bash_profile type in the following:
+alias vim=”/Applications/MacVim.app/Contents/MacOS/Vim”
+
 h2. Vim常用命令
 
 <pre>
