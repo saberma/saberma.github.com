@@ -160,3 +160,4 @@ h2. 参考资源
 "iphone faq":http://www.iphonedevfaq.com/index.php?title=Main_Page
 "How to enable Syslog on iPhone fw 2.x for debugging":http://www.fosk.it/how-to-enable-syslog-on-iphone-fw-2x-for-debugging.html
 "iphone圆角图标制作":http://www.joyiphone.net/MySpace/Icon/PhotoUpload.aspx
+"iPhone Simulator Cropper":http://www.curioustimes.de/iphonesimulatorcropper/
