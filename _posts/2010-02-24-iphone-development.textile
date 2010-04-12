@@ -149,6 +149,10 @@ h2. 常用开源框架
 "json framework":http://code.google.com/p/json-framework/
 "object resource(activeresource)":http://iphoneonrails.com/
 
+h2. iTunes Connect
+
+注意上传binary时要保证Icon.png的大小为57X57pixel
+使用xcode编译时要选择Device Distribution编译,使用模拟器编译上传时会提示签名无效
 
 h2. 参考资源
 
