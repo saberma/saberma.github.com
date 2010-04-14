@@ -61,7 +61,8 @@ gem sources -a http://rubygems.org
 #安装webrat的依赖库
 sudo apt-get install libxslt1-dev libxml2-dev
 #安装rails及其他库
-sudo gem install rails rspec hoe haml thoughtbot-paperclip mislav-will_paginate mysql mongrel mongrel_cluster aslakhellesoy-cucumber webrat javan-whenever ferret acts_as_ferret rmmseg --no-ri --no-rdoc
+sudo gem install rails --version='2.3.2' --no-ri --no-rdoc
+sudo gem install rspec hoe haml thoughtbot-paperclip mislav-will_paginate mysql mongrel mongrel_cluster aslakhellesoy-cucumber webrat whenever ferret acts_as_ferret rmmseg system-timer --no-ri --no-rdoc
 sudo gem install handsoap searchlogic -no-ri --no-rdoc
 #开发机额外安装(xosd-bin及以后的内容都是autotest所需)
 sudo apt-get install irb ctags xosd-bin ruby-gnome2 libnotify-dev
