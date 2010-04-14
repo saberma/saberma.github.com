@@ -22,6 +22,13 @@ export NLS_LANG=AMERICAN_AMERICA.UTF8
 #以上参数设置要放于全局设置文件中
 echo "export LD_LIBRARY_PATH=/usr/lib/oracle/10.2.0.3/client/lib/" >> ~/.bashrc
 echo "export NLS_LANG=AMERICAN_AMERICA.UTF8" >> ~/.bashrc
+
+#测试sqlplus能连接到Oracle服务器
+#sqlplus myuser/mypassword@//myserver/mydatabase.mydomain.com
+sqlplus zbs_ciis/zbs@//192.168.1.29/orcl
+  desc users;
+  #正常的话应能返回users表结构
+
 #安装ruby-oci8所需包
 sudo apt-get install libaio1
 #安装ruby-oci8，注意不能使用sudo，否则无法正常获取LD_LIBRARY_PATH参数
