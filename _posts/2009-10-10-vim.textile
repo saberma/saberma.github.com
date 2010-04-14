@@ -94,3 +94,4 @@ h2. 参考资料
 
 "vim使用进阶":http://easwy.com/blog/archives/advanced-vim-skills-catalog/
 "善用佳软":http://xbeta.info/tag/gvim
+"vim命令图解":http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png
