@@ -4,6 +4,16 @@ title: 敏捷开发Selenium
 ---
 Selenium作为验收测试工作，非常好用
 
+h1. 启动selenium测试
+
+<pre>
+#启动测试环境
+mongrel_rails start -e test -d
+</pre>
+
+"打开测试地址":http:/localhost:3000/selenium
+点击右上角的执行按钮，开始测试
+
 h1. 定位
 
 假设有以下DOM元素
