@@ -33,6 +33,15 @@ sqlplus zbs_ciis/zbs@//192.168.1.29/orcl
 sudo apt-get install libaio1
 #安装ruby-oci8，注意不能使用sudo，否则无法正常获取LD_LIBRARY_PATH参数
 gem install ruby-oci8 --no-ri --no-rdoc --version 1.0.6
+
+#注意,如果是mac平台,则安装ruby-oci8前先定义以下参数,否则mkmf.log会报
+#ld: warning: in /usr/local/oracle/instantclient/libclntsh.dylib, file is not of required architecture
+#Undefined symbols for architecture i386:
+#  "_OCIInitialize", referenced from:
+#    _OCIInitialize$non_lazy_ptr in cc1EmgZD.o
+#ld: symbol(s) not found for architecture i386
+export ARCHFLAGS="-arch x86_64"
+#一定要注意cpu的类型是intel(32bit?64bit?)还是ppc的,下载时要区分
                                                                                                                                                              
 #测试
 irb
