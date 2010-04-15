@@ -151,19 +151,24 @@ h2. 常用开源框架
 "sqlitepersistentobjects(activerecord)":http://code.google.com/p/sqlitepersistentobjects/
 "object resource(activeresource)":http://iphoneonrails.com/
 
+"cocos2d":http://www.cocos2d-iphone.org
+cocos2d是开发游戏必备框架，支持物理引擎，碰撞检测
+
 "json framework(已包含进object resource)":http://code.google.com/p/json-framework/
 如需支持上传照片，需要将照片编码为base64字符后使用json上传，具体代码如下
-
 <pre>
 NSData *photoData = UIImagePNGRepresentation(fragment);
 NSString* photoString = [photoData base64Encoding];
 </pre>
 
-"cocos2d":http://www.cocos2d-iphone.org
-cocos2d是开发游戏必备框架，支持物理引擎，碰撞检测
+h2. iTunes Connect
+注意上传binary时要保证Icon.png的大小为57X57pixel
+使用xcode编译时要选择Device Distribution编译,使用模拟器编译上传时会提示签名无效
 
 h2. 参考资源
 
 "易飞扬博客":http://www.yifeiyang.net/category/embedded/iphone-embedded/
 "iphone faq":http://www.iphonedevfaq.com/index.php?title=Main_Page
 "How to enable Syslog on iPhone fw 2.x for debugging":http://www.fosk.it/how-to-enable-syslog-on-iphone-fw-2x-for-debugging.html
+"iphone圆角图标制作":http://www.joyiphone.net/MySpace/Icon/PhotoUpload.aspx
+"iPhone Simulator Cropper":http://www.curioustimes.de/iphonesimulatorcropper/

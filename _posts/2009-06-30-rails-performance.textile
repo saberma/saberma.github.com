@@ -57,3 +57,5 @@ h1. 参考资料
 
 # "iostat来对linux硬盘IO性能进行了解":http://www.php-oa.com/2009/02/03/iostat.html
 # "网站优化之系统瓶颈查找":http://qianjigui.javaeye.com/blog/387070
+
+"install the oracle instant client on Mac OS X":http://www.pixellatedvisions.com/2009/03/25/rails-on-oracle-part-1-installing-the-oracle-instant-client-on-mac-os-x
