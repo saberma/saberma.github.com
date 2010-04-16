@@ -169,6 +169,7 @@ h1. 参考资料
 # "Rail wiki db support":http://wiki.rubyonrails.org/database-support/ms-sql
 # "Howto_SQL2005_From_RailsOnFedora":http://www.not404.com/Howto_SQL2005_From_RailsOnFedora
 # "FreeTDS排障":http://www.freetds.org/userguide/serverthere.htm#SERVERTHERE.TSQL
+# "Getting Rails talking to SQLServer on OSX via ODBC":http://toolmantim.com/thoughts/getting_rails_talking_to_sqlserver_on_osx_via_odbc
 
 <pre>
 #如果isql -v SQL2000DSN1报以下错误
