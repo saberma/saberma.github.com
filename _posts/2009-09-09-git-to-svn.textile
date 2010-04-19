@@ -71,4 +71,20 @@ git svn dcommit
 #此时就会出现问题了，出现此问题我只能是重新git-svn clone了
 #为避免以上问题产生，应将rename操作分解为先拷贝出来，再git rm，然后先提交rm的内容，再add刚才拷贝的新文件
 #方法好繁琐，但实在没有其他办法了
+
+#20100419，再次出现以上问题，尝试使用分步上传成功
+# 1.恢复被删除的文件
+git reset HEAD db/migrate/20100415010835_add_score_to_resource.rb
+git checkout db/migrate/20100415010835_add_score_to_resource.rb
+# 2.撤消git repository的版本到之前正常的commit
+git reset --soft bb066a4283dbbbe278489a091815f887e45037f5
+# 3.分步提交
+git add spec
+git commit -m '测试1'
+# 4. 将其他修改的文件存入stash中
+git stash
+# 5. 提交(正常)
+git svn dcommit
+# 重复执行3-5步骤，最后再删除之前要删除的文件
+git rm db/migrate/20100415010835_add_score_to_resource.rb
 <pre>
