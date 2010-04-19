@@ -27,7 +27,9 @@ h2. Mac机上的iphone开发
 
 注意：模拟器上不支持摄相头，只能通过程序自动判断在模拟器上使用照片浏览，而在iphone上使用camera
 
-"应用CoreData持久化数据的例子":http://developer.apple.com/iphone/library/documentation/DataManagement/Conceptual/iPhoneCoreData01/Introduction/Introduction.html
+-"应用CoreData持久化数据的例子":http://developer.apple.com/iphone/library/documentation/DataManagement/Conceptual/iPhoneCoreData01/Introduction/Introduction.html-
+不使用CoreData，改用SqlitePersistentObjects，见常用框架
+
 "调用摄像头照相的例子":http://developer.apple.com/iphone/library/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedFeatures/AdvancedFeatures.html#//apple_ref/doc/uid/TP40007072-CH14-SW13
 "iphone simulator不支持camera":http://developer.apple.com/iphone/library/documentation/Xcode/Conceptual/iphone_development/200-iPhone_Development_FAQ/faq.html
 
@@ -146,11 +148,20 @@ h2. debug iphone
 
 h2. 常用开源框架
 
-"json framework":http://code.google.com/p/json-framework/
+"sqlitepersistentobjects(activerecord)":http://code.google.com/p/sqlitepersistentobjects/
 "object resource(activeresource)":http://iphoneonrails.com/
 
-h2. iTunes Connect
+"cocos2d":http://www.cocos2d-iphone.org
+cocos2d是开发游戏必备框架，支持物理引擎，碰撞检测
 
+"json framework(已包含进object resource)":http://code.google.com/p/json-framework/
+如需支持上传照片，需要将照片编码为base64字符后使用json上传，具体代码如下
+<pre>
+NSData *photoData = UIImagePNGRepresentation(fragment);
+NSString* photoString = [photoData base64Encoding];
+</pre>
+
+h2. iTunes Connect
 注意上传binary时要保证Icon.png的大小为57X57pixel
 使用xcode编译时要选择Device Distribution编译,使用模拟器编译上传时会提示签名无效
 
