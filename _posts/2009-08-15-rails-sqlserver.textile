@@ -107,7 +107,7 @@ tar -xvzpf ruby-odbc*gz
 cd ruby-odbc*[0-9]*
 ruby extconf.rb
 sudo make
-如果上面命令出错,报nothing to be done for all , 则执行: make clean
+#如果上面命令出错,报nothing to be done for all , 则执行: make clean
 sudo make install
 </pre>
 
@@ -169,6 +169,8 @@ h1. 参考资料
 # "Rail wiki db support":http://wiki.rubyonrails.org/database-support/ms-sql
 # "Howto_SQL2005_From_RailsOnFedora":http://www.not404.com/Howto_SQL2005_From_RailsOnFedora
 # "FreeTDS排障":http://www.freetds.org/userguide/serverthere.htm#SERVERTHERE.TSQL
+# "Getting Rails talking to SQLServer on OSX via ODBC":http://toolmantim.com/thoughts/getting_rails_talking_to_sqlserver_on_osx_via_odbc
+注意,使用ODBC Administrator创建User DSN无法连接Datasource的话,尝试一下新增System USDN
 
 <pre>
 #如果isql -v SQL2000DSN1报以下错误
