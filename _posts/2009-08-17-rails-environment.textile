@@ -48,11 +48,7 @@ sudo apt-get install ruby libopenssl-ruby1.8 mysql-server mysql-client libmysqlc
 wget http://rubyforge.org/frs/download.php/57643/rubygems-1.3.4.tgz
 tar -xvf rubygems-1.3.4.tgz
 cd rubygems-1.3.4
-ruby setup.rb
-  -#执行上面命令如果出现下面错误-
-  -./lib/rubygems/custom_require.rb:31:in `gem_original_require': no such file to load-
-  -#则先执行下面命令:-
-  -sudo apt-get install ruby-full-
+sudo ruby setup.rb
 #添加gem源
 gem sources -a http://gems.github.com
 gem sources -a http://rubygems.org
