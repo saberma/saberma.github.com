@@ -165,6 +165,11 @@ h2. iTunes Connect
 注意上传binary时要保证Icon.png的大小为57X57pixel
 使用xcode编译时要选择Device Distribution编译,使用模拟器编译上传时会提示签名无效
 
+h2. 制作iphone app site
+在heroku中新增app
+加入Custom Domains指定域名,使用Zerigo DNS作为域名解释服务器(即godaddy中的nameserver指向zerigo)
+"应用cu3er制作幻灯片":http://www.progressivered.com/cu3er/
+
 h2. 参考资源
 
 "易飞扬博客":http://www.yifeiyang.net/category/embedded/iphone-embedded/
@@ -172,3 +177,5 @@ h2. 参考资源
 "How to enable Syslog on iPhone fw 2.x for debugging":http://www.fosk.it/how-to-enable-syslog-on-iphone-fw-2x-for-debugging.html
 "iphone圆角图标制作":http://www.joyiphone.net/MySpace/Icon/PhotoUpload.aspx
 "iPhone Simulator Cropper":http://www.curioustimes.de/iphonesimulatorcropper/
+"SimCap(截图推荐,支持ipad)":http://www.jaml.co.uk/simcap.html
+"how to create debug flag":http://iphoneincubator.com/blog/debugging/how-to-create-conditional-log-statements-in-xcode
