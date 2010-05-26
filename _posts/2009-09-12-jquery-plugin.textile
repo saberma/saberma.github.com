@@ -70,3 +70,16 @@ $.fn.MultiFile.options.STRING.remove = '<a class="icon-16px-box j-icon i-close">
 </pre>
 
 "project":http://www.fyneworks.com/jquery/multiple-file-upload/
+
+h2. JQZoom
+
+放大查看图片某一部分，网购产品必备
+
+"project":http://www.mind-projects.it/projects/jqzoom
+"demo":http://www.mind-projects.it/projects/jqzoom/demos.php
+
+h2. jCarousellite
+
+显示图片组
+
+"project":http://www.gmarwaha.com/jquery/jcarousellite/index.php
