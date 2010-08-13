@@ -115,9 +115,47 @@ h2. 6.数据库(Mysql)
 
 "Mysql入门":http://www.xingyl.com/?m=blog&id=57
 
-h2. 7.测试
+h2. 7.文档数据库(NoSQL)
+
+先看看各大NoSQL软件的对比
+"NoSQL数据库探讨之一 － 为什么要用非关系数据库？":http://robbin.javaeye.com/blog/524977
+
+"NoSQL介绍及MongoDB入门":http://renial.javaeye.com/blog/684829
+"Mongodb入门":http://blog.csdn.net/lolinzhang/archive/2009/07/16/4353699.aspx
+
+mongodb最全最好的学习资料是在官网(支持中文但很不全)，上面还有一个TRY IT OUT，可以直接在线学习简单操作
+
+"ruby数据库驱动说明":http://www.mongodb.org/display/DOCS/Ruby+Language+Center
+
+如果采用NoSQL，则rails中就不能再使用ActiveRecord了，需要要对应的ORM
+推荐使用mongoid，虽然没有mongomapper那么功能全面，好在对rails3的支持更好(率先支持activemodel等)
+
+mongoid也处于活跃开发期，所以最新资料只能看官网，最稳妥的资料只能看代码了
+"mongoid官方文档":http://mongoid.org/docs/installation/
+
+基于nosql的开源项目现在还比较少，可以参考刚起步的shopqi
+"shopqi网店平台":http://github.com/saberma/shopqi
+
+h2. 8.测试
 
 为保证项目质量，开发过程中需要遵循测试驱动开发
 
 "黄瓜测试入门":http://www.lycom.de/past/tags/cucumber
 "Rspec入门":http://www.letrails.cn/archives/20/
+
+h2. 9.版本控制Git和GitHub
+
+以上技能掌握后，项目代码就需要进行版本控制及代码托管了
+
+国内公司一般都是自建代码托管服务器，所用版本控制软件大多使用SVN,VSS,CVS
+前两个我倒是用过，但我还是要极力推荐Git
+Git原生支持分布式代码管理(KO VSS)，直观的冲突处理机制(KO SVN)
+
+而基于Git的托管服务器Github，可以说是开源界的改革，使得开源项目真正地开源!
+任何开发者可以直接获取开源代码，或追加功能或打补丁，之后只要按个按钮就可以向原作者请求合并
+当然了，合并之前一般需要开发者编写好测试用例，保证代码的正确，同时不破坏原有功能
+
+"Git使用":/2010/01/26/git.html
+
+如果公司只有svn服务器，折衷的办法就是本地使用git，再远程提交至svn
+"SVN集中存储":/2009/09/09/git-to-svn.html
