@@ -46,4 +46,10 @@ require 'iconv'
 Iconv.conv('gb2312', 'utf-8', '中国')
 </pre>
 
+h3. 字符串转换为类
+
+<pre>
+Kernel.const_get 'Integer'
+</pre>
+
 "Iconv":http://www.kuqin.com/rubycndocument/man/addlib/Iconv.html
