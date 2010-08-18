@@ -159,3 +159,7 @@ Git原生支持分布式代码管理(KO VSS)，直观的冲突处理机制(KO SV
 
 如果公司只有svn服务器，折衷的办法就是本地使用git，再远程提交至svn
 "SVN集中存储":/2009/09/09/git-to-svn.html
+
+h1. 其他资源
+
+"Learn Web Design":http://thinkvitamin.com/web-design-2/learn-web-design-free-tutorial-videos/
