@@ -1,0 +1,61 @@
+---
+layout: post
+title: 应用jekyll构建基于github page的博客saberma.me
+---
+基于github page的博客好处:
+* 完全免费
+* 依赖于git，文章原生支持版本控制(对比)，更有利于知识库类文章
+* 可以使用vim编写文章，写的时候像在写代码，更符合程序员的习惯
+
+本博客此次除了启用全新个人域名saberma.me，将做以下调整
+* 美化网站风格，更加的清新:)
+* 页面布局调整为html5、css3架构
+* 代码增加高亮显示
+* 增加rss feed输出
+
+h2. pygments代码高亮
+
+h3. 安装pygments
+
+{% highlight bash %}
+# On Ubuntu 安装
+sudo apt-get install python-pygments
+{% endhighlight %}
+
+"完整安装说明":http://wiki.github.com/mojombo/jekyll/install
+
+h3. 生成高亮显示的css文件
+
+选择喜欢的样式，记下名称
+"http://pygments.org/demo/6622":http://pygments.org/demo/6622
+
+我选择的是fruity style，作为pygmentize命令style的参数值
+
+{% highlight bash %}
+# 生成相应的css
+pygmentize -S fruity -f html > stylesheets/syntax.css
+{% endhighlight %}
+
+"参考pygments Command line usage":http://pygments.org/docs/quickstart/
+
+h3. 使用
+
+语法高亮的代码段
+
+<pre>
+{{ "{% highlight ruby" }} %}
+def foo
+  puts 'foo'
+end
+{{ "{% endhighlight" }} %}
+</pre>
+
+highlight后面第一个参数为language，如php，也可以是ruby控制台irb，更多lanuages可以查询 "http://pygments.org/docs/lexers/":http://pygments.org/docs/lexers/
+第一个参数为必填，不填会导致_site目录生成不了相应的html文件，第二个参数显示行号
+
+"参考jekyll说明":http://wiki.github.com/mojombo/jekyll/liquid-extensions
+
+h2. 参考资源
+
+"publishing-a-blog-with-github-pages-and-jekyll":http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/
+"liquid ref":http://github.com/tobi/liquid/wiki/Liquid-for-Designers
