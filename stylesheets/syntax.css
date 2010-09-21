@@ -4,10 +4,10 @@
 .g { color: #ffffff } /* Generic */
 .k { color: #fb660a; font-weight: bold } /* Keyword */
 .l { color: #ffffff } /* Literal */
-.n { color: #ffffff } /* Name */
+.n { color: #999 } /* Name */
 .o { color: #ffffff } /* Operator */
 .x { color: #ffffff } /* Other */
-.p { color: #ffffff } /* Punctuation */
+.p { color: #999 } /* Punctuation */
 .cm { color: #008800; font-style: italic; background-color: #0f140f } /* Comment.Multiline */
 .cp { color: #ff0007; font-weight: bold; font-style: italic; background-color: #0f140f } /* Comment.Preproc */
 .c1 { color: #008800; font-style: italic; background-color: #0f140f } /* Comment.Single */

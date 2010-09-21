@@ -162,10 +162,12 @@ NSString* photoString = [photoData base64Encoding];
 </pre>
 
 h2. iTunes Connect
+
 注意上传binary时要保证Icon.png的大小为57X57pixel
 使用xcode编译时要选择Device Distribution编译,使用模拟器编译上传时会提示签名无效
 
 h2. 制作iphone app site
+
 在heroku中新增app
 加入Custom Domains指定域名,使用Zerigo DNS作为域名解释服务器(即godaddy中的nameserver指向zerigo)
 "应用cu3er制作幻灯片":http://www.progressivered.com/cu3er/

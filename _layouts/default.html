@@ -6,7 +6,12 @@ desc: 分享技术实践，创业历程
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    {% if page.title != null %}
+    <title>{{page.title}} | {{ page.desc }} - {{ page.author }}</title>
+    {% else %}
     <title>{{ page.desc }} - {{ page.author }}</title>
+    {% endif %}
+    <link rel="stylesheet" href="/stylesheets/default.css" type="text/css" media="screen" charset="utf-8"/>
     <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" media="screen" charset="utf-8"/>
     <link rel="stylesheet" href="/stylesheets/syntax.css" type="text/css" media="screen" charset="utf-8"/>
     <link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print" charset="utf-8"/>
@@ -61,11 +66,11 @@ desc: 分享技术实践，创业历程
 
       <section>
       <h3>Sponsors</h3>
-      <a href="http://www.engineyard.com?source=saberma"><img src="/images/sponsor_ey.jpg" alt="Engine Yard" /><a>
-      <a href="http://railskits.com?source=saberma"><img src="/images/sponsor_railskits.gif" alt="ad" /></a>
+      <a href="http://www.engineyard.com"><img src="/images/sponsor_ey.jpg" alt="Engine Yard" /><a>
+      <a href="http://railskits.com"><img src="/images/sponsor_railskits.gif" alt="ad" /></a>
       <br/>
       <a href="http://www.vancl.com/WebSource/WebSource.aspx?source=saberma&url=http://www.vancl.com/" target="_blank"><img src="/images/sponsor_vancl.jpg" border="0" /></a>
-      <a href="http://www.agilealliance.org?source=saberma"><img src="/images/sponsor_agile.jpg" alt="ad" /></a>
+      <a href="http://www.agilealliance.org"><img src="/images/sponsor_agile.jpg" alt="ad" /></a>
       </section>
 
       </aside>
