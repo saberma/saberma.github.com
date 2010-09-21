@@ -1,86 +1,122 @@
 ---
-main_title: saberma@shenzhen
-sub_title: %w(ruby rails agile web tdd iphone arcgis)
+author: saberma
+desc: 分享技术实践，创业历程
 ---
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>{{ page.title }} - {{ page.main_title }}</title>
-    <link rel="stylesheet" href="/stylesheets/default.css" type="text/css" media="screen" charset="utf-8"/>
+    <meta charset="utf-8" />
+    <title>{{ page.desc }} - {{ page.author }}</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" media="screen" charset="utf-8"/>
     <link rel="stylesheet" href="/stylesheets/syntax.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print" charset="utf-8"/>
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
   <body>
-    <div id='wrapper'>
-      <div id='header'>
-        <h1>{{page.main_title}}</h1>
-        <h2>{{page.sub_title}}</h2>
-      </div>
-      <div id='menu'>
+    <div id="wrapper"><!-- #wrapper -->
+
+      <header><!-- header -->
+      <h1><a href="/">{{ page.author }}</a></h1>
+      <h2><a href="/">{{ page.desc }}</a></h2>
+      </header><!-- end of header -->
+
+      <nav><!-- top nav -->
+      <div class="menu">
         <ul>
-          <li><a href='/'>Home</a></li>
-          <li><a href='http://github.com/saberma' target='_blank'>GitHub</a></li>
-          <li><a href='http://saberma.twitter.com' target='_blank'>Twitter</a></li>
-          <li><a href='http://textile.thresholdstate.com' target='_blank'>Textile</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="http://github.com/saberma">Github</a></li>
+          <li><a href="#">About</a></li>
         </ul>
       </div>
-      <div id='content'>
-        <div class='home_box' id='home_left'>
-          <div id='guides' class='wikistyle'>
+      </nav><!-- end of top nav -->
+
+      <section id="main"><!-- #main content and sidebar area -->
+      <div id="content">
+        <article class="articlecontent">
           {{ content }}
-          </div>
-        </div>
-        <div class='home_box' id='home_right'>
-          <h2>知识标签</h2>
-          <div id='github-projects'>
-            <div class="repo">
-              {% for post in site.posts %}
-              <h3><a href="{{post.url}}">{{post.title}}</a></h3>
-              {% endfor %}
-            </div>
-          </div>
-          <h2>常用网站</h2>
-          <div id='github-projects'>
-            <div class="repo">
-              <h3><a href="http://www.xiaoguo.com">鲜果</a></h3>
-              <h3><a href="http://www.chinaonrails.com">CHINAONRAILS</a></h3>
-              <h3><a href="http://ruby.javaeye.com">JAVAEYE_RUBY</a></h3>
-              <h3><a href="http://www.pivotaltracker.com">PIVOTALTRACKER</a></h3>
-              <h3><a href="http://www.google.com/notebook">NOTEBOOK</a></h3>
-              <h3><a href="http://www.slicehost.com">SLICEHOST</a></h3>
-            </div>
-          </div>
-          <h2>友情链接</h2>
-          <div id='github-projects'>
-            <div class="repo">
-              <h3><a href="http://www.ziwee.cn">滋味网</a></h3>
-            </div>
-          </div>
-          <h2>联系我</h2>
-          <div id='github-projects'>
-            <div class="repo">
-              <h3>gmail:mahb45#gmail.com</h3>
-              <h3>qq:1080185</h3>
-            </div>
-          </div>
-        </div>
-        <div class='clearfix'></div>
+        </article>
       </div>
-    </div>
-    <div id='footer'>
-      Copyright &copy; 2009 saberma. Fork from <a href="http://dyang.github.com">dyang</a>. Theme and code by <a href="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href='http://github.com/saberma/saberma.github.com/' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
-    </div>
+
+      <aside>
+      <section>
+      <h3>Categories</h3>
+      <ul>
+        {% for post in site.posts %}
+        <li><a href="{{post.url}}">{{post.title}}</a></li>
+        {% endfor %}
+      </ul>
+      </section>
+
+      <section>
+      <h3>Sponsors</h3>
+      <a href="http://www.engineyard.com?source=saberma"><img src="/images/sponsor_ey.jpg" alt="Engine Yard" /><a>
+      <a href="http://railskits.com?source=saberma"><img src="/images/sponsor_railskits.gif" alt="ad" /></a>
+      <br/>
+      <a href="http://www.vancl.com/WebSource/WebSource.aspx?source=saberma&url=http://www.vancl.com/" target="_blank"><img src="/images/sponsor_vancl.jpg" border="0" /></a>
+      <a href="http://www.agilealliance.org?source=saberma"><img src="/images/sponsor_agile.jpg" alt="ad" /></a>
+      </section>
+
+      </aside>
+
+      </section><!-- end of #main content and sidebar-->
+
+      <footer>
+      <section id="footer-area">
+
+      <section id="footer-outer-block">
+      <aside class="footer-segment">
+      <h4>Friends</h4>
+      <ul>
+        <li><a href="http://saberma.me">saberma博客</a></li>
+        <li><a href="http://www.55xiaoyou.com">闪记脑力[iphone益智游戏]</a></li>
+        <li><a href="http://www.sszgclub.com">甩手掌柜[多网店管理]</a></li>
+        <li><a href="http://www.ziwee.cn">滋味网[深圳吃喝玩乐]</a></li>
+      </ul>
+      </aside><!-- end of #first footer segment -->
+
+      <aside class="footer-segment">
+      <h4>Blogroll</h4>
+      <ul>
+        <li><a href="http://www.showeb20.com">分享网络2.0</a></li>
+        <li><a href="http://2simple.cn">2Simple</a></li>
+        <li><a href="http://abitno.me">A Bit? No!!!</a></li>
+        <li><a href="http://daodao.org">盗盗</a></li>
+      </ul>
+      </aside><!-- end of #second footer segment -->
+
+      <aside class="footer-segment">
+      <h4>Coolness</h4>
+      <ul>
+        <li><a href="http://xianguo.com">鲜果</a></li>
+        <li><a href="http://github.com">GitHub</a></li>
+        <li><a href="http://www.pivotaltracker.com">PivotalTracker</a></li>
+        <li><a href="http://chinaonrails.com">ChinaOnRails</a></li>
+      </ul>
+      </aside><!-- end of #third footer segment -->
+
+      <aside class="footer-segment">
+      <h4>Encourage</h4>
+      <p>尝试. 坚持. 分享. 宽容.</p>
+      </aside><!-- end of #fourth footer segment -->
+
+      </section><!-- end of footer-outer-block -->
+
+      </section><!-- end of footer-area -->
+      </footer>
+
+    </div><!-- #wrapper -->
+
+    <script>
+      var _gaq = [['_setAccount', 'UA-12120506-1'], ['_trackPageview']];
+      (function(d, t) {
+        var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+        g.async = true;
+        g.src = '//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s);
+      })(document, 'script');
+    </script>
+    <!-- Free template created by http://freehtml5templates.com -->
   </body>
 </html>
-
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-  try {
-    var pageTracker = _gat._getTracker("UA-12120506-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>

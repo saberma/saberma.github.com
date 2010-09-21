@@ -1,0 +1,299 @@
+/* Created by http://freehtml5templates.com */
+
+/* reset */
+* {
+margin: 0;
+padding: 0;
+}
+
+/* render html5 elements as block */
+header, footer, section, aside, nav, article {
+display: block;
+}
+
+body {
+line-height: 1;
+background-color: #9CCB47;
+font-family:  Arial, Helvetica, sans-serif;
+color: #333;
+font-size: 14px;
+line-height: 18px;
+}
+
+/* layout */
+
+#wrapper {
+width: 950px;
+margin: 0 auto;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+nav {
+width: 940px;
+height: 30px;
+margin: 0 auto;
+background: #9CCB47;
+}
+
+header {
+width: 940px;
+height: 250px;
+margin: 0 auto;
+background: #fff url(/images/header2.png) no-repeat right top;
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+}
+
+#main {
+width: 940px;
+margin: 0 auto;
+padding-top: 10px;
+padding-bottom: 10px;
+background: #9CCB47;
+overflow: hidden;
+}
+
+#content {
+float: left;
+width: 450px;
+margin-left: 40px;
+}
+
+footer {
+width: 940px;
+margin: 0 auto;
+clear: both;
+}
+
+/* basics */
+
+h1,h2,h3,h4,h5,h6 {
+font-weight: bold;
+clear: both;
+color: #333;
+padding-top: 5px;
+}
+
+h1 a, h2 a, h3 a {
+	text-decoration: none;
+	font-style: italic;
+}
+
+a:link, a:visited {
+color:#6D9D30;
+}
+
+a:hover, a:active {
+color: #333;
+}
+
+p {
+margin-top: 10px;
+margin-bottom: 18px;
+}
+
+li {
+padding-left: 5px;
+}
+
+/* nav */
+
+nav .menu {
+font-size: 14px;
+font-weight: bold;
+}
+
+nav .menu ul {
+margin: 0;
+padding: 17px 0 0 20px;
+list-style: none;
+line-height: normal;
+}
+
+nav .menu li {
+display: block;
+float: left;
+}
+
+nav .menu a {
+display: block;
+float: left;
+margin-right: 5px;
+padding: 0px 15px;
+text-decoration: none;
+color: #FFF;
+}
+
+nav .menu a:hover {
+font-style: italic;
+}
+
+/** HEADER */
+
+header h1, header h2 {
+margin: 0;
+padding: 0 0 0 30px;
+line-height: normal;
+}
+
+header h1 { 	
+float: left;
+padding-top: 10px; 
+}
+
+header h1 a:link, header h1 a:visited {
+text-decoration: none;
+color: #6D9D30;
+text-shadow: 0px 2px 3px #777;
+font-size: 48px;
+}
+
+header h1 a:hover { 
+text-decoration: none; 
+}
+
+header h2 {
+padding: 20px 0 0 30px;
+font-style: italic;
+font-size: 14px;
+color: #6D9D30;
+}
+
+/** ARTICLES **/
+#content {
+float: left;
+width: 585px;
+margin:10px 0 10px 0;
+padding:5px 20px 5px 20px;
+background-color: #fff;
+/* curved border radius */
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+.alignleft, img.alignleft {
+display: inline;
+float: left;
+margin-right: 24px;
+margin-top: 4px;
+}
+
+.alignright, img.alignright {
+display: inline;
+float: right;
+margin-left: 24px;
+margin-top: 4px;
+}
+
+.aligncenter, img.aligncenter {
+clear: both;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+img.alignleft, img.alignright, img.aligncenter {
+margin-bottom: 12px;
+}
+
+/* sidebar and widget blocks */
+
+aside {
+float: right;
+text-align: left;
+width: 290px;
+margin:0;
+padding:0;
+}
+
+/* article */
+.articlecontent p a {
+color: #307437;
+}
+
+.articlecontent p a:hover {
+color: #000;
+}
+
+/* box shadow on pics */
+.articlecontent img {
+/* curved border radius */
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+/* sidebar */
+aside section {
+margin: 10px 0 0 0;
+padding: 10px 10px;
+background-color: #F5E9DF;
+
+/* curved border radius */
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+aside section ul {
+margin: 0 0 0 20px;
+color: #307437;
+}
+
+aside section ul li a {
+display: block;
+text-decoration: none;
+color: #000;
+}
+
+aside section ul li a:hover {
+background-color: #307437;
+color: #fff;
+}
+
+aside section h3 {
+margin-bottom: 10px;
+}
+
+
+#footer-area {
+background: #6D9D30;
+color: #FFF;
+font-size: 90%;
+padding: 18px 0;
+overflow: hidden;
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+}
+
+.footer-segment {
+float: left;
+margin-right: 20px;
+margin-left: 20px;
+width: 190px;
+}
+
+.footer-segment ul {
+margin-left: 20px;
+}
+
+footer aside h4 {
+color: #ddd;
+font-size: 16px;
+line-height: 1.5em;
+}
+
+footer a:link, footer a:visited {
+color: #FFF;
+}
+
+footer a:hover { 
+text-decoration: underline; 
+}
+
+footer p {
+margin-top: -2px;
+}

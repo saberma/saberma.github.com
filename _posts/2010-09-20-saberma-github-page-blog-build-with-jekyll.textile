@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 应用jekyll构建基于github page的博客saberma.me
+title: 应用jekyll构建基于github page的博客
 ---
 基于github page的博客好处:
 * 完全免费
