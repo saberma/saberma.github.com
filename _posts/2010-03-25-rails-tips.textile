@@ -4,7 +4,6 @@ title: Rails入门
 ---
 h2. 覆盖ActiveRecord属性读写方法
 
-b2471adc
 比如需要将属性photo的值进行Base64解码后再写入数据库中，可重写方法
 
 {% highlight ruby %}

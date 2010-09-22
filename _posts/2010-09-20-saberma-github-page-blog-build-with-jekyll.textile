@@ -2,6 +2,7 @@
 layout: post
 title: 应用jekyll构建基于github page的博客
 ---
+b2471adc
 基于github page的博客好处:
 * 简单至极，且完全免费
 * 可以支持rss订阅，评论功能
