@@ -1,10 +1,10 @@
 ---
-published: false
 layout: post
 title: 应用jekyll构建基于github page的博客
 ---
 基于github page的博客好处:
 * 简单至极，且完全免费
+* 可以支持rss订阅，评论功能
 * 依赖于git，文章原生支持版本控制(对比)，更有利于知识库类文章
 * 可以使用vim编写文章，写的时候像在写代码，更符合程序员的习惯
 
@@ -91,15 +91,31 @@ h3. Liquid
 
 h2. 整合评论
 
+由于github page最终生成的都是静态html页面，所以是没有评论功能呢
+但我们利用disqus实现在线评论功能，先到 "http://disqus.com":http://disqus.com 注册帐号(免费)
+注册成功后，为简单起见，只要把 @_includes/post.html@ 中的saberma替换为你的注册帐号就行了(disqus_url输入你实际的域名)
+
 h2. 整合rss订阅
 
 因为jekyll可以生成blogs列表，所以我们可以编写atom.xml，由jekyll生成最终xml结果
 "这是我的atom.xml文件":/atom.xml
 
-将生成的xml地址提交至feedsky，由feedsky进行管理和美化
+将生成的xml地址提交至 "feedsky.com":http://www.feedsky.com ，由feedsky进行管理和美化
 
 "Setting Up an Atom Feed at GitHub Pages":http://elemel.se/2009/01/25/setting-up-an-atom-feed-at-github-pages.html
+
+h2. 你也想弄一个github page博客?
+
+最快的做法是 "fork我的博客":http://github.com/saberma/saberma.github.com ，git clone到你的电脑
+然后修改成你的，具体需要调整的地方是:
+
+# 删除_posts中的文章
+# 按上面介绍的[整合评论]修改 @_includes/post.htm@ 文件
+# 按上面介绍的[整合rss]修改 @atom.xml@ 文件
+# 运行jekyll，看看效果
+# 上传!ok，访问你的blog地址看看
 
 h2. 参考资源
 
 "publishing-a-blog-with-github-pages-and-jekyll":http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/
+"jekyll wiki":http://github.com/mojombo/jekyll/wiki

@@ -1,8 +1,6 @@
 ---
 layout: default
 ---
-<div class='post'>
-  <h1><a href='{{site.posts.first.url}}'>{{site.posts.first.title}}</a></h1>
-  <span class='date'>{{site.posts.first.date | date: "%Y-%m-%d"}}</span>
-  <div class='body'>{{ site.posts.first.content }}</div>
-</div>
+{% assign page = site.posts.first %}
+{% assign content = page.content %}
+{% include post.html %}
