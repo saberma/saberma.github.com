@@ -1,6 +1,7 @@
 ---
 layout: post
 title: jQuery常用插件
+category: jquery
 ---
 
 jQuery的简洁高效，越来越受到程序员的欢迎了

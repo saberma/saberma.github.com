@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: 敏捷开发Selenium
+category: rails
 ---
 Selenium作为验收测试工作，非常好用
 

@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: Rails问题集
+category: rails
 ---
 这里记录我遇到的，但在网络上无法找到解决方法的问题
 

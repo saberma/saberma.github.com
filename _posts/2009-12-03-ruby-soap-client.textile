@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: soap客户端
+category: rails
 ---
 h2. 选择
 

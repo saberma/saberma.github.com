@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: 全文检索Sphinx
+category: rails
 ---
 "参考全文检索Ferret":http://saberma.github.com/2009/07/12/rails-search-engine-ferret.html
 以下内容不再使用

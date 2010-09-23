@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: 性能分析
+category: rails
 ---
 h2. 异常分析
 

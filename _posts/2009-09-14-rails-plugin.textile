@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Rails常用插件
+category: rails
 ---
 
 Rails的插件很丰富，并且大部分都放在github，非常方便修改

@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: 全文检索Ferret
+category: rails
 ---
 h1. 全文检索(Ferret)                                                                                                                                         
 

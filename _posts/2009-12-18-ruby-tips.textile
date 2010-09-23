@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: ruby入门
+category: rails
 ---
 
 h2. ruby入门

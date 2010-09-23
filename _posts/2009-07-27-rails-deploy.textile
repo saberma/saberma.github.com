@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: 服务器部署
+category: rails
 ---
 h1. 服务器安装配置
 

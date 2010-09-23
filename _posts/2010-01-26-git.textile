@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Git使用
+category: git
 ---
 h2. 常用命令
 

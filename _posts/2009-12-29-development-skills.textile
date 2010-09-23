@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: 如何开始rails项目
+category: rails
 ---
 
 为了能胜任ruby项目的开发工作，你需要逐步掌握以下技能

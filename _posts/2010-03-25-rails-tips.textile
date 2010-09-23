@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: Rails入门
+category: rails
 ---
 h2. 覆盖ActiveRecord属性读写方法
 

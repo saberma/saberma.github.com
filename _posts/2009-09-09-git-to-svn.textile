@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: svn集中存储
+category: git
 ---
 
 h2. 安装

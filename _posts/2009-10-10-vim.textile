@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vim使用
+category: vim
 ---
 h2. 安装
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Linux常用命令
+category: linux
 ---
 h2. 常用命令
 

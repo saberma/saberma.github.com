@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 应用jekyll构建基于github page的博客
+category: other
 ---
 b2471adc
 基于github page的博客好处:

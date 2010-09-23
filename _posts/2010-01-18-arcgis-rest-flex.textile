@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: ArcGIS(Flex+Rest)
+category: other
 ---
 h2. ArcGIS Server
 

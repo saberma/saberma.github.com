@@ -1,6 +1,7 @@
 ---                                                                                                                                                          
 layout: post
 title: 项目说明
+category: rails
 ---
 h2. 工作流
 

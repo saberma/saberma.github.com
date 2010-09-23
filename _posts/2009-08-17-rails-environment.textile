@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Rails环境安装
+category: rails
 ---
 h2. 操作系统安装
 

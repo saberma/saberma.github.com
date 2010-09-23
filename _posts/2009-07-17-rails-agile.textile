@@ -1,6 +1,9 @@
 ---                                                                                                                                                          
 layout: post
 title: 敏捷开发流程
+categories:
+  rails
+  agile
 ---
 h2. 需求采集
 
