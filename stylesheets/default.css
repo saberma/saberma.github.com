@@ -25,3 +25,5 @@ article pre.console{margin:1em 0!important;font-size:90%!important;background-co
 article pre.console code{padding:0!important;font-size:100%!important;background-color:black!important;border:none!important;color:white!important;}
 article pre.console span{color:#888!important;}
 article pre.console span.command{color:yellow!important;}
+
+#github-badge img { float: left }
