@@ -1,0 +1,97 @@
+---                                                                                                                                                          
+layout: post
+title: git开发流程
+category: git
+published: false
+---
+我们已经使用git进行版本管理，为更好地进行协同开发工作，需要对流程进行规范
+*"shopqi网店平台":http://github.com/saberma/shopqi 产品开发将遵循此流程*, 以下对git的开发流程进行描述
+
+h2. 开发流程
+
+在开发的过程中存在以下情况:
+
+bq. 
+情况1: 开发新特性
+情况2: 紧急修正生产环境中报告的Bug
+情况3: 支援其他成员，帮忙调试
+
+假如我们在master主分支中进行新特性的开发，这时如果发生情况2，处理起来比较麻烦。
+
+*正确的实践应该是:*
+
+* master主分支保致与对外发布的版本同步
+* 每个新特性(feature)都有独立的分支
+* 将多个新特性(feature)分支合并至发布(release)分支
+* 待发布(release)分支完成后再合并至master主分支，正式对外发布
+
+h2. 应用gitflow
+
+gitflow是开源的标准化git流程协助工具，项目地址在 "http://github.com/nvie/gitflow":http://github.com/nvie/gitflow
+
+h3. 安装(Ubuntu环境)
+
+pre. 
+wget -q -O - http://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sh
+sudo apt-get install opt
+
+其他操作系统安装gitflow请参考 "http://github.com/nvie/gitflow":http://github.com/nvie/gitflow
+
+h3. 使用方法
+
+pre. 
+#初始化(提问时回车就好)
+git flow init
+
+*开发新特征*
+
+pre. 
+git flow feature start <name> [<base>]
+git flow feature finish <name>
+#列出新特征分支
+git flow feature
+
+*准备发布版本*
+
+pre. 
+git flow release start <name> [<base>]
+git flow release finish <name>
+#列出发布分支
+git flow release
+
+< base >是位于develop分支的commit
+
+*修正紧急Bug*
+
+pre. 
+git flow hotfix start <name> [<base>]
+git flow hotfix finish <name>
+#列出修正分支
+git flow hotfix
+
+*支援其他成员工作*
+
+pre. 
+git flow support start <name> <base>
+#没有finish?(待实践)
+#列出支援分支
+git flow support
+
+< base >是位于master分支的commit
+
+h2. 结合github
+
+*上传未完成的feature分支*
+
+pre. 
+#git push REMOTENAME BRANCHNAME
+#一般情况下REMOTENAME即为origin, BRANCHNAME为以feature/为前缀的分支名称
+git push origin feature/orders
+
+bq. 注意:对于develop分支，由于所有成员的本地库中都有，所以不能上传
+
+h2. 参考资料
+
+# "A successful Git branching model":http://nvie.com/posts/a-successful-git-branching-model/
+# "Why aren't you using git-flow?":http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/
+# "github remotes":http://help.github.com/remotes/
