@@ -42,3 +42,7 @@ pre.
 ls 
 #其中Issue是原文字,Inspect是替换文字, spec是含有Issue的文件
 sed -i 's/Issue/Inspect/g' `grep -r -l Issue spec` 
+
+pre. 
+#为所有rb文件添加编码声明
+find app -iname '*.rb' | xargs sed -i '1 i\# encoding: utf-8'
