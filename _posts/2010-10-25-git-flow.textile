@@ -1,8 +1,8 @@
 ---                                                                                                                                                          
 layout: post
-title: git开发流程
+title: 应用gitflow建立代码开发标准化流程
 category: git
-published: false
+published: true
 ---
 我们已经使用git进行版本管理，为更好地进行协同开发工作，需要对流程进行规范
 *"shopqi网店平台":http://github.com/saberma/shopqi 产品开发将遵循此流程*, 以下对git的开发流程进行描述
