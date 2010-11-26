@@ -1,5 +1,6 @@
 ---
 layout: post
+category: iphone
 title: iphone开发
 ---
 h2. 开发目标

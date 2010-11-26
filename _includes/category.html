@@ -1,6 +1,6 @@
 <h1><a href="#">Category: {{ page.name }}</a></h1>
 <div class="size">共 {{ site.categories[page.name] | size }} 篇</div>
-<ul>
+<ul id="blogs">
   {% for post in site.categories[page.name] %}
   <li>
     <span>{{post.date | date: "%Y-%m-%d"}}</span>
