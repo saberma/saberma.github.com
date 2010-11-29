@@ -2,7 +2,7 @@
 layout: post
 title: 开发iphone游戏确实能赚钱
 category: iphone
-published: false
+#published: false
 ---
 
 h2. 收到iphone汇过来的美元了
