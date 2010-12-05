@@ -3,9 +3,19 @@ layout: post
 title: Git使用
 category: git
 ---
+h2. 基本概念
+
+h3. 存储
+
+bq. 
+WorkSpace ==> Git Index ==> Git Local Repository ==> Git Remote Repository
+Git数据在各个存储空间中的迁徙示意图
+
+!/images/article/git-transport.png!
+
 h2. 常用命令
 
-<pre>
+pre. 
 #检查当前修改、新增的文件
 git status 
 
@@ -18,8 +28,14 @@ git branch
 #切换至另一个分支
 git checkout 分支名
 
+#检查修改内容
+git diff
+
 #将新增的文件加入版本控制
 git add .
+
+#add之后，检查修改内容
+git diff HEAD
 
 #提交。也可以使用git commit -a -m '描述'，此命令包含了git add .
 git commit -m '修改内容的描述'
@@ -38,4 +54,3 @@ git log -p app/controllers/grids_controller.rb
 #获取以前版本的文件
 git checkout 0d7371d574 public/open-flash-chart.swf
 #0d7371d574为commit号前的n位数值，此值可以通过查看文件的修改历史获取到
-</pre>
