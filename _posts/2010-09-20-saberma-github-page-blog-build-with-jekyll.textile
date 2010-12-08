@@ -3,24 +3,36 @@ layout: post
 title: 应用jekyll构建基于github page的博客
 category: other
 ---
-b2471adc
 基于github page的博客好处:
-* 简单至极，且完全免费
-* 可以支持rss订阅，评论功能
-* 依赖于git，文章原生支持版本控制(对比)，更有利于知识库类文章
-* 可以使用vim编写文章，写的时候像在写代码，更符合程序员的习惯
+
+bq. 
+简单至极，且完全免费
+可以支持rss订阅，评论功能
+依赖于git，文章原生支持版本控制(对比)，更有利于知识库类文章
+可以使用vim编写文章，写的时候像在写代码，更符合程序员的习惯
 
 本博客此次除了启用全新个人域名saberma.me，将做以下调整
-* 美化网站风格，更加的清新:)
-* 页面布局调整为html5、css3架构
-* 文章可按分类显示
-* 代码增加高亮显示
-* 增加rss feed输出
+
+bq. 
+美化网站风格，更加的清新:)
+页面布局调整为html5、css3架构
+文章可按分类显示
+代码增加高亮显示
+增加rss feed输出
 
 h2. 挑个新的博客模板
 
 要求是基于html5、css3的免费模板，google之，发现个好地方: "http://freehtml5templates.com":http://freehtml5templates.com
 一页一页的挑吧，总会找到自己喜欢的，可以根据右下角的Tag Cloud进行筛选，现在看到本站的新样子就是找好久才看中的模板
+
+h2. 绑定独立域名
+
+在godaddy中注册 "saberma.me":http://saberma.em 域名，.me专用于博客类型，但比.com贵一些，且没有优惠
+
+# 注册完域名后，在域名管理中增加A record并指向207.97.227.245
+# 在你的github项目下增加CNAME文件，内容为你的域名，如 "http://github.com/saberma/saberma.github.com/blob/master/CNAME":http://github.com/saberma/saberma.github.com/blob/master/CNAME
+
+具体参考 "http://pages.github.com":http://pages.github.com 中 @Custom Domains@ 部分的内容
 
 h2. pygments代码高亮
 
@@ -114,6 +126,7 @@ h2. 你也想弄一个github page博客?
 # 删除_posts中的文章
 # 按上面介绍的[整合评论]修改 @_includes/post.htm@ 文件
 # 按上面介绍的[整合rss]修改 @atom.xml@ 文件
+# 修改CNAME的内容为你的独立域名
 # 运行jekyll，看看效果
 # 上传!ok，访问你的blog地址看看
 
@@ -121,3 +134,4 @@ h2. 参考资源
 
 "publishing-a-blog-with-github-pages-and-jekyll":http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/
 "jekyll wiki":http://github.com/mojombo/jekyll/wiki
+"http://pages.github.com":http://pages.github.com 
