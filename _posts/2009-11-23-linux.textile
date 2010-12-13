@@ -46,3 +46,10 @@ sed -i 's/Issue/Inspect/g' `grep -r -l Issue spec`
 pre. 
 #为所有rb文件添加编码声明
 find app -iname '*.rb' | xargs sed -i '1 i\# encoding: utf-8'
+
+h2. 脚本自动启动
+
+pre. 
+sudo cp /etc/init.d/single /etc/init.d/domains
+#...修改domains的内容...
+sudo update-rc.d domains defaults
