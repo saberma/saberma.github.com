@@ -2,7 +2,7 @@
 layout: post
 title: 在Ubuntu环境下安装最土团购开源php程序
 category: php
-published: false
+#published: false
 ---
 
 h2. 下载
