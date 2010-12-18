@@ -31,9 +31,12 @@ sudo /etc/init.d/apache2 restart
 
 h2. 安装程序
 
-#如需修改apache webroot黙认路径，请修改/etc/apache2/sites-enabled/000-default文件
 将压缩包中的wwwroot下的内容解压至/var/www目录下
 
+bq. 
+如需修改apache webroot黙认路径，请修改/etc/apache2/sites-enabled/000-default文件
+
+pre. 
 #修改目录归属于当前用户saberma
 chown saberma /var/www
 #修改目录可写权限
@@ -51,7 +54,7 @@ h2. 配置
 
 安装完成后需要手动删除install.php
 
-pre.
+pre. 
 rm /var/www/install.php
 
 h2. 调试
@@ -91,7 +94,7 @@ exit
 
 配置ftp地址、用户名及密码
 
-pre.
+pre. 
 git config git-ftp.user saberma
 git config git-ftp.url ftp.example.com
 git config git-ftp.password secr3t
