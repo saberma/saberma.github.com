@@ -15,6 +15,8 @@ Git数据在各个存储空间中的迁徙示意图
 
 h2. 常用命令
 
+h3. 基本
+
 {% highlight bash %}
 #检查当前修改、新增的文件
 git status 
@@ -55,3 +57,9 @@ git log -p app/controllers/grids_controller.rb
 git checkout 0d7371d574 public/open-flash-chart.swf
 #0d7371d574为commit号前的n位数值，此值可以通过查看文件的修改历史获取到
 {% endhighlight %}
+
+h3. 对比差异
+
+pre. 
+#可视化左右分栏对比
+git difftool foo.rb
