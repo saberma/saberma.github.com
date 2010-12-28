@@ -1,0 +1,149 @@
+---                                                                                                                                                          
+layout: post
+title: 应用node.js,redis,resque构建实时项目
+category: rails
+published: false
+---
+
+h2. Redis
+
+h3. 配置
+
+1. 关闭调试信息
+
+h3. 客户端
+
+pre. 
+redis-cli
+
+h3. 调试
+
+运行客户端后，输入命令
+
+pre. 
+monitor
+
+h3. 注意expire
+
+redis的expire命令有限制，执行此命令后，对key进行的任何操作都将先对key进行清空操作，详见 "http://redis.io/topics/expire":http://redis.io/topics/expire
+2.1.3以上版本不存在这个限制，但未正式发布稳定版，2.1正式发布时会更改为2.2版本
+
+具体表现如下:
+
+bq. 
+redis> set a 100
+OK
+redis> expire a 600
+(integer) 1
+redis> incr a
+(integer) 1
+redis> get a
+"1" #正常来说，应返回101，因为还key还没有过期
+
+如果对这个限制敏感，可以尝试 "2.2.0rc2版本":http://redis.io/download
+@make@ 之后最好再执行下 @make test@ 测试是否正常，我试过，确实不再存在上面说的奇怪表现
+
+h3. redis-rb
+
+redis支持多语言实现的客户端访问，redis-rb是redis的客户端之一，基于ruby语言实现。
+redis-rb中的方法名称与redis的一致
+
+h2. Resque
+
+!/images/article/redis/resque.png!
+
+resque是基于redis的后台任务组件，能把任何类或模块作为任务在后台执行，且自带前台管理功能，方便查看执行情况。
+
+h3. 使用
+
+1. 编写任务
+
+pre. 
+class WorkerClass
+  @queue = "demo"
+
+  def self.perform(args)
+    sleep 3 
+    puts "Doing something complex with  #{args}"
+  end
+end
+
+2. 进入任务队列
+
+pre. 
+require "resque"
+Resque.enqueue(WorkerClass, args)
+
+3. 运行任务
+
+h3. 与rails3整合
+
+0. 配置redis
+新增 @config/redis.yml@ 文件，加入以下内容
+
+<pre>
+defaults: &defaults
+  host: localhost
+  port: 6379
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
+</pre>
+
+1. 加载resque
+
+pre. 
+echo "require 'resque'" > config/initializers/load_resque.rb
+config = YAML::load(File.open("#{Rails.root}/config/redis.yml"))[Rails.env]
+Resque.redis = Redis.new(:host => config['host'], :port => config['port'])
+
+2. 由于worker类都放在app/jobs，因此需要指定rails加载此目录
+修改 @config/application.rb@，加入以下内容
+
+bq. 
+config.autoload_paths += %W(#{config.root}/app/jobs)
+
+3. 加入rake任务
+修改 @RakeFile@，加入以下内容
+
+bq. 
+require 'resque/tasks'
+task "resque:setup" => :environment
+
+第二句指明运行 @resque:setup@ 前先初始化rails环境
+
+
+h3. 运行resque后台任务
+
+pre. 
+QUEUE=* rake resque:work
+
+h3. 查看任务执行情况
+
+pre. 
+#运行resque前台管理服务器
+resque-web -p 8282
+
+打开浏览器，访问 "http://0.0.0.0:8282":http://0.0.0.0:8282
+前台可以查看失败的worker及其日志，可以手动执行retry操作
+
+h3. 定时任务
+
+如需定时执行任务，可以使用 "resque-scheduler":https://github.com/bvandenbos/resque-scheduler
+
+h2. 参考资源
+
+"Resque commands":http://redis.io/commands
+"Resque github repository":http://github.com/defunkt/resque
+"Resque with redis to go":http://blog.redistogo.com/2010/07/26/resque-with-redis-to-go/
+"Do you know resque":http://rubylearning.com/blog/2010/11/08/do-you-know-resque/
+"resque-scheduler, resque, rails integration, redis":http://blog.llamarada.net/?p=2202
