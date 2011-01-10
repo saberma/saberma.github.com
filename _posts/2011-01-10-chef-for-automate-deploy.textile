@@ -53,46 +53,6 @@ chef将脚本命令代码化，定制时只需要修改代码，安装的过程�
 
 !/images/article/chef/chef.png!
 
-h2. 把一台新的vps纳入chef管理
-
-假设vps ip为188.188.188.188
-ssh密码为123456
-
-h3. 本地安装
-
-pre. 
-gem install chef net-ssh-multi --no-ri --no-rdoc
-cd ~/Documents
-git clone git://github.com/opscode/chef-repo.git
-cd chef-repo
-mkdir -p .chef
-
-pre. 
-# USERNAME和ORGANIZATION改为实际的文件名称
-cd ~/Downloads
-cp USERNAME.pem ~/Documents/chef-repo/.chef
-cp ORGANIZATION-validator.pem ~/Documents/chef-repo/.chef
-cp knife.rb ~/Documents/chef-repo/.chef
-
-pre. 
-#测试连接opscode platform
-knife client list
-#成功连接则显示validator的数组，如
-#[ "shopqi-validator" ]
-
-h3. 为vps安装ruby及chef客户端环境
-
-pre. 
-knife bootstrap 188.188.188.188 -P 123456
-
-h3. 远程测试是否安装正常
-
-pre. 
-ssh root@188.188.188.188
-chef-client
-
-h2. 概念
-
 h3. Chef的三种管理模式
 
 1. Chef-Solo
@@ -109,16 +69,6 @@ chef-server可以自建，但安装的东西较多，由于使用solr作为全�
 采用 "http://www.opscode.com":http://www.opscode.com 提供的chef-server服务，本文描述以此方式为主，免费帐号可以管理5个服务器
 
 !/images/article/chef/opscode.png!
-
-h3. 注册
-
-到 "https://cookbooks.opscode.com/users/new":https://cookbooks.opscode.com/users/new 注册帐号
-通过邮件认证后，进入控制台 "https://manage.opscode.com":https://manage.opscode.com 创建organization
-按提示下载两个链接文件至~/Downloads: Download validation key | Generate knife config
-点击右上角的用户名，下载链接文件至~/Download: Get a new private key
-
-下载后的knife.txt要改名为knife.rb
-*以上三个文件请妥善保管，下载之后opscode平台不再保存这些文件*
 
 h3. Library程序库
 
@@ -153,6 +103,173 @@ template "/data/someservice.conf" do
   })
 end
 
+h2. 把一台新的vps纳入chef管理
+
+假设vps ip为188.188.188.188
+ssh密码为123456
+
+h3. 注册
+
+到 "https://cookbooks.opscode.com/users/new":https://cookbooks.opscode.com/users/new 注册帐号
+通过邮件认证后，进入控制台 "https://manage.opscode.com":https://manage.opscode.com 创建organization
+按提示下载两个链接文件至~/Downloads: Download validation key | Generate knife config
+点击右上角的用户名，下载链接文件至~/Download: Get a new private key
+
+下载后的knife.txt要改名为knife.rb
+*以上三个文件请妥善保管，下载之后opscode平台不再保存这些文件*
+
+h3. 本地安装
+
+pre. 
+gem install chef net-ssh-multi --no-ri --no-rdoc
+cd ~/Documents
+git clone git://github.com/opscode/chef-repo.git
+cd chef-repo
+mkdir -p .chef
+
+pre. 
+# USERNAME和ORGANIZATION改为实际的文件名称
+cd ~/Downloads
+cp USERNAME.pem ~/Documents/chef-repo/.chef
+cp ORGANIZATION-validator.pem ~/Documents/chef-repo/.chef
+cp knife.rb ~/Documents/chef-repo/.chef
+
+pre. 
+#测试连接opscode platform
+knife client list
+#成功连接则显示validator的数组，如
+#[ "shopqi-validator" ]
+
+h3. 为vps安装ruby及chef客户端环境
+
+pre. 
+knife bootstrap 188.188.188.188 -P 123456
+
+h3. 远程测试是否安装正常
+
+pre. 
+ssh root@188.188.188.188
+chef-client
+#如果出现错误，可使用调试模式
+chef-client -l debug
+
+h2. 让vps运行第一个cookbook
+
+安装完服务器操作系统后，第一件事情就是更新软件
+一般情况下，我们会在服务器上运行命令
+
+pre. 
+sudo apt-get update
+
+现在我们要通过chef来指定vps运行此命令
+
+h3. 本地安装apt cookbook
+
+pre. 
+#此命令最常用，会从opscode官网 "http://cookbooks.opscode.com/":http://cookbooks.opscode.com/ 下载cookbook
+knife cookbook site vendor apt
+
+为node加入recipe
+
+pre. 
+knife node list
+#以上查看node id，假如为201166，现在查看node的run_list
+knife node show 201166 -r
+#加入apt recipe到vps的run list中
+knife node run_list add 201166 "recipe[apt]"
+knife node show 201166 -r
+knife cookbook upload -a
+
+h3. 远程登录vps，开始按run_list运行指定recipe
+
+pre. 
+ssh root@188.188.188.188
+chef-client
+#每次本地更新后都要在远程运行chef-client比较麻烦，可以使用以下命令，设置为后台程序运行
+chef-client -i 3600 -s 600
+
+h2. 安装ruby-on-rails3
+
+h3. 下载cookbook
+
+pre. 
+#参数-d要求下载依赖的cookbook
+knife cookbook site vendor rvm -d
+#此cookbook调用了chef内置的deploy resource，实现类似于capistrano的部署功能
+#但此cookbook还依赖了java cookbook等，忽略它们即可
+knife cookbook site vendor application -d
+
+h3. 新增apps data bag
+
+data bag相当于全局变量，application cookcook需要根据apps指定role,recipe等参数
+
+pre. 
+export EDITOR=vim
+#参考 "https://github.com/opscode/cookbooks/tree/master/application":https://github.com/opscode/cookbooks/tree/master/application 将json粘贴进来
+#退出vim时，data bag会被自动上传至chef server，本地不保存
+knife data bag create apps 55true
+#保存至本地
+mkdir data_bags/apps
+knife data bag show apps 55true > data_bags/apps/55true.json
+knife data bag from file apps 55true.json
+
+h3. 新增role rails
+
+pre. 
+export EDITOR=vim
+knife role create rails
+
+h3. Tip
+
+服务器集群中可能会区分出production, staging环境，也可能同一应用部署在多台服务器中，但只需由其中的一台服务器运行数据库迁徙脚本
+
+# 新增production, staging等role，设置app_environment attribute，分配至相应的node，这样可以重复使用deploy cookbook
+# 新增app_name_run_migrations role，设置run_migrations attribute
+
+h2. 常用cookbook
+
+以下列出在 "https://github.com/opscode/cookbooks":https://github.com/opscode/cookbooks 中常用的cookbook
+
+h3. apt
+
+此recipt会运行apt-get update，用于更新操作系统
+
+h3. runit
+
+用于保证unicorn等服务时刻处于运行状态
+runsvdir服务会不停地监测/etc/sv目录下的服务目录，每个目录对应一个runsv服务
+如果某个runsv服务出现故障停止了,runsvdir会自动重新启动它
+
+pre. 
+#sv服务不启动时查看日志
+ps -ef | grep runsvdir
+#查看服务的状态
+sv stat unicorn_server
+#查看服务的日志
+tail -f /etc/sv/unicorn_server/log/main/current
+
+h3. bluepill
+
+runit保证了服务的运行，bluepill保证进程的cpu、memory占用率处于正常水平
+
+h3. users
+
+新增用户，用户定义在users data bag中
+
+h3. mongodb
+
+安装1.6.5版本的mongo server
+"https://github.com/papercavalier/mongodb-cookbook":https://github.com/papercavalier/mongodb-cookbook
+
+h3. unicorn
+
+经过对比，还是选择37signal的unicorn cookbook，因为支持多app部署，而unicornapp不支持(opscode官方已经删除此cookbook)。为了对unicorn子线程进行监控，两者都使用了bluepill取代God进行监控。
+注意：在production环境下，rails3默认不会处理public目录下静态文件的请求，所以不能像dev环境下直接通过指定端口访问某个unicorn服务
+
+h3. application
+
+-这个包含太多的依赖cookbook了，经过以上的实践，还是觉得不用它了，因为里面对rails项目有用的就是deploy部分，自己重写一个也很容易-
+
 h2. 参考资源
 
 "Infrastructure Automation with Chef(Read This First)":http://www.slideshare.net/adamhjk/infrastructure-automation-with-chef
@@ -161,3 +278,7 @@ h2. 参考资源
 "How to Deploy Ruby on Rails With The Opscode Chef Application Cookbook":http://www.agileweboperations.com/how-to-deploy-ruby-on-rails-with-the-opscode-chef-application-cookbook
 "Cooking with Chef 101":http://brainspl.at/articles/2009/01/31/cooking-with-chef-101
 "Why Startups Need Automated Infrastructures":http://www.slideshare.net/adamhjk/why-startups-need-automated-infrastructures
+"Deploy Resource":http://wiki.opscode.com/display/chef/Deploy+Resource
+"application cookbook":https://github.com/opscode/cookbooks/tree/master/application
+
+"runit":http://smarden.org/runit/

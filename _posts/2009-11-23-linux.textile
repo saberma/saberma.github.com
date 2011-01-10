@@ -53,3 +53,24 @@ pre.
 sudo cp /etc/init.d/single /etc/init.d/domains
 #...修改domains的内容...
 sudo update-rc.d domains defaults
+
+h2. 进程相关
+
+pre. 
+#查看当前进程
+ps aux
+#查看当前进程树
+pstree
+
+h2. 本机信息
+
+h3. linux版本信息
+
+pre. 
+cat /etc/issue
+uname -a
+
+h3. 运行时间
+
+pre. 
+uptime

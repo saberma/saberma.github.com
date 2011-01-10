@@ -2,14 +2,59 @@
 layout: post
 title: 应用node.js,redis,resque构建实时项目
 category: rails
-published: false
+#published: false
 ---
+
+我对javascript语言还是很喜欢，所以对node.js这么有创意的东西，很早就开始关注了。
+据说在实时领域的表现非常好，资源占用也不多，很想实践一番，以后正式项目有对实时性的需求，就可以放心地使用node.js了。
+
+所以我决定将 "55true":https://github.com/saberma/55true 重新开发，加入即时问答的机制，普通功能开发上使用rails3，而实时性上应用node.js。
+虽然node.js相关的框架已经非常多，也有类似于rails的MVC框架，但是毕竟发展时间还不长，所以使用rails结合node.js的方式进行开发是个不错的发展方式，各取所长。
+
+h2. Node.js
+
+!/images/article/redis/nodejs.png!
+
+node.js是一种可以用js来编写的服务端程序
+
+这次使用 "https://github.com/maccman/juggernaut":https://github.com/maccman/juggernaut 框架，结合redis，实现rails与node.js服务的交互。
+node.js的发展非常的快，有类似于rails bundler的插件管理工具npm，但为降低node.js相关框架的管理复杂度，我直接将juggernaut及其依赖的js文件都放在 "55true":https://github.com/saberma/55true 的根目录。
+
+h3. 安装
+
+pre. 
+cd ~/Downloads
+wget http://nodejs.org/dist/node-v0.2.6.tar.gz
+tar -xzvf node-v0.2.6.tar.gz
+cd node-v0.2.4
+./configure
+make
+make install
+
+h3. Juggernaut
+
+"Juggernaut":https://github.com/maccman/juggernaut 是包含服务端及客户端的实时解决方案，最初服务端是用ruby eventmachine实现的。
+node.js出来后，整个框架就用node.js重写了
+
+h3. 启动Juggeranut
+
+pre. 
+node server.js
 
 h2. Redis
 
-h3. 配置
+!/images/article/redis/redis.png!
 
-1. 关闭调试信息
+redis是类似于memcached的高性能键值缓存工具，但它支持更多的值类型、功能更加丰富，且可以将存储内容定时持久化到磁盘中，是NoSQL家庭中出色的一员
+
+h3. 安装
+
+pre. 
+wget https://github.com/antirez/redis/tarball/2.2.0-rc2
+tar -xzvf antirez-redis-2.2.0-rc2-0-g0540df2.tar.gz
+cd antirez-redis-b703b5d
+make
+sudo make install
 
 h3. 客户端
 

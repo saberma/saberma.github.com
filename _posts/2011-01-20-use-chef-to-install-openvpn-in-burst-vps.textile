@@ -77,10 +77,9 @@ rake server
 pre. 
 knife node list
 #以上查看node id，假如为201166，现在查看node的run_list
-knife node show 201166 -r
 #加入刚才新增的role
 knife node run_list add 201166 "role[vpn]"
-knife node show 201166 -r
+knife cookbook upload -a
 
 远程登录vps，开始按run_list运行指定recipe
 
@@ -99,6 +98,12 @@ sudo mkdir /etc/openvpn
 cd /etc/openvpn
 sudo cp /tmp/client.zip .
 sudo unzip client.zip
+
+修改DNS，否则就算边上vpn也不能访问twitter等，修改 @/etc/resolv.conf@为:
+
+bq. 
+nameserver 8.8.8.8
+nameserver 8.8.4.4
 
 测试
 
