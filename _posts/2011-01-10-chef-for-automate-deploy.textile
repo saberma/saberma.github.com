@@ -143,7 +143,10 @@ knife client list
 h3. 为vps安装ruby及chef客户端环境
 
 pre. 
-knife bootstrap 188.188.188.188 -P 123456
+knife bootstrap 188.188.188.188 -u root -P 123456
+#ssh登录服务器不再需要输入密码
+ssh root@188.188.188.188 'sh -c "mkdir ~/.ssh"'
+scp ~/.ssh/id_rsa.pub root@188.188.188.188:/root/.ssh/authorized_keys
 
 h3. 远程测试是否安装正常
 
