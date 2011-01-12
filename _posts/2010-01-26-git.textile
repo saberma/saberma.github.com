@@ -13,6 +13,16 @@ Git数据在各个存储空间中的迁徙示意图
 
 !/images/article/git-transport.png!
 
+h3. submodule
+
+主项目中可能需要使用其他项目(比如juggernaut，简称项目B)的功能，将项目B直接拷贝过来当然可行
+但这样的话，项目B以后更新的内容就无法及时更新过来了
+
+正确的做法应该是把项目B作为主项目的submodule，通过以下语句引入
+
+pre. 
+git submodule add git://github.com/maccman/juggernaut.git vendor/others/juggernaut
+
 h2. 常用命令
 
 h3. 基本

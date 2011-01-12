@@ -39,7 +39,13 @@ node.js出来后，整个框架就用node.js重写了
 h3. 启动Juggeranut
 
 pre. 
-node server.js
+#node server.js
+sudo node server.js
+
+使用root帐号启动，否则firefox客户端访问会报错
+
+bq. 
+Flash is optional, but it's the default fallback for Firefox (until the beta is released). Start the server using root if you want Flash support. It needs to open a restricted por
 
 h2. Redis
 

@@ -4,12 +4,21 @@ title: 应用chef安装openvpn
 category: linux
 published: false
 ---
+h2. burst vps
+
+使用openvpn需要先登录后台管理 "https://184.82.225.10:2408/index.php":https://184.82.225.10:2408
+在Networking & Utilities 启用 Enable Tun/Tap
+
+pre. 
+#确保iptables已安装
+sudo apt-get install iptables
+
 h2. 安装openvpn
 
 假设vps ip为188.188.188.188
 ssh密码为123456
 
-我把这台vps当成vpn服务器，实现无障碍访问互联网
+把这台vps当成vpn服务器，实现无障碍访问互联网
 
 pre. 
 export EDITOR=vim
@@ -114,6 +123,13 @@ openvpn --config /etc/openvpn/server.conf --script-security 2
 sudo openvpn --config /etc/openvpn/client.conf
 
 此时，再通过浏览器访问的google.com不会再跳转至google.com.hk了
+
+h2. 调试
+
+h3. 日志
+
+pre. 
+tail -f /var/log/openvpn.log
 
 h2. 参考资源
 "BurstNET的VPS安装OpenVPN教程总结":http://www.lenghost.cn/vps/burstnet-vps-openvpn-install/
