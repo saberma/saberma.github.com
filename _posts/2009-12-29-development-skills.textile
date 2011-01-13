@@ -107,6 +107,7 @@ css部分使用haml中的sass编写css代码
 "css入门":http://www.cainiao8.com/web/css.html
 "jQuery入门":http://www.k99k.com/jQuery_getting_started.html
 "jQuery常用插件":/2009/09/12/jquery-plugin.html
+"jQuery最佳实践之delegate":http://jsgears.com/thread-402-1-1.html
 "sass入门":http://sass-lang.com/tutorial.html
 
 h2. 6.数据库(Mysql)
