@@ -2,16 +2,13 @@
 layout: post
 title: 应用chef安装openvpn
 category: linux
-published: false
+#published: false
 ---
 h2. burst vps
 
+之前买了burst的vps，现在准备为它安装openvpn
 使用openvpn需要先登录后台管理 "https://184.82.225.10:2408/index.php":https://184.82.225.10:2408
 在Networking & Utilities 启用 Enable Tun/Tap
-
-pre. 
-#确保iptables已安装
-sudo apt-get install iptables
 
 h2. 安装openvpn
 
@@ -26,7 +23,7 @@ knife role create vpn
 
 knife会打开vim，将内容修改为:
 
-bq. 
+pre. 
 {
   "name": "vpn",
   "description": "openvpn server",
@@ -72,8 +69,8 @@ bq.
 
 bq. 
 template "/etc/openvpn/server.up.sh" do
-  source "server.up.sh.erb"
-  variables :openvpn => node[:openvpn]
+　source "server.up.sh.erb"
+　variables :openvpn => node[:openvpn]
 end
 
 pre. 
