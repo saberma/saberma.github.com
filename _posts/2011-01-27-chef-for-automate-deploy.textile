@@ -269,6 +269,11 @@ h3. application
 
 -这个包含太多的依赖cookbook了，经过以上的实践，还是觉得不用它了，因为里面对rails项目有用的就是deploy部分，自己重写一个也很容易-
 
+h2. 注意事项
+
+在service或者definition中传递参数时，如果将父params需要级联传递下去，得手动为params赋值至其他变量，因为在service或者definition块中，params参数已经被当前块覆盖了
+详情参考："http://tickets.opscode.com/browse/CHEF-422"
+
 h2. 参考资源
 
 "Infrastructure Automation with Chef(Read This First)":http://www.slideshare.net/adamhjk/infrastructure-automation-with-chef
