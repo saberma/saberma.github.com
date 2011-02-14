@@ -74,3 +74,8 @@ h3. 运行时间
 
 pre. 
 uptime
+
+h3. 显示所有用户的列表
+
+pre. 
+cat /etc/passwd | cut -f 1 -d :
