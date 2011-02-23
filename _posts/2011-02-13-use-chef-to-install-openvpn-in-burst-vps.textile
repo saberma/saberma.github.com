@@ -99,6 +99,7 @@ pre.
 sudo apt-get install openvpn
 cd files/default/easy-rsa
 . vars
+#注意不要运行多次，多次运行的时候请更换name，否则生成的.crt文件会为空
 rake client name="client" gateway="188.188.188.188"
 sudo mkdir /etc/openvpn
 cd /etc/openvpn
