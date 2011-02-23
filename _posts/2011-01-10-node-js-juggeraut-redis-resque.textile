@@ -112,7 +112,6 @@ h3. 使用
 pre. 
 class WorkerClass
   @queue = "demo"
-
   def self.perform(args)
     sleep 3 
     puts "Doing something complex with  #{args}"
