@@ -122,6 +122,17 @@ sudo openvpn --config /etc/openvpn/client.conf
 
 此时，再通过浏览器访问的google.com不会再跳转至google.com.hk了
 
+h2. ssh通道?
+
+除了vpn，我们还可以使用ssh通道访问受限网站
+
+pre. 
+#autossh支持断线重连
+sudo apt-get install autossh
+autossh -M 2000 -N -v root@188.188.188.188 -D 127.0.0.1:7070
+
+结合"chrome proxy switch":https://chrome.google.com/extensions/detail/caehdcpeofiiigpdhbabniblemipncjj?hl=zh-cn 可以让浏览器自动切换代理
+
 h2. 调试
 
 h3. 日志
@@ -132,3 +143,5 @@ tail -f /var/log/openvpn.log
 h2. 参考资源
 "BurstNET的VPS安装OpenVPN教程总结":http://www.lenghost.cn/vps/burstnet-vps-openvpn-install/
 "Openvpn Document":http://openvpn.net/index.php/open-source/documentation/howto.html
+"ssh tunneling":http://wiki.wowubuntu.com/blog/ubuntu_ssh_tunneling
+"Chrome自动使用代理":http://imyue.net/?p=1167

@@ -1,0 +1,76 @@
+---                                                                                                                                                          
+layout: post
+title: saberma的Ubuntu
+category: linux
+published: false
+---
+我安装的Ubuntu版本是10.04，代号Lucid，32位，以下为安装后的配置过程
+
+h2. 安装升级
+
+h3. 基本安装
+
+pre. 
+#换源，试来试去，还是台湾的源最快
+sudo wget https://gist.github.com/raw/352828/ca1d292be9a10fe01b7e0b72d65a74b781683311/sources.list -O /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get upgrade
+#ibus输入法，比Fcitx好用
+sudo add-apt-repository ppa:shawn-p-huang/ppa 
+sudo apt-get update
+sudo apt-get install ibus-gtk ibus-pinyin ibus-pinyin-db-open-phrase ibus-table-wubi
+im-switch -s ibus
+#chrome浏览器
+sudo apt-get install chromium-browser
+
+h3. 开发安装
+
+pre. 
+#ruby,git
+sudo apt-get install git-core
+sudo apt-get install ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby wget
+sudo ln -s /usr/bin/ruby1.8 /usr/bin/ruby
+sudo ln -s /usr/bin/ri1.8 /usr/bin/ri
+sudo ln -s /usr/bin/rdoc1.8 /usr/bin/rdoc
+sudo ln -s /usr/bin/irb1.8 /usr/bin/irb
+#rubygem
+cd ~
+wget http://production.cf.rubygems.org/rubygems/rubygems-1.5.2.tgz
+tar xvzf rubygems-*.tgz
+cd rubygems-*
+sudo ruby setup.rb
+sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+sudo gem update --system
+#vim编辑神器
+sudo apt-get install vim vim-ruby
+
+h2. 基本配置
+
+h3. 关闭特效
+
+用于开发的机子当然是性能优先了
+
+右击桌面-[Change Desktop BackGround]-[Visual Effects]
+选中[None]
+
+h3. 自动隐藏任务栏
+
+自动隐藏顶端及底端的任务栏，使浏览器及编辑器的窗口可显示的空间最大化
+
+右击任务栏-[Properties]-[General]
+选中[Autohide]
+
+h3. 自动记忆
+
+关机时已经打开了哪些程序（浏览器、包括terminal中的各个tab），重新开机后会自动打开。
+[System]-[Perferences]-[Startup Applications]-[Options]
+勾选[Automatically remember running applications when logging out]
+
+顺便把[Startup Programs]中不需要开机启动的程序关闭掉，如Bluetooth Manager
+
+h2. 浏览器
+
+h2. 参考资源
+
+"Ubuntu中文wiki":http://wiki.ubuntu.org.cn/Qref/Source
+"Ibus install":http://code.google.com/p/ibus/wiki/Ubuntu
