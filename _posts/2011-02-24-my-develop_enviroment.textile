@@ -98,6 +98,9 @@ h3. 打包发布
 
 现在开发环境已经安装好了，整个过程非常高效。更进一步，我们可以把已经做好的环境打包成镜像文件，分发给其他人，他们就可以瞬间建好开发环境了。
 
+pre. 
+vagrant package --vagrantfile Vagrantfile 
+
 h2. 报错
 
 h3. 找不到client.pem
