@@ -94,6 +94,34 @@ vagrant ssh
 #查看项目目录，会发现与宿主机的当前目录内容一致
 ls /vagrant
 
+刚才引入的cookbook包含了nginx recipe，所以我们可以看看虚拟机上nginx是否能正常访问了
+
+pre. 
+wget -qO- 127.0.0.1
+
+結果返回:
+
+bq. 
+<html>
+<head>
+<title>Welcome to nginx!</title>
+</head>
+<body bgcolor="white" text="black">
+<center><h1>Welcome to nginx!</h1></center>
+</body>
+</html>
+
+说明能正常访问，为了能在宿主机上用浏览器访问它，我们需要进行端口映射
+修改VagrantFile，加入以下内容:
+
+bq. 
+Vagrant::Config.run do |config|
+　# Forward guest port 80 to host port 8088 and name the mapping "web"
+　config.vm.forward_port("web", 80, 8088)
+end
+
+用浏览器打开 "http://127.0.0.1:8088":http://127.0.0.1:8088 就可以访问了
+
 h3. 打包发布
 
 现在开发环境已经安装好了，整个过程非常高效。更进一步，我们可以把已经做好的环境打包成镜像文件，分发给其他人，他们就可以瞬间建好开发环境了。

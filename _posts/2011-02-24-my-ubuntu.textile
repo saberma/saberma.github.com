@@ -68,6 +68,33 @@ h3. 自动记忆
 
 顺便把[Startup Programs]中不需要开机启动的程序关闭掉，如Bluetooth Manager
 
+h2. Shell
+
+!/images/article/ubuntu/zsh.png!
+
+安装终极Shell zsh，拥有更强的补全功能(常用工具的参数补全)
+
+pre. 
+sudo apt-get install zsh
+#引入增强插件,支持git,rails等补全，可选多种外观皮肤
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+#zsh作为默认shell，重启后生效
+chsh -s /bin/zsh
+
+修改zsh配置，定义需要引入的插件，修改 @~/.zshrc@ 的plugins值为:
+
+bq. 
+plugins=(command-not-found git rails ruby vagrant)
+
+"zsh外观皮肤大全":https://github.com/robbyrussell/oh-my-zsh/wiki/themes
+"zsh插件大全":https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
+
+具体有哪些补全功能呢，可以查看列表
+
+pre. 
+#-h不列出文件名
+grep -h -r -e '^alias' ~/.oh-my-zsh
+
 h2. 浏览器
 
 h2. 参考资源
