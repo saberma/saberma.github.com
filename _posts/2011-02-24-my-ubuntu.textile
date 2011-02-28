@@ -1,8 +1,8 @@
 ---                                                                                                                                                          
 layout: post
-title: saberma的Ubuntu
+title: 我的Ubuntu
 category: linux
-published: false
+#published: false
 ---
 我安装的Ubuntu版本是10.04，代号Lucid，32位，以下为安装后的配置过程
 

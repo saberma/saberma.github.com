@@ -89,6 +89,8 @@ vagrant up
 
 h3. ssh登录虚拟机
 
+之后，我们可以登录虚拟机，像以前一样执行rake等命令
+
 pre. 
 vagrant ssh
 #查看项目目录，会发现与宿主机的当前目录内容一致
@@ -129,6 +131,8 @@ h3. 打包发布
 pre. 
 vagrant package --vagrantfile Vagrantfile 
 
+执行后当前目录会生成package.box文件
+
 h2. 报错
 
 h3. 找不到client.pem
@@ -156,3 +160,4 @@ h2. 参考资源
 "Vagrant官网":http://vagrantup.com/
 "chef_solo配置":http://vagrantup.com/docs/provisioners/chef_solo.html
 "client.pem error":http://tickets.opscode.com/browse/CHEF-1115
+"Creating An Ubuntu 10.10 x32 Vagrant Box":https://github.com/fnichol/wiki-notes/wiki/Creating-An-Ubuntu-10.10-x32-Vagrant-Box
