@@ -40,11 +40,11 @@ bq.
 
 h3. 安装
 
-安装前请确保宿主机已经安装了ruby1.8和rubygem
+安装前请确保宿主机已经安装了ruby和rubygem
 可参考"我的Ubuntu":/linux/2011-02-24-my-ubuntu.html
 
 pre. 
-gem install vagrant --no-ri --no-rdoc
+gem install bundler vagrant --no-ri --no-rdoc
 
 h3. 创建虚拟机
 
@@ -133,6 +133,39 @@ vagrant package --vagrantfile Vagrantfile
 
 执行后当前目录会生成package.box文件
 
+h2. 测试
+
+h3. 单元测试
+
+还是跟以前一样
+
+h3. 验收测试
+
+由于cucumber使用的@javascript，需要打开浏览器测试ajax。而虚拟机并未安装桌面，此测试进行不了。
+开源社区中有不少技术可以进行headless后台测试，但都不成熟.
+
+所以,我们只能在宿主机上进行这样的测试了,这样的话,宿主机又要安装项目的相关插件,这可不少.
+有什么办法能让插件跟着项目跑,而不把插件安装到系统上呢?
+
+答案是可以的,我们在虚拟机上使用bundle install安装插件的时候,指定参数--deployment，将插件安装在项目的vendor/bundle目录，这样在宿主机就不用再安装这些插件了。
+还有,我们的测试数据库还在虚拟机上,还得修改 @Vagrantfile@ ,把mongodb的端口映射至宿主机
+直接在宿主机上运行以下命令就可以测试了
+
+pre. 
+bundle exec cucumber features
+
+h3. 进入rails控制器
+
+经过上面的处理,插件已经安装好了,但是由于rails并未安装进系统,使用以下命令是进不了控制台的
+
+pre. 
+rails c
+
+得在项目目录下,运行
+
+pre. 
+script/rails c
+
 h2. 报错
 
 h3. 找不到client.pem
@@ -161,3 +194,4 @@ h2. 参考资源
 "chef_solo配置":http://vagrantup.com/docs/provisioners/chef_solo.html
 "client.pem error":http://tickets.opscode.com/browse/CHEF-1115
 "Creating An Ubuntu 10.10 x32 Vagrant Box":https://github.com/fnichol/wiki-notes/wiki/Creating-An-Ubuntu-10.10-x32-Vagrant-Box
+"Setting up a Vagrant VM for TriSano":https://wiki.csinitiative.com/display/tri/Setting+up+a+Vagrant+VM+for+TriSano
