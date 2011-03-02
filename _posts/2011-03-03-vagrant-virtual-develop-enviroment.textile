@@ -24,6 +24,10 @@ Vargant是构建虚拟化开发环境的工具，它是用ruby开发的，并以
 
 这样就可以保证项目组成员的开发环境是一致的
 
+有时候,我们需要跟进开发多个项目,有的用java,有的用ruby,有的使用mysql,有的使用mongodb
+把这些都装起来也没问题,但是有点浪费性能了,同一时间我们只会开发一个项目
+用vagrant我们可以很好的解决这类问题,每个项目一个虚拟机,需要时才启动
+
 h3. 下载
 
 虚拟机的操作系统镜像文件是经过定制的，在vargant中引入的镜像文件称为"Box"
@@ -64,7 +68,7 @@ vagrant up
 h3. 在虚拟机上安装开发环境
 
 vagrant可以根据chef指定的cookbook recipe进行安装，关于chef的介绍可以参考 "应用chef构建服务器集群自动化部署与管理":/linux/2011/01/27/chef-for-automate-deploy.html
-这里采用的是不依赖chef服务器的chef-solo方式，recipe采用"ShopQi":https://github.com/saberma/shopqi 服务器部署的cookbook
+这里采用的是不依赖chef服务器的chef-solo方式，recipe采用 "ShopQi":https://github.com/saberma/shopqi 服务器部署的cookbook
 指定recipe，需要修改Vagrantfile，增加以下内容
 
 bq. 
@@ -87,6 +91,9 @@ pre.
 vagrant up
 #如果已经启动，只想更新或者调试recipe，运行vagrant provision
 
+如果你和我一样,喜欢rvm来管理ruby版本,并安装了除system自带的ruby,则需要修改/etc/profile,否则gems会被安装在自带ruby之下
+参考 "http://rvm.beginrescueend.com/integration/vagrant/":http://rvm.beginrescueend.com/integration/vagrant/
+
 h3. ssh登录虚拟机
 
 之后，我们可以登录虚拟机，像以前一样执行rake等命令
@@ -103,7 +110,7 @@ wget -qO- 127.0.0.1
 
 結果返回:
 
-bq. 
+pre. 
 <html>
 <head>
 <title>Welcome to nginx!</title>
@@ -128,8 +135,17 @@ h3. 打包发布
 
 现在开发环境已经安装好了，整个过程非常高效。更进一步，我们可以把已经做好的环境打包成镜像文件，分发给其他人，他们就可以瞬间建好开发环境了。
 
+准备pkg文件,此文件只用于定义映射端口,会被合并至Vagrantfile文件中,内容一般为
+
+bq. 
+Vagrant::Config.run do |config|
+  #Forward nginx
+  config.vm.forward_port("web", 80, 8080)
+end
+
 pre. 
-vagrant package --vagrantfile Vagrantfile 
+#执行打包
+vagrant package --vagrantfile Vagrantfile.pkg
 
 执行后当前目录会生成package.box文件
 
@@ -188,6 +204,30 @@ h3. 'unknown': unknown terminal type.
 很不幸，这是vagrant的一个bug，详情参考"commit#77a1b9a6efe4f5cdc993":'unknown': https://github.com/mitchellh/vagrant/commit/77a1b9a6efe4f5cdc99343e844835fc790a64c28
 解决方法，更新vagrant至0.7.3，不过，这个版本还没有发布，只能先手动修改本地gem的代码了
 
+h3. FATAL: No cookbook found in ["/tmp/vagrant-chef/cookbooks-0", "/tmp/vagrant-chef/cookbooks"], make sure cookbook_path is set correctly.
+
+这是vagrant的一个bug,详情请看
+"https://github.com/mitchellh/vagrant/issues#issue/308":https://github.com/mitchellh/vagrant/issues#issue/308
+"https://github.com/mitchellh/vagrant/issues/closed#issue/297":https://github.com/mitchellh/vagrant/issues/closed#issue/297
+
+不影响使用,作者正在修复...
+
+h3. 运行chef-solo过程的其他错误?
+
+pre. 
+#登录虚拟机
+vagrant ssh
+#在虚拟机运行chef-solo,显示更显示的debug信息
+cd /tmp/vagrant-chef
+sudo chef-solo -c solo.rb -j dna.json -l debug
+
+如果希望vagrant命令运行时都显示详细信息,可以配置Vagrantfile
+
+bq. 
+config.vm.provision :chef_solo do |chef|
+　chef.log_level = :debug
+end
+
 h2. 参考资源
 
 "Vagrant官网":http://vagrantup.com/
@@ -195,3 +235,4 @@ h2. 参考资源
 "client.pem error":http://tickets.opscode.com/browse/CHEF-1115
 "Creating An Ubuntu 10.10 x32 Vagrant Box":https://github.com/fnichol/wiki-notes/wiki/Creating-An-Ubuntu-10.10-x32-Vagrant-Box
 "Setting up a Vagrant VM for TriSano":https://wiki.csinitiative.com/display/tri/Setting+up+a+Vagrant+VM+for+TriSano
+"opscode vagrant":http://wiki.opscode.com/display/chef/Vagrant

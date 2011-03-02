@@ -1,7 +1,7 @@
 span.date { float: right }
 div.size  { text-align: right }
 
-article .body * {font-size:12px;}
+article .body * {font-weight:bold;}
 article h1,h2,h3,h4,h5,h6{border:0!important;}
 article h1{font-size:170%!important;padding-top:.5em!important;}
 article h1:first-child{margin-top:0!important;padding-top:.25em!important;border-top:none!important;}
