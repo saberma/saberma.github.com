@@ -45,7 +45,6 @@ bq.
 h3. 安装
 
 安装前请确保宿主机已经安装了ruby和rubygem
-可参考"我的Ubuntu":/linux/2011-02-24-my-ubuntu.html
 
 pre. 
 gem install bundler vagrant --no-ri --no-rdoc
@@ -73,7 +72,7 @@ vagrant可以根据chef指定的cookbook recipe进行安装，关于chef的介�
 
 bq. 
 config.vm.provision :chef_solo do |chef|
-　chef.recipe_url = "https://github.com/downloads/saberma/chef-repo/chef-solo.tar.gz"
+　chef.recipe_url = "https://dl.dropbox.com/u/19519145/shopqi/chef-solo.tar.gz"
 　chef.add_recipe "develop"
 end
 
