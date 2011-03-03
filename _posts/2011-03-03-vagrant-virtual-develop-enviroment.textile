@@ -2,7 +2,7 @@
 layout: post
 title: 虚拟化开发环境
 category: linux
-published: false
+#published: false
 ---
 "ShopQi":https://github.com/saberma/shopqi 中应用到的技术越来越多，开发环境的搭建变得越来越繁琐，这对开源项目的团队协作是相当不利的
 试想，每个程序员的偏好都不同，所使用的操作系统，编辑器都是五花八门的，在开发过程中由于开发环境不一致出现问题的不在少数，调试难度也大
@@ -22,7 +22,7 @@ Vargant是构建虚拟化开发环境的工具，它是用ruby开发的，并以
 # 创建一个Ubuntu10.04版本的32位VirtualBox虚拟机，并应用chef安装项目所需的ruby、数据库、应用服务器程序等
 # 将宿主机项目所在的目录与虚拟机共享，我们在宿主机用喜欢的编辑器修改程序，虚拟机中的开发环境可以立即读取到
 
-这样就可以保证项目组成员的开发环境是一致的
+这样就可以保证项目组成员的开发环境是一致的,不一定是rails项目才适用,java php或其他的都是可以使用vagrant
 
 有时候,我们需要跟进开发多个项目,有的用java,有的用ruby,有的使用mysql,有的使用mongodb
 把这些都装起来也没问题,但是有点浪费性能了,同一时间我们只会开发一个项目
@@ -66,6 +66,8 @@ vagrant up
 
 h3. 在虚拟机上安装开发环境
 
+!/images/article/vagrant/pstree.png!
+
 vagrant可以根据chef指定的cookbook recipe进行安装，关于chef的介绍可以参考 "应用chef构建服务器集群自动化部署与管理":/linux/2011/01/27/chef-for-automate-deploy.html
 这里采用的是不依赖chef服务器的chef-solo方式，recipe采用 "ShopQi":https://github.com/saberma/shopqi 服务器部署的cookbook
 指定recipe，需要修改Vagrantfile，增加以下内容
@@ -82,7 +84,7 @@ pre.
 #进入cookbooks所在目录后运行命令
 tar zcvf chef-solo.tar.gz ./cookbooks
 
-develop cookbook会引入开发机所需要的依赖recipe，"查看内容":https://github.com/saberma/chef-repo/blob/master/cookbooks/develop/recipes/default.rb
+develop cookbook会引入开发机所需要的依赖recipe， "查看内容":https://github.com/saberma/chef-repo/blob/master/cookbooks/develop/recipes/default.rb
 
 h3. 启动虚拟机
 
@@ -105,7 +107,7 @@ ls /vagrant
 刚才引入的cookbook包含了nginx recipe，所以我们可以看看虚拟机上nginx是否能正常访问了
 
 pre. 
-wget -qO- 127.0.0.1
+wget -qO- 127.0.0.1:3000
 
 結果返回:
 
@@ -124,8 +126,8 @@ pre.
 
 bq. 
 Vagrant::Config.run do |config|
-　# Forward guest port 80 to host port 8088 and name the mapping "web"
-　config.vm.forward_port("web", 80, 8088)
+　# Forward guest port 3000 to host port 8088 and name the mapping "web"
+　config.vm.forward_port("web", 3000, 8088)
 end
 
 用浏览器打开 "http://127.0.0.1:8088":http://127.0.0.1:8088 就可以访问了
@@ -139,7 +141,7 @@ h3. 打包发布
 bq. 
 Vagrant::Config.run do |config|
   #Forward nginx
-  config.vm.forward_port("web", 80, 8080)
+  config.vm.forward_port("web", 3000, 8088)
 end
 
 pre. 
@@ -147,6 +149,11 @@ pre.
 vagrant package --vagrantfile Vagrantfile.pkg
 
 执行后当前目录会生成package.box文件
+
+h3. 关闭虚拟机
+
+pre. 
+vagrant halt
 
 h2. 测试
 
@@ -200,7 +207,7 @@ node[:instance_role]
 
 h3. 'unknown': unknown terminal type.
 
-很不幸，这是vagrant的一个bug，详情参考"commit#77a1b9a6efe4f5cdc993":'unknown': https://github.com/mitchellh/vagrant/commit/77a1b9a6efe4f5cdc99343e844835fc790a64c28
+很不幸，这是vagrant的一个bug，详情参考 "commit#77a1b9a6efe4f5cdc993":https://github.com/mitchellh/vagrant/commit/77a1b9a6efe4f5cdc99343e844835fc790a64c28
 解决方法，更新vagrant至0.7.3，不过，这个版本还没有发布，只能先手动修改本地gem的代码了
 
 h3. FATAL: No cookbook found in ["/tmp/vagrant-chef/cookbooks-0", "/tmp/vagrant-chef/cookbooks"], make sure cookbook_path is set correctly.
