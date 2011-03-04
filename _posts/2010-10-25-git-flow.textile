@@ -32,7 +32,7 @@ gitflow是开源的标准化git流程协助工具，项目地址在 "http://gith
 h3. 安装(Ubuntu环境)
 
 pre. 
-wget -qO- --no-check-certificate http://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sh
+wget -qO- --no-check-certificate http://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo sh
 sudo apt-get install opt
 
 其他操作系统安装gitflow请参考 "http://github.com/nvie/gitflow":http://github.com/nvie/gitflow
