@@ -176,6 +176,9 @@ h3. 验收测试
 pre. 
 bundle exec cucumber features
 
+注意:将gems打包后,会导致在虚拟机运行rails各种命令时,速度巨慢,原因是virtaulbox共享目录的bug:随着目录内文件数的增长,对共享目录的访问会很慢
+解决方案是应用nfs共享目录,具体查看这里 "http://vagrantup.com/docs/nfs.html":http://vagrantup.com/docs/nfs.html 和 "http://vagrantup.com/docs/host_only_networking.html":http://vagrantup.com/docs/host_only_networking.html
+
 h3. 进入rails控制器
 
 经过上面的处理,插件已经安装好了,但是由于rails并未安装进系统,使用以下命令是进不了控制台的
