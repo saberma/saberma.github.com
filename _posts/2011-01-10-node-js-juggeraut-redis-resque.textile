@@ -190,6 +190,12 @@ h3. 定时任务
 
 如需定时执行任务，可以使用 "resque-scheduler":https://github.com/bvandenbos/resque-scheduler
 
+h3. 测试
+
+在测试的时候我们不需要测试过程与resque是异步的,否则resque执行的时候数据可能已经被清空了,使用resque_spec插件可以让resque worker立即执行
+
+详情查看 "https://github.com/leshill/resque_spec":https://github.com/leshill/resque_spec
+
 h2. 参考资源
 
 "Resque commands":http://redis.io/commands
