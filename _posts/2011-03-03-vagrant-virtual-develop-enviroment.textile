@@ -169,8 +169,8 @@ h3. 验收测试
 所以,我们只能在宿主机上进行这样的测试了,这样的话,宿主机又要安装项目的相关插件,这可不少.
 有什么办法能让插件跟着项目跑,而不把插件安装到系统上呢?
 
-答案是可以的,我们在虚拟机上使用bundle install安装插件的时候,指定参数--deployment，将插件安装在项目的vendor/bundle目录，这样在宿主机就不用再安装这些插件了。
-还有,我们的测试数据库还在虚拟机上,还得修改 @Vagrantfile@ ,把mongodb的端口映射至宿主机
+答案是可以的,我们在虚拟机上使用bundle install安装插件的时候,指定参数--path vendor/bundle，将插件安装在项目的vendor/bundle目录，这样在宿主机就不用再安装这些插件了。
+还有,我们的测试数据库还在虚拟机上,还得修改 @Vagrantfile@ ,把mongodb,redis-server,nodejs等服务的端口映射至宿主机
 直接在宿主机上运行以下命令就可以测试了
 
 pre. 
@@ -178,6 +178,10 @@ bundle exec cucumber features
 
 注意:将gems打包后,会导致在虚拟机运行rails各种命令时,速度巨慢,原因是virtaulbox共享目录的bug:随着目录内文件数的增长,对共享目录的访问会很慢
 解决方案是应用nfs共享目录,具体查看这里 "http://vagrantup.com/docs/nfs.html":http://vagrantup.com/docs/nfs.html 和 "http://vagrantup.com/docs/host_only_networking.html":http://vagrantup.com/docs/host_only_networking.html
+
+pre. 
+#宿主机需要安装nfs服务
+sudo apt-get install nfs-kernel-server
 
 h3. 进入rails控制器
 
