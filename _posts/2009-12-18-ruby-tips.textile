@@ -34,9 +34,9 @@ h3. char的ASCII值
 #ASCII值转为char
 120.chr
 #char转为ASCII值
-'x'[0]
+'x'.ord
 #查看字符串的ASCII值
-"love".chars.map{|c| c[0]}
+"love".chars.map(&:ord)
 </pre>
 
 h3. 字符编码转换
