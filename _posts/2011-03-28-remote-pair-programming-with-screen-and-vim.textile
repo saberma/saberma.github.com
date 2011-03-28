@@ -1,0 +1,13 @@
+---                                                                                                                                                          
+layout: post
+title: 应用screen实现远程结对编程
+category: linux
+published: false
+---
+
+#make screen run with root
+sudo chmod u+s /usr/bin/screen
+
+http://haruska.com/2009/09/29/remote-pair-programming/
+
+http://linuxtoy.org/archives/screen.html

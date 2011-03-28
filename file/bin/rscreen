@@ -26,4 +26,4 @@ export AUTOSSH_POLL AUTOSSH_LOGFILE AUTOSSH_DEBUG AUTOSSH_PATH AUTOSSH_GATETIME 
 #autossh -M 20004 -t $1 "screen -e^Zz -D -R"
 #-R 有screen则attach，否则新建screen
 #-x 多用户共享模式
-autossh -M 20004 -t $1 "screen -xR"
+autossh -M 20004 -t $1 "screen -xR" -p $2

@@ -7,8 +7,21 @@
 # This is how one can set a reattach password:
 # password ODSJQf.4IJN7E    # "1234"
 
+multiuser on
+acladd shopqi
 # no annoying audible bell, please
 vbell on
+
+hardstatus string "%1`"
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+screen -t vim 0
+screen -t terminal 1
+screen -t terminal 2
+screen -t terminal 3
+
+defutf8 on
 
 # detach on hangup
 autodetach on
@@ -180,7 +193,3 @@ bind ^] paste [.]
 # caption always "%{Yb} %Y-%02m-%02d %0c %{k}|%{C} %LD %{k}|%{G} %l %{k}|%{W} %-Lw%{+u}%n %t%{-u}%+Lw"
 
 caption always "%{Yb} %D %Y-%02m-%02d %0c %{k}|%{G} %l %{k}|%{W} %-w%{+b}%n %t%{-b}%+w"
-
-
-
-
