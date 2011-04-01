@@ -42,6 +42,7 @@ git checkout 分支名
 
 #检查修改内容
 git diff
+git diff --color
 
 #将新增的文件加入版本控制
 git add .

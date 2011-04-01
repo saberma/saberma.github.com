@@ -155,14 +155,11 @@ h2. 结对编程
 #screen配置文件，以支持256color
 wget http://saberma.github.com/file/dot/screenrc -O ~/.screenrc
 
-#下载autossh，避免ssh闲时等待过长自动断开连接
-wget http://www.harding.motd.ca/autossh/autossh-1.4b.tgz
-tar -vxf autossh*.tgz
-cd autossh*
-./configure
-make && sudo make install
+#安装autossh，避免ssh闲时等待过长自动断开连接
+sudo apt-get install autossh
 #下载rscreen脚本,调用autossh登录后直接运行screen
 wget http://saberma.github.com/file/bin/rscreen -O /usr/local/bin/rscreen
+sudo chmod a+x /usr/local/bin/rscreen
 
 #测试一下
 screen -xR
