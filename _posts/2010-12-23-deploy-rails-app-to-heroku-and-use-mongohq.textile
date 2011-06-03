@@ -69,7 +69,7 @@ heroku config --long
 
 修改 @config/mongoid.yml@, production只留以下内容
 
-bq. 
+pre. 
 production:
   uri: <%= ENV['MONGOHQ_URL'] %>
 
