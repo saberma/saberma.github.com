@@ -1,8 +1,7 @@
 ---                                                                                                                                                          
 layout: post
-title: 如何为网站加入ssl证书
+title: 如何为https网站加入ssl证书
 category: other
-published: false
 ---
 
 要提高网站与客户端浏览器之间的安全性，可以基于https协议对传输的数据进行加密
@@ -18,9 +17,9 @@ https协议采用公钥私钥加密算法进行加密，服务器用私钥对网
 # "http://www.verisign.com":http://www.verisign.com
 # "http://www.rapidssl.com":http://www.rapidssl.com
 
-这些都是收费的，免费的只有一家"http://www.startssl.com":http://www.startssl.com ，但是firefox3.5不支持，所以不考虑
+这些都是收费的，免费的只有一家 "http://www.startssl.com":http://www.startssl.com ，但是firefox3.5不支持，所以不考虑
 
-不了解的同学可以看下"数字签名是什么":http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html
+不了解的同学可以看下 "数字签名是什么":http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html
 
 h2. 认证类型
 
