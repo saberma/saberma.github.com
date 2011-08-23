@@ -7,10 +7,10 @@ published: false
 
 h2. CPU
 
-目前AMD服务器主要有Opteron(皓龙)4000和6000系列，AMD的CPU都带内存控制器，直接与内存交互，而不再通过北桥芯片
-价格差异点在于内核数量、主频及功耗，功耗节能版对服务器领域来说意义不大，而且价格高昂，不考虑(型号后缀为HE或EE)
+目前AMD服务器CPU主要有Opteron(皓龙)4000和6000系列，AMD的CPU都带内存控制器，直接与内存交互，而不再通过北桥芯片
+价格差异点在于内核数量、主频及功耗，功耗节能版对服务器领域来说意义不大，而且价格高昂，不考虑(型号后缀为HE低功耗或EE超低功耗)
 
-h3. 4000系列
+h3. "4000系列":http://www.amd.com/cn/products/server/processors/4000-series-platform/Pages/4000-series-platform.aspx
 
 核心数量有4核、6核，最高支持DDR3-1333，核心独占一二级缓存，共享三级缓存
 候选表格如下：
@@ -23,13 +23,7 @@ h3. 4000系列
 
 初步选用 4180，性价比高
 
-对应芯片组SR5690/SR5670/SR5650
-
-* 用于高能效云的SR5650芯片组
-* 用于可扩展SMB 的SR5670芯片组
-* 用于高I/O系统的SR5690
-
-h3. 6000系列
+h3. "6000系列":http://www.amd.com/cn/products/server/processors/6000-series-platform/Pages/6000-series-platform.aspx
 
 核心数量有8核、12核，候选表格如下：
 
@@ -37,13 +31,32 @@ h3. 6000系列
 |6174|12  |2.2 |Socket G34|80W |8500|
 |6172|12  |2.1 |Socket G34|80W |7500|
 |6168|12  |1.9 |Socket G34|80W |6000|
-|6136|8   |2.4 |Socket C32|80W |5600|
-|6134|8   |2.3 |Socket C32|80W |3890|
-|6128|8   |2.0 |Socket C32|80W |3111|
+|6136|8   |2.4 |Socket G34|80W |5600|
+|6134|8   |2.3 |Socket G34|80W |3890|
+|6128|8   |2.0 |Socket G34|80W |3111|
+
+h3. 芯片组
+
+使用AMD自家的服务器芯片组:北桥SR5690/SR5670/SR5650、南桥SP5100，详见"AMD平台规范":http://www.amd.com/cn/products/server/processors/Pages/amd-platform-specifications.aspx
+
+* 用于高能效云的SR5650芯片组
+* 用于可扩展SMB 的SR5670芯片组
+* 用于高I/O系统的SR5690
 
 h2. 主板
 
 主要生产商:超微(Supermicro)、泰安(TYAN)、Intel、华硕
+具体要求:支持SAS硬盘、DDR3(1333MHZ最大内存至少32
+
+"超微C32系列主板":http://www.supermicro.com/c32/AMD_C32.cfm?pg=MOBO
+"超微G34系列主板":http://www.supermicro.com/g34/AMD_G34.cfm?pg=MOBO
+
+h3. "泰安主板":http://www.tyan.com.cn/product_boards2.aspx
+
+"泰安C32系列主板":http://www.tyan.com.cn/product_boards2_list_socket.aspx?cpuid=4&socketid=24&chipsetid=all&socketnum=all&formfactor=all
+"泰安G34系列主板":http://www.tyan.com.cn/product_boards2_list_socket.aspx?cpuid=4&socketid=25&chipsetid=all&socketnum=all&formfactor=all
+
+在不确定选择哪一个主板的情况下，可以先看主板的编号；要求主板支持SAS，则编号一定要带W字母，比如:WAGM4NRF型号是支持SAS的，而AGM4NRF不支持，具体编号意义可查看 "产品矩阵":http://www.tyan.com.cn/tech/product_matrix.aspx 的底端说明
 
 h2. 内存
 
