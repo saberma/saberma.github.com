@@ -47,9 +47,14 @@ h2. 主板
 
 主要生产商:超微(Supermicro)、泰安(TYAN)、Intel、华硕
 具体要求:支持SAS硬盘、DDR3(1333MHZ最大内存至少32
+有些主板带iKVM功能(Keyboard,Video,Mouse)，用来实现远程管理功能(KVM Over IP)
 
 "超微C32系列主板":http://www.supermicro.com/c32/AMD_C32.cfm?pg=MOBO
 "超微G34系列主板":http://www.supermicro.com/g34/AMD_G34.cfm?pg=MOBO
+
+|型号   |最大内存容量                                                          |插槽类型|Socket数量|SAS|主板结构|价格(pcsuperstore.com)|
+|H8DCL-6|128GB DDR3 Registered ECC 1333/1066/800 or 32GB of DDR3 Unbuffered ECC|C32     |2         |SAS|ATX     |$408                  |
+|H8DG6  |256GB DDR3 Registered ECC 1333/1066/800 or 64GB of DDR3 Unbuffered ECC|G34     |2         |SAS|E-ATX   |$573                  |
 
 h3. "泰安主板":http://www.tyan.com.cn/product_boards2.aspx
 
@@ -57,6 +62,19 @@ h3. "泰安主板":http://www.tyan.com.cn/product_boards2.aspx
 "泰安G34系列主板":http://www.tyan.com.cn/product_boards2_list_socket.aspx?cpuid=4&socketid=25&chipsetid=all&socketnum=all&formfactor=all
 
 在不确定选择哪一个主板的情况下，可以先看主板的编号；要求主板支持SAS，则编号一定要带W字母，比如:WAGM4NRF型号是支持SAS的，而AGM4NRF不支持，具体编号意义可查看 "产品矩阵":http://www.tyan.com.cn/tech/product_matrix.aspx 的底端说明
+所以型号一定要包含WGNR(G=Onboard Gf / N=LAN / R= RAID / W= SAS)
+
+候选表格，泰安主板AMD系列在国内找不到网上报价，先从 "newegg.com":newegg.com "比较价格":http://www.newegg.ca/Product/Productcompare.aspx?Submit=ENE&N=100007628%2050001424%20600008002&IsNodeId=1&bop=And&CompareItemList=302|13-151-227^13-151-227-TS%2C13-151-225^13-151-225-TS%2C13-151-215^13-151-215-TS%2C13-151-214^13-151-214-TS%2C13-151-220^13-151-220-TS
+|型号          |最大内存容量                  |插槽类型|Socket数量|SAS   |主板结构    |价格(newegg.com)|
+|S8010WGM2NR   |64GB 667 RDIMM/16GB 1066 UDIMM|C32     |1         |SAS   |ATX         |$365            |
+|S8225WAGM4NRF |64GB RDIMM/32GB UDIMM         |C32     |2         |SAS   |Extended ATX|$615            |
+|S8226WGM3NR   |96GB                          |C32     |2         |SAS   |SSI EEB     |$560            |
+|S8230WGM4NR-LE|128GB                         |G34     |2         |SAS2.0|Extended ATX|$550            |
+|S8230WGM4NR   |128GB                         |G34     |2         |SAS2.0|Extended ATX|$580            |
+|S8236WGM3NR   |128GB                         |G34     |2         |SAS2.0|SSI EEB     |$570            |
+
+"华南区代理商":http://www.tyan.com.cn/wtb_asia.aspx#CHINA
+深圳市亿时空科技有限公司,深圳市福田区华强北路宝华大厦A629室,0755-88863168,孙先生
 
 h2. 内存
 
@@ -132,6 +150,20 @@ h2. 硬盘
 
 h2. 机箱
 
+h3. 大小
+
+宽(48.26cm＝19英寸)，高(1u=4.445cm的倍数)
+长度主要分为两组，即""和"短款组"
+# 标准组 长度约为625－725毫米，支持双CPU服务器主板(含12×13英寸超大尺寸)
+# 短款组 长度约为360－525毫米，仅支持单CPU服务器主板
+
+h3. 主板结构
+
+# ATX
+# MEB 16.2"x13" (411x330mm)
+# SSI EEB 12"x13" (305x330mm)
+# EATX 12"x13" (305x330mm) 大小于EEB相同，但是两者不可替换使用(因为螺丝口都不一样)
+
 h3. 散热
 
 重中之重，安装6个以上的风扇
@@ -147,6 +179,8 @@ h2. 参考资源
 "AMD服务器新平台第二波：Opteron 4100登场":http://news.mydrivers.com/1/167/167758.htm
 "AMD服务器平台":http://www.amd.com/cn/products/server/processors/Pages/server-processors.aspx
 "AMD CPU 报价":http://detail.zol.com.cn/servercpu_index/subcate383_55_list_s2775_1.html
+
+"UDIMM与RDIMM区别":http://www.liusuping.com/it-tech/server-rdimm-udimm.html
 
 "如何选购固态硬盘":http://hi.baidu.com/tyc6982/blog/item/b75d55ce519deb37b700c870.html
 "测试探究SSD固态硬盘性能下降的谜题":http://storage.it168.com/a2011/0104/1145/000001145668_all.shtml
