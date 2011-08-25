@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 如何DIY服务器
+title: AMD服务器DIY
 category: other
 published: false
 ---
@@ -159,7 +159,7 @@ h3. 大小
 
 h3. 主板结构
 
-# ATX
+# ATX 12"x9.5" (30.5cmx24.2cm)
 # MEB 16.2"x13" (411x330mm)
 # SSI EEB 12"x13" (305x330mm)
 # EATX 12"x13" (305x330mm) 大小于EEB相同，但是两者不可替换使用(因为螺丝口都不一样)
@@ -168,6 +168,27 @@ h3. 散热
 
 重中之重，安装6个以上的风扇
 主要散热点为CPU、主板芯片组、内存、硬盘
+
+h3. "超微机箱":http://www.fywx.cc/Product_List.php?root_id=5&cat_id=28
+
+|型号                        |CPU  |适用主板           |硬盘位      |IO slots    |电源功率|报价|
+|SC815TQ-560UV/SC815TQ-560UB |DP/UP|13.68"x13"E-ATX    |4x3.5英寸SAS|2x FF, 1x LP|560W    |3200|
+|SC815TQ-560V/SC815TQ-560B   |DP   |12"x13"E-ATX       |4x3.5英寸SAS|1x FF, 1x LP|560W    |3200|
+|SC815TQ-560CV/SC815TQ-560CB |DP   |(12",13.68")x10"ATX|4x3.5英寸SAS|1x FF       |560W    |    |
+|SC813TQ-520/SC813TQ-520B    |DP/UP|12"x13"E-ATX       |4x3.5英寸SAS|1x FF, 1x LP|520W    |3178|
+|SC813TQ-520C/SC813TQ-520CB  |DP/UP|12"x13"E-ATX       |4x3.5英寸SAS|1x FF       |520W    |    |
+|SC813TQ-500/SC813TQ-500B    |DP   |12"x13"E-ATX       |4x3.5英寸SAS|1x FH, 1x LP|500W    |3743|
+|SC813MFTQ-520CB             |DP/UP|12"x10"ATX         |4x3.5英寸SAS|1x FH       |520W    |2635|
+|SC813MTQ-520C/SC813MTQ-520CB|DP/UP|12"x10"ATX         |4x3.5英寸SAS|1x FH       |520W    |2688|
+|SC813MT-420C/SC813MS-420CB  |DP/UP|12"x10"ATX         |4x3.5英寸SAS|1x FH       |420W    |    |
+|SC813MT-410C/SC813MT-410CB  |DP/UP|12"x10"ATX         |4x3.5英寸SAS|1x FH       |410W    |    |
+|SC813MT-300C/SC813MT-300CB  |DP/UP|12"x10"ATX         |4x3.5英寸SAS|1x FH       |300W    |    |
+|SC811TQ-520/SC811TQ-520B    |DP/UP|12"x10"ATX         |2x3.5英寸SAS|1x FH       |520W    |2368|
+|SC811TQ-350B                |DP/UP|12"x10"ATX         |2x3.5英寸SAS|1x FH       |350W    |    |
+
+型号带Twin，是专为双子星产品而设计的，1u空间可以装入2块主板；
+型号带Q，支持SAS/SATA；S，支持SCSI；R，冗余双电源，U指支持单路主板；V或者B指颜色
+IO slots:FF=全高，全长的扩展卡;FH=全高，半长的扩展卡;LP=矮板扩展卡
 
 h2. 其他
 
