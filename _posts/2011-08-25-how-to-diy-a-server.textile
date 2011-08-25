@@ -2,7 +2,6 @@
 layout: post
 title: AMD服务器DIY
 category: other
-published: false
 ---
 
 h2. CPU
@@ -37,7 +36,7 @@ h3. "6000系列":http://www.amd.com/cn/products/server/processors/6000-series-pl
 
 h3. 芯片组
 
-使用AMD自家的服务器芯片组:北桥SR5690/SR5670/SR5650、南桥SP5100，详见"AMD平台规范":http://www.amd.com/cn/products/server/processors/Pages/amd-platform-specifications.aspx
+使用AMD自家的服务器芯片组:北桥SR5690/SR5670/SR5650、南桥SP5100，详见 "AMD平台规范":http://www.amd.com/cn/products/server/processors/Pages/amd-platform-specifications.aspx
 
 * 用于高能效云的SR5650芯片组
 * 用于可扩展SMB 的SR5670芯片组
@@ -52,9 +51,9 @@ h2. 主板
 "超微C32系列主板":http://www.supermicro.com/c32/AMD_C32.cfm?pg=MOBO
 "超微G34系列主板":http://www.supermicro.com/g34/AMD_G34.cfm?pg=MOBO
 
-|型号   |最大内存容量                                                          |插槽类型|Socket数量|SAS|主板结构|价格(pcsuperstore.com)|
-|H8DCL-6|128GB DDR3 Registered ECC 1333/1066/800 or 32GB of DDR3 Unbuffered ECC|C32     |2         |SAS|ATX     |$408                  |
-|H8DG6  |256GB DDR3 Registered ECC 1333/1066/800 or 64GB of DDR3 Unbuffered ECC|G34     |2         |SAS|E-ATX   |$573                  |
+|型号   |最大内存容量                               |插槽|数量|SAS|结构 |价格|
+|H8DCL-6|128GB Registered ECC or 32GB Unbuffered ECC|C32 |2   |SAS|ATX  |$408|
+|H8DG6  |256GB Registered ECC or 64GB Unbuffered ECC|G34 |2   |SAS|E-ATX|$573|
 
 h3. "泰安主板":http://www.tyan.com.cn/product_boards2.aspx
 
@@ -65,13 +64,14 @@ h3. "泰安主板":http://www.tyan.com.cn/product_boards2.aspx
 所以型号一定要包含WGNR(G=Onboard Gf / N=LAN / R= RAID / W= SAS)
 
 候选表格，泰安主板AMD系列在国内找不到网上报价，先从 "newegg.com":newegg.com "比较价格":http://www.newegg.ca/Product/Productcompare.aspx?Submit=ENE&N=100007628%2050001424%20600008002&IsNodeId=1&bop=And&CompareItemList=302|13-151-227^13-151-227-TS%2C13-151-225^13-151-225-TS%2C13-151-215^13-151-215-TS%2C13-151-214^13-151-214-TS%2C13-151-220^13-151-220-TS
-|型号          |最大内存容量                  |插槽类型|Socket数量|SAS   |主板结构    |价格(newegg.com)|
-|S8010WGM2NR   |64GB 667 RDIMM/16GB 1066 UDIMM|C32     |1         |SAS   |ATX         |$365            |
-|S8225WAGM4NRF |64GB RDIMM/32GB UDIMM         |C32     |2         |SAS   |Extended ATX|$615            |
-|S8226WGM3NR   |96GB                          |C32     |2         |SAS   |SSI EEB     |$560            |
-|S8230WGM4NR-LE|128GB                         |G34     |2         |SAS2.0|Extended ATX|$550            |
-|S8230WGM4NR   |128GB                         |G34     |2         |SAS2.0|Extended ATX|$580            |
-|S8236WGM3NR   |128GB                         |G34     |2         |SAS2.0|SSI EEB     |$570            |
+
+|型号          |最大内存容量         |插槽|数量|SAS   |主板结构    |价格|
+|S8010WGM2NR   |64GB RDIMM/16GB UDIMM|C32 |1   |SAS   |ATX         |$365|
+|S8225WAGM4NRF |64GB RDIMM/32GB UDIMM|C32 |2   |SAS   |Extended ATX|$615|
+|S8226WGM3NR   |96GB                 |C32 |2   |SAS   |SSI EEB     |$560|
+|S8230WGM4NR-LE|128GB                |G34 |2   |SAS2.0|Extended ATX|$550|
+|S8230WGM4NR   |128GB                |G34 |2   |SAS2.0|Extended ATX|$580|
+|S8236WGM3NR   |128GB                |G34 |2   |SAS2.0|SSI EEB     |$570|
 
 "华南区代理商":http://www.tyan.com.cn/wtb_asia.aspx#CHINA
 深圳市亿时空科技有限公司,深圳市福田区华强北路宝华大厦A629室,0755-88863168,孙先生
@@ -79,6 +79,7 @@ h3. "泰安主板":http://www.tyan.com.cn/product_boards2.aspx
 h2. 内存
 
 以下应用技术也是影响内存价格的重要因素
+
 |Unbuffered Ecc DIMM|低端服务器工作站内存|
 |Registered DIMM    |高端服务器工作站内存|
 |Fully Buffered DIMM|全缓冲服务器内存    |
@@ -88,7 +89,7 @@ h2. 内存
 要带ECC纠错技术，通过IC颗粒的分布可以看出是否带有ECC功能，ECC比普通NO ECC内存多1颗IC芯片
 买DDR3的，电压低至1.5v，数据传输率(800/1066/1333/1600)
 
-为了让双通道技术发挥作用，假如需要的内存总量为8G的，则买两条4G的，分别插入*同颜色*的DIMM
+为了让双通道技术发挥作用，假如需要的内存总量为8G的，则买两条4G的，分别插入 *同颜色* 的DIMM
 
 候选表格如下:
 
@@ -107,10 +108,10 @@ h2. 硬盘
 这里只考虑希捷的硬盘，选用SAS2.0（串行连接SCSI）6Gb/s接口；2.5英寸的Savvio 15K系列没有货源；只能选择3.5英寸
 根据 "希捷官网面向企业级Cheetah® 15K":http://www.seagate.com/www/zh-cn/products/enterprise-hard-drives/cheetah-15k 的描述，支持SAS2.0，15K的候选表格如下:
 
-|型号                                     |编号       |缓存|盘片数量|报价|最低价|
-|希捷 Cheetah(捷豹) 15K.7 SAS 6Gb/秒 300GB|ST3300657SS|16MB|2       |1520|1350  |
-|希捷 Cheetah(捷豹) 15K.7 SAS 6Gb/秒 450GB|ST3450857SS|16MB|3       |1840|1840  |
-|希捷 Cheetah(捷豹) 15K.7 SAS 6Gb/秒 600GB|ST3600057SS|16MB|4       |2410|2400  |
+|型号                                     |编号       |缓存|盘片|报价|
+|希捷 Cheetah(捷豹) 15K.7 SAS 6Gb/秒 300GB|ST3300657SS|16MB|2   |1520|
+|希捷 Cheetah(捷豹) 15K.7 SAS 6Gb/秒 450GB|ST3450857SS|16MB|3   |1840|
+|希捷 Cheetah(捷豹) 15K.7 SAS 6Gb/秒 600GB|ST3600057SS|16MB|4   |2410|
 
 *固态硬盘SSD*
 
@@ -121,39 +122,34 @@ h2. 硬盘
 主控：连接闪存和外部SATA接口，决定数据要存储在哪个闪存block，常见品牌有:
 # intel 芯片(PC29AS21BA0)采用34nm颗粒工艺的Gen2版本，X25-E Extreme SATA系列专用于服务器，也为威刚、金士顿等品牌代工
 # SandForce 芯片(SF-1565TA2-SBH)的SF1500面向服务器，代表性产品:海盗船Force系列
-# Jmicron *别买来做服务器*，山寨产品，随机4k读取效率低下，代表产品：金士顿的SSD Now V系列
-# 三星 *别买来做服务器*，芯片(S3C29RBB01-YK40)，顺序读取220，写入180，4k随机读写性能不佳；代表产品:三星的PM800、SS805、海盗船的P系列、OCZ的Summit系列、博帝的Torqx M28系列
-# 其他 大都是随机读写性能低下，要注意不要买这类产品
-
-服务器用途只可购买Intel X25-E(7月1日停产，严重缺货)、SF1500系列(1562)的产品、Intel 710、Intel 720(都未上市)、SF2500/2600系列(SF-2585、SF-2682)
+# Jmicron *别买来做服务器*
 
 存储方式分为:
 # SLC(单层式储存) 一个block只记录0和1数值，速度快(特别是随机写)，稳定，寿命长(10万次擦写)，成本高
 # MLC(多层式储存) 一个block记录00,01,11,10四组数值，存储空间翻倍，寿命短(1万次擦写)，成本低
 
-候选表格如下:
+候选表格如下(尺寸都为2.5英寸,NAND闪存类型都为SLC):
 
-|型号                 |编号           |4kb读取(IOPS)|NAND 闪存类型|读取速度|写入速度|尺寸|接口类型   |价格|最低价|
-|Intel X25-E 50nm(32G)|SSDSA2SH032G1GN|             |SLC          |250MB/S |170MB/S |2.5 |SATA II    |2750|2385  |
-|Intel X25-E 50nm(64G)|SSDSA2SH064G101|             |SLC          |250MB/S |170MB/S |2.5 |SATA II    |5000|4550  |
-|希捷Pulsar XT.2(100G)|ST100FX0002    |48,000/22,000|SLC          |360MB/S |300MB/S |2.5 |SAS(6-Gb/s)|未知|      |
+|型号                 |编号           |读取速度|写入速度|接口类型   |价格|
+|Intel X25-E 50nm(32G)|SSDSA2SH032G1GN|250MB/S |170MB/S |SATA II    |2385|
+|Intel X25-E 50nm(64G)|SSDSA2SH064G101|250MB/S |170MB/S |SATA II    |4550|
+|希捷Pulsar XT.2(100G)|ST100FX0002    |360MB/S |300MB/S |SAS(6-Gb/s)|    |
 
 4K随机读写性能，顺序读写速度对于大数据量来说非常重要，但作为系统盘(即非单纯的数据存储)，最关键的还是4k随机读写这一参数
 
-不需要支持热插拔、组建raid0(双倍读取、单速写入)
-
 供应商:
+
 |名称         |地址                   |联系人|电话         |手机       |网店                               |
-|风驰计算机   |华强北国利大厦1711-1716|杨颖  |0755 83743198|13823752475|http://m.pconline.com.cn/shop495935|
-|服务器专卖   |现代之窗b座8楼8i       |谢先生|             |13715330262|http://shop34747127.taobao.com     |
-|LBC服务器专卖|赛格电子市场5楼        |黄先生|             |13510979215|http://diyservers.taobao.com       |
+|风驰计算机   |华强北国利大厦1711-1716|杨颖  |0755 83743198|13823752475|"网址":http://m.pconline.com.cn/shop495935|
+|服务器专卖   |现代之窗b座8楼8i       |谢先生|             |13715330262|"网址":http://shop34747127.taobao.com     |
+|LBC服务器专卖|赛格电子市场5楼        |黄先生|             |13510979215|"网址":http://diyservers.taobao.com       |
 
 h2. 机箱
 
 h3. 大小
 
 宽(48.26cm＝19英寸)，高(1u=4.445cm的倍数)
-长度主要分为两组，即""和"短款组"
+长度主要分为两组
 # 标准组 长度约为625－725毫米，支持双CPU服务器主板(含12×13英寸超大尺寸)
 # 短款组 长度约为360－525毫米，仅支持单CPU服务器主板
 
@@ -207,4 +203,3 @@ h2. 参考资源
 "测试探究SSD固态硬盘性能下降的谜题":http://storage.it168.com/a2011/0104/1145/000001145668_all.shtml
 
 "DIY服务器机箱组装经验谈":http://www.ittong.net/News_37191.html
-"唐华DIY博客目录":http://blog.sina.com.cn/s/articlelist_1292865861_0_1.html
