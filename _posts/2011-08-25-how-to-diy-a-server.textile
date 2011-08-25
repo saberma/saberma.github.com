@@ -55,6 +55,10 @@ h2. 主板
 |H8DCL-6|128GB Registered ECC or 32GB Unbuffered ECC|C32 |2   |SAS|ATX  |$408|
 |H8DG6  |256GB Registered ECC or 64GB Unbuffered ECC|G34 |2   |SAS|E-ATX|$573|
 
+"代理商":http://www.supermicro.com/wheretobuy/asia.cfm?rgn=133
+海红微电子,深圳市福田区天安数码城创新科技广场A座1803室,0755-83434282
+星宏宝博,深圳市福田区福华一路98号卓越606B-608B,0755-83005009,13823305008,覃碧玉
+
 h3. "泰安主板":http://www.tyan.com.cn/product_boards2.aspx
 
 "泰安C32系列主板":http://www.tyan.com.cn/product_boards2_list_socket.aspx?cpuid=4&socketid=24&chipsetid=all&socketnum=all&formfactor=all
