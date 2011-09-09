@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AMD服务器DIY
+title: 服务器DIY
 category: other
 ---
 
@@ -20,7 +20,6 @@ h3. "4000系列":http://www.amd.com/cn/products/server/processors/4000-series-pl
 |4130|4   |2.6 |Socket C32|75W |1650|
 |4122|4   |2.2 |Socket C32|75W |1050|
 
-初步选用 4180，性价比高
 
 h3. "6000系列":http://www.amd.com/cn/products/server/processors/6000-series-platform/Pages/6000-series-platform.aspx
 
@@ -33,6 +32,8 @@ h3. "6000系列":http://www.amd.com/cn/products/server/processors/6000-series-pl
 |6136|8   |2.4 |Socket G34|80W |5600|
 |6134|8   |2.3 |Socket G34|80W |3890|
 |6128|8   |2.0 |Socket G34|80W |3111|
+
+初步选用 6134，性价比高
 
 h3. 芯片组
 
@@ -194,6 +195,31 @@ h2. 其他
 
 操作过程一定要带防静电手套
 在查询时应该多使用"实测"、"评测"、"企业级"、"如何选购"，以最大可能地了解各种配件在实际中的使用情况
+
+h2. 后记
+
+由于AMD的CPU在服务器市场的占用率非常少,各种型号都经常缺货,就算有货价格也特别高,对应的主板款式也非常少,因此决定放弃采用AMD架构
+
+h3. intel
+
+intel的E5645,集成6核,主频2.4GHZ,具备超线程技术,单核可同时处理两个任务,性价比最高
+
+h3. 主板
+
+E5645属于intel至强 "5000":http://www.intel.com/zh_CN/products/server/processor/xeon5000/index.htm 系列,支持此系列的 "芯片组":http://www.intel.com/cd/products/services/apac/zho/server/chipsets/360574.htm#s1=%u670D%u52A1%u5668&s2=all&s3=all 主要有 intel5500,intel5520,主要差别在于 "最大内存容量":http://ark.intel.com/compare/36784,36783
+主要选择基于5500芯片组的双路主板
+
+*超微*
+
+|型号    |最大内存容量|插槽|数量|SAS   |结构 |价格|
+|X8DTH-6F|192GB       |1366|2   |SAS2.0|E-ATX|    |
+|X8DT6-F |192GB       |1366|2   |SAS2.0|E-ATX|3300|
+|X8DTL-6F|96GB        |1366|2   |SAS2.0|E-ATX|    |
+
+6-SAS2.0(6G),F-带IPMI功能
+
+最好带IPMI芯片,用于远程监控cpu,风扇等状态
+参考 "使用IPMI远程控制管理":http://blog.5ilinux.com/archives/2006/07/ipmidell2850.html "使用 ipmitool 实现 Linux 系统下对服务器的 ipmi 管理":http://www.ibm.com/developerworks/cn/linux/l-ipmi/index.html
 
 h2. 参考资源
 
