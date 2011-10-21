@@ -50,6 +50,7 @@ GeoTrust,VeriSign只能是企业级认证的产品才包含泛二级域名类型
 
 rapidssl符合要求，价格较低，还有优惠
 
+# "positive ssl 89$":http://www.namecheap.com/ssl-certificates/comodo.aspx
 # "clickssl 139$":http://www.clickssl.com/rapidssl/rapidsslwildcard.aspx
 # "servertastic 139$":https://www.servertastic.com/rapidssl/
 # "cheapssls 148$":http://www.cheapssls.com/geotrust-ssl-certificates/rapidssl-wildcard.html
