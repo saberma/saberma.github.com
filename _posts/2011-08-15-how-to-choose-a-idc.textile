@@ -2,7 +2,7 @@
 layout: post
 title: 如何选择idc机房
 category: other
-published: false
+published: true
 ---
 
 h2. 双线 or 单线
@@ -36,6 +36,7 @@ h3. 动力互联
 "http://www.cctvidc.com":http://www.cctvidc.com
 
 一台机子超过60个域名就得办理ICP证，证件办理费用1000元左右，得上广州通信管理局办理
+(杨林)免费备案是30个,超过每个收100元,(丁俊堂),备案不收费
 
 *维用机房1u双线价格*
 每年7500，以后的价格一般都这个价格，有上涨会提前一个月通知
