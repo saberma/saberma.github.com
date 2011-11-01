@@ -54,3 +54,32 @@ rapidssl符合要求，价格较低，还有优惠
 # "clickssl 139$":http://www.clickssl.com/rapidssl/rapidsslwildcard.aspx
 # "servertastic 139$":https://www.servertastic.com/rapidssl/
 # "cheapssls 148$":http://www.cheapssls.com/geotrust-ssl-certificates/rapidssl-wildcard.html
+
+h2. 多域名认证
+
+由于早期https协议并不支持servername，所以每个域名只能使用关联一个独立ip
+后期加入的Server Name Indication(SNI)功能才支持，但是并不是所有的浏览器都支持，兼容性查看 "这里":http://en.wikipedia.org/wiki/Server_Name_Indication
+godaddy提供的UCC证书支持多域名，"UCC认证":http://www.godaddy.com/ssl/ssl-certificates.aspx?ci=9039
+
+关于https是否会导致请求太慢的问题，可以查看 "https误解三":http://slj.me/2011/02/top-7-myths-about-https/
+
+nginx关于ssl的配置可查看 "官方文档":http://nginx.org/en/docs/http/configuring_https_servers.html
+@nginx -V@ 命令可以查看当前安装的nginx是否已经安装ssl模块、是否支持SNI
+具体安装过程可参考 "这里":http://zou.lu/nginx-https-ssl-module/ 或者 "这里":http://blog.yorkxin.org/2009/01/17/rails-ssl/
+
+h3. 生成证书
+
+pre. 
+openssl genrsa -des3 -out domain.key 2048
+req -new -key shopqi.key -out domain.csr
+cat domain.csr # 复制到购买ssl证书的网站
+
+pre. 
+# 收到认证证书后打包证书(注意顺序)
+cat STAR_domain_com.crt PositiveSSLCA.crt UTNAddTrustServerCA.crt AddTrustExternalCARoot.crt >> domain.crt
+
+h3. 去掉nginx重启需要输入密码
+
+cp domain.key domain.key.com
+openssl rsa -in domain.key.com -out domain.key
+chmod 400 domain.key
