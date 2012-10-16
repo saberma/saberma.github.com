@@ -78,8 +78,18 @@ pre.
 # 收到认证证书后打包证书(注意顺序)
 cat STAR_domain_com.crt PositiveSSLCA.crt UTNAddTrustServerCA.crt AddTrustExternalCARoot.crt >> domain.crt
 
+2012年 namecheap 发过来的crt包少了 UTNAddTrustServerCA.crt
+
 h3. 去掉nginx重启需要输入密码
 
 cp domain.key domain.key.com
 openssl rsa -in domain.key.com -out domain.key
 chmod 400 domain.key
+
+h3. 证书续费
+
+我原以为续费时交上钱就可以了，想不到 namecheap.com 上还要求激活证书，要重新输入 domain.csr 的内容，然后等待审核
+
+h2. 检查证书
+
+http://www.digicert.com/help/
