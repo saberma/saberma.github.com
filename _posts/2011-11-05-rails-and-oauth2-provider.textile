@@ -1,0 +1,88 @@
+---
+layout: post
+title: 为rails程序提供oauth2服务端认证服务
+category: other
+published: false
+---
+
+之前已经在 "ShopQi":https://github.com/saberma/shopqi 实现Oauth2认证服务，允许官方应用、第三方应用访问、操作用户信息；开发时也已经对ruby的各种Provider实现、Consumer实现都进行了评估；但由于当时并未记录详细过程，事隔两三个月，也忘得差不多了；现在 @liwh 需要基于此开发api功能，为了更好地交流，有必要重新整理思路了。
+
+h2. Oauth2
+
+h3. 什么是oauth
+
+当社交网站刚出来的时候，用户注册后，为了把朋友圈都拉进来，可以给邮箱的联系人发邀请信。社交网站提供了方便的功能，可以获取用户的联系人列表，然后直接给他们发邮件，前提是需要用户把邮箱的密码告诉社交网站，这样有以下缺点为:
+
+* 不安全
+* 无法做到限制社交网站只能获取邮件列表
+
+如果邮箱服务商能提供一种认证服务，用户可以指定某些社交网站获取邮箱联系人列表，而不需要要求社交网站提交用户密码，就皆大欢喜了。
+
+随着类似需求越来越多，oauth就应运而生了。
+
+Oauth是一种基于http的开放协议，规定了服务端要如何提供认证接口，客户端要如何与服务端交互。
+
+h3. oauth中的角色
+
+由上面提到的例子可以看出，在一个典型的Oauth应用中，包括三个角色:
+
+* 服务提供方[Service Provider]，如邮箱服务商
+* 用户[User]，如邮箱用户
+* 消费方[Consumer]，如社交网站
+
+除了这三个角色，还有一个概念叫受限资源[restricted resource]，归属于用户，例如邮箱的联系人列表
+
+h3. 消费方注册
+
+当Provider对外开放某个服务后，比如允许Consumer获取联系人；假设现在有两个Consumer希望使用这个服务，分别为facebook和foo， 那么这两个Consumer都需要到Provider注册登记，得到Consumer Key，这样用户就能指定允许facebook获取他的联系人，而不允许foo获取；再进一步，为了防止foo冒充facebook，Provider会给每个Consumer一个Consumer Secret
+
+这样，Consumer在Provider那里注册后，就可以得到
+
+# Consumer Key(相当于身份证明)，也称为Client Id
+# Consumer Secret(相当于密码)，也称为Client Secret
+
+注册时要提供redirect_url，用于授权通过后跳转回Consumer的网站
+
+正常情况下，Provider端不会再保存Consumer Secret，只会保存根据secret生成的secret_hash，也不能根据此secret_hash反向生成Consumer secret，所以Consumer在得到secret后要妥善保管好
+
+h3. 认证过程
+
+为了由Consumer能够访问到受限资源，Oauth2提供以下认证流程:
+
+1. *用户授权*
+
+Consumer要先跳转到Provider的认证页面，提示用户是否授权；用户授权后，Provider会直接返回authorization token给Consumer
+
+2. *获取access token*
+
+以前的oauth协议规定用户授权后，先返回Authorization Code给Consumer，再通过这个code向Provider获取access token，多了一步
+
+3. *访问受限资源*
+
+Consumer有了access token就可以随时随时用户的受限资源了
+每次访问受限资源时，Consumer都要带上这个access token，相当于临时密码，例如两个星期后失效，失效后要重新获取
+
+*其他*
+
+Provider提供access token给Consumer的同时，也可以提供refresh token
+当access token过期后，Consumer可以通过refresh token重新获取access token
+oauth协议支持response type参数，参数值有3种，分别为code, token, code_and_token，如果指定为code，则直接返回code,access token和refresh token
+
+h3. oauth2
+
+h2. Oauth2的ruby实现
+
+h3. 服务端实现oauth2 provider
+
+h3. 客户端实现oauth2 client
+
+h3. 注意事項
+
+由于Oauth2还处于草稿修订中，变化不小，ShopQi在开发过程就曾经因为升级客户端实现，遵循的草稿版本与服务端实现的不同了，变量名称都不一样，导致认证失败
+
+
+h2. 参考资源
+
+"Oauth2官网":http://oauth.net/2/
+"Oauth2草稿(最新版本22)":http://tools.ietf.org/html/draft-ietf-oauth-v2
+"Oauth那些事儿":http://huoding.com/2010/10/10/8
